@@ -1,1 +1,5 @@
 node_modules
+
+
+# DS_Store 무시
+.DS_Store
