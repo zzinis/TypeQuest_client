@@ -5,6 +5,10 @@ import MbtiPage from './pages/MbtiPage';
 import Login from './pages/Login';
 import Join from './pages/Join';
 import GlobalStyle from './components/GlobalStyle';
+import Chat from "./pages/Chat";
+import ChatLogin from './pages/ChatLogin';
+
+
 
 
 
@@ -19,6 +23,10 @@ function App() {
           <Route path='/Login' element={<Login />}></Route>
           <Route path='/Join' element={<Join />}></Route>
           <Route path='/MbtiPage' element={<MbtiPage />}></Route>
+          <Route path='/ChatLogin' element={<ChatLogin />}></Route>
+          <Route path='/Chat' element={<Chat />}></Route>
+
+
         </Routes>
 
       </BrowserRouter>
