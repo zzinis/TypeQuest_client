@@ -84,73 +84,73 @@ export const Hidden = styled.legend`
 
 function Login() {
 
-    const { register, watch, handleSubmit, formState: { errors } } = useForm();
-    const navigate = useNavigate();
+  const { register, watch, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
 
 
 
-    const password = useRef();
-    password.current = watch('password');
+  const password = useRef();
+  password.current = watch('password');
 
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-    // 로그인 버튼 클릭시 데이터 연결
+  // 로그인 버튼 클릭시 데이터 연결
 
-    let body = {
+  let body = {
 
-        password
-    };
+    password
+  };
 
-    const onSubmit = (data) => {
-        axios.post('/api/login', body)
-            .then((response) => {
-                console.log(response.data); // 서버 응답 확인
-                // 로그인 성공 처리 로직을 여기에 작성하세요.
-                navigate('../MbtiPage');
-            })
-            .catch((error) => {
-                console.error(error); // 에러 처리
-            });
-    }
+  const onSubmit = (data) => {
+    axios.post('/api/login', body)
+      .then((response) => {
+        console.log(response.data); // 서버 응답 확인
+        // 로그인 성공 처리 로직을 여기에 작성하세요.
+        navigate('../MbtiPage');
+      })
+      .catch((error) => {
+        console.error(error); // 에러 처리
+      });
+  }
 
-    return (
-        <>
-            <Wrapper>
-                <Inner>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <Filed>
-                            <Hidden>로그인 양식 </Hidden>
-                            <LoginHeader>로그인</LoginHeader>
+  return (
+    <>
+      <Wrapper>
+        <Inner>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Filed>
+              <Hidden>로그인 양식 </Hidden>
+              <LoginHeader>로그인</LoginHeader>
 
-                            <Label htmlFor="user_id">아이디:</Label>
-                            <InputContainer>
-                                <Input
-                                    name="user_id"
-                                    placeholder="아이디"
-                                    {...register('user_id', { required: '아이디를 입력해주세요' })}
-                                />
-                            </InputContainer>
-                            {errors.user_id && <Warn>{errors.user_id.message}</Warn>}
+              <Label htmlFor="user_id">아이디:</Label>
+              <InputContainer>
+                <Input
+                  name="user_id"
+                  placeholder="아이디"
+                  {...register('user_id', { required: '아이디를 입력해주세요', maxLength: { value: 10, message: "아이디는 10자 이하로 만들어주세요," } })}
+                />
+              </InputContainer>
+              {errors.user_id && <Warn>{errors.user_id.message}</Warn>}
 
-                            <Label htmlFor="password">비밀번호:</Label>
-                            <InputContainer>
-                                <Input
-                                    name="password"
-                                    placeholder="비밀번호를 입력하세요"
-                                    {...register('password', { required: '비밀번호를 입력해주세요', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{4,24}$/, message: ' 비밀번호는 대문자와 숫자를 포함하여 4자리 이상 입력해주세요' } })}
-                                />
-                            </InputContainer>
-                            {errors.password && <Warn>{errors.password.message}</Warn>}
+              <Label htmlFor="password">비밀번호:</Label>
+              <InputContainer>
+                <Input
+                  name="password"
+                  placeholder="비밀번호를 입력하세요"
+                  {...register('password', { required: '비밀번호를 입력해주세요', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{4,24}$/, message: ' 비밀번호는 대문자와 숫자를 포함하여 4자리 이상 입력해주세요' } })}
+                />
+              </InputContainer>
+              {errors.password && <Warn>{errors.password.message}</Warn>}
 
 
-                        </Filed>
-                        <SubmitBtn type="submit" disabled={loading}>로그인</SubmitBtn>
-                    </form>
+            </Filed>
+            <SubmitBtn type="submit" disabled={loading}>로그인</SubmitBtn>
+          </form>
 
-                </Inner>
-            </Wrapper >
-        </>
-    )
+        </Inner>
+      </Wrapper >
+    </>
+  )
 }
 
 export default Login;

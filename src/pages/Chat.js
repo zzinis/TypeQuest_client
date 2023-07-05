@@ -4,6 +4,46 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 
 // 채팅방 입장시 나타나는 대화창
 
+
+// 임시 백엔드 index.js
+/*
+const express = require('express');
+const app = express();
+const http = require('http');
+const { Server } = require('socket.io');
+const cors = require('cors');
+
+app.use(cors());
+
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  cors: {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+  },
+});
+
+io.on('connection', (socket) => {
+  console.log(`User Connected: ${socket.id}`);
+  io.emit('notice', `${socket.id}님이 입장하셨습니다`);
+
+  socket.on('join_room', (data) => {
+    socket.join(data);
+  });
+
+  socket.on('send_message', (data) => {
+    socket.to(data.room).emit('receive_message', data);
+  });
+});
+
+server.listen(3001, () => {
+  console.log('SERVER IS RUNNING');
+});
+
+
+*/
+
 // chat 스타일 컴포넌트
 const ChatWindow = styled.div`
   width: 600px;
@@ -31,7 +71,7 @@ const ChatBody = styled.div`
   min-height: 600px;
   height: 100%;
   border: 1px solid #263238;
-  background: #f0f2f5;
+  background: #c3e6f7;
   position: relative;
 `;
 
@@ -88,7 +128,7 @@ const MessageContent = styled.div`
   height: auto;
   min-height: 40px;
   max-width: 120px;
-  background-color: #c3e6f7;
+  background-color: #f4e9dc;
   border-radius: 5px;
   color: black;
   display: flex;
@@ -141,6 +181,7 @@ const SendButton = styled.button`
   font-size: 15px;
   color: lightgray;
   font-weight: bold;
+  background-color: gray;
 
   &:hover {
     color: #f0f2f5;

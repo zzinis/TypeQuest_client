@@ -22,7 +22,7 @@ const JoinChatContainer = styled.div`
   justify-content: center;
   padding: 20px;
   border-radius: 5px;
-  background-color: #f0f2f5;
+  background-color: #c3e6f7;
   width: 500px;
   height: 800px;
 `;
