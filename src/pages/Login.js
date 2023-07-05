@@ -133,11 +133,11 @@ function Login() {
 
                             <Label htmlFor="user_id">아이디:</Label>
                             <InputContainer>
-                                <Input
-                                    name="user_id"
-                                    placeholder="아이디"
-                                    {...register('user_id', { required: '아이디를 입력해주세요' })}
-                                />
+                                 <Input
+                  name="user_id"
+                  placeholder="아이디"
+                  {...register('user_id', { required: '아이디를 입력해주세요', maxLength: { value: 10, message: "아이디는 10자 이하로 만들어주세요," } })}
+                />
                             </InputContainer>
                             {errors.user_id && <Warn>{errors.user_id.message}</Warn>}
 

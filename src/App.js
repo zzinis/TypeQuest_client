@@ -8,6 +8,10 @@ import TravelResult from "./pages/TravelResult";
 import Login from './pages/Login';
 import Join from './pages/Join';
 import GlobalStyle from './components/GlobalStyle';
+import Chat from "./pages/Chat";
+import ChatLogin from './pages/ChatLogin';
+
+
 
 
 
@@ -22,8 +26,11 @@ function App() {
           <Route path='/Login' element={<Login />}></Route>
           <Route path='/Join' element={<Join />}></Route>
           <Route path='/MbtiPage' element={<MbtiPage />}></Route>
-        <Route path="/" element={<TravleTest />} />
-        <Route path="/Result" element={<TravelResult />} />
+          <Route path='/ChatLogin' element={<ChatLogin />}></Route>
+          <Route path='/Chat' element={<Chat />}></Route>
+          <Route path="/" element={<TravleTest />} />
+          <Route path="/Result" element={<TravelResult />} />
+
         </Routes>
 
       </BrowserRouter>
