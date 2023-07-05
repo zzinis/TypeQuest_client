@@ -3,7 +3,7 @@ import { Wrapper, Inner, } from './Main';
 import { useForm } from "react-hook-form";
 import styled from 'styled-components';
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const LoginHeader = styled.h1`
     font: bold 35px/1 'Noto Sans KR';
@@ -106,6 +106,7 @@ function Login() {
             .then((response) => {
                 console.log(response.data); // 서버 응답 확인
                 // 로그인 성공 처리 로직을 여기에 작성하세요.
+                navigate('../MbtiPage');
             })
             .catch((error) => {
                 console.error(error); // 에러 처리
