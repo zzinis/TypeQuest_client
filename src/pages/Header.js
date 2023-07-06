@@ -67,7 +67,7 @@ function MainHeader() {
                         <Link to="/TEST1">테스트</Link>
                     </Category>
                     <Category>
-                        <Link to="/Test2">후기</Link>
+                        <Link to="/Review">후기</Link>
                     </Category>
                     <Category>
                         <Link to="/ChatLogin">채팅</Link>
