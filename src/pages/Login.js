@@ -136,7 +136,7 @@ function Login() {
     const password = useRef();
     password.current = watch('password');
 
-    const [loading, setLoading] = useState(false);
+    const [loading] = useState(false);
 
     // 로그인 버튼 클릭시 데이터 연결
 
@@ -234,7 +234,7 @@ function Login() {
                                             YouTubers with MBTI.
                                         </div>
                                     </InputWrapper>
-                                    <SignInBtn type="button" Link to="/Join">
+                                    <SignInBtn to="/Join">
                                         <Link to="/Join">회원가입</Link>
                                     </SignInBtn>
                                 </InputContainer>
