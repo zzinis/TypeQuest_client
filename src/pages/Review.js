@@ -97,7 +97,6 @@ const BoardTime = styled.div`
 const Review = () => {
     //review 테이블
     const [posts, setPosts] = useState([]);
-    const [participations, setParticipations] = useState([]);
 
     const [selectedOption, setSelectedOption] = useState('');
 
