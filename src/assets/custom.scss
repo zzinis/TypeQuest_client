@@ -1,10 +1,29 @@
 #main-footer {
-    background: #343a40;
+    background: rgba(82, 88, 136, 1);
     color: #fff;
-    padding: 0px;
+    padding: 30px 96px 10px 96px;
     margin: 0px;
 }
-
+.ul-container {
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer-li {
+    width: 200px;
+    color: rgba(255, 255, 255, 0.5);
+    div {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    div:hover {
+        color: rgba(255, 255, 255, 1);
+        //올렸을때 마우스 포인터 보이게
+        cursor: pointer;
+    }
+}
 html {
     background-color: rgba(82, 88, 136, 1);
     height: 100vh;
@@ -23,9 +42,6 @@ form .loginForm {
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-.footer {
-    text-align: center;
 }
 .Left {
     background-color: rgba(255, 255, 255, 1);
