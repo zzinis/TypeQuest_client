@@ -1,0 +1,62 @@
+#main-footer {
+    background: #343a40;
+    color: #fff;
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    background-color: rgba(82, 88, 136, 1);
+    height: 100vh;
+}
+
+form .loginForm {
+    display: flex;
+    align-items: center;
+}
+.loginForm {
+    display: flex;
+    align-items: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.footer {
+    text-align: center;
+}
+.Left {
+    background-color: rgba(255, 255, 255, 1);
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(82, 88, 136, 1);
+}
+
+.Right {
+    background-color: rgba(82, 88, 136, 1);
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+.contentSignup {
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
