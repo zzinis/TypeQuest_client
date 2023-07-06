@@ -9,6 +9,7 @@ import Join from './pages/Join';
 import GlobalStyle from './components/GlobalStyle';
 import Chat from './pages/Chat';
 import ChatLogin from './pages/ChatLogin';
+import Review from './pages/Review';
 import './assets/custom.scss';
 
 function App() {
@@ -25,11 +26,11 @@ function App() {
                     <Route path="/Chat" element={<Chat />}></Route>
                     <Route path="/" element={<TravleTest />} />
                     <Route path="/Result" element={<TravelResult />} />
+                    <Route path="/Review" element={<Review />} />
                 </Routes>
             </BrowserRouter>
         </>
     );
-
 }
 
 export default App;
