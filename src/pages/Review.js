@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const Title = styled.div`
+    background-color: white;
     padding-top: 10vh;
     display: flex;
     flex-direction: row;
@@ -18,6 +19,7 @@ const ChooseResult = styled.div`
 // ---------------------------------------------
 
 const ReviewWrapper = styled.div`
+    background-color: white;
     display: flex;
     justify-content: center;
 `;
