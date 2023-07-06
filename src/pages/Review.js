@@ -1,43 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import Footer from './Footer';
+import Header from './Header';
 
 const Title = styled.div`
-    background-color: white;
-    padding-top: 10vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    color: white;
 `;
 
 const ChooseResult = styled.div`
     display: flex;
-    flex-direction: column;
-    padding-bottom: 10vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 `;
 
 // ---------------------------------------------
 
 const ReviewWrapper = styled.div`
-    background-color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
 `;
 
 const BoardWrapper = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: 6vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 `;
 
 const ContainerBoard = styled.div`
+    margin: 10px;
+    padding: 0px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     height: 400px;
     width: 300px;
     align-items: center;
     justify-content: center;
-    padding: 1.5vw;
+
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     position: relative;
 `;
@@ -50,6 +59,7 @@ const BoardTop = styled.div`
 `;
 
 const BoardBottom = styled.div`
+    background-color: white;
     width: 100%;
     height: 30%;
     background-color: rgba(82, 88, 136, 0.8);
@@ -141,14 +151,14 @@ const Review = () => {
     return (
         <div>
             {/* 게시물의 title */}
-
+            <Header></Header>
             <Title>
-                <h1>Testimonials</h1>
+                <h1>Review</h1>
                 <ChooseResult>
-                    <h3>Personality type:</h3>
+                    <h3>Type :&nbsp;&nbsp;&nbsp;&nbsp;</h3>
                     <div>
                         <select value={selectedOption} onChange={handleSelectChange}>
-                            <option value="">-- Select your result--</option>
+                            <option value="">-- Select test--</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
@@ -178,6 +188,7 @@ const Review = () => {
                     ))}
                 </BoardWrapper>
             </ReviewWrapper>
+            <Footer></Footer>
         </div>
     );
 };
