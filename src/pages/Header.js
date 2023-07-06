@@ -2,17 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoSrc from '../assets/TQ.png';
+//navigate
+import { useNavigate } from 'react-router-dom';
 
 const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
+    height: 10vh;
 `;
 
 const Logo = styled.img`
     width: 200px;
-    height: 100px;
+    height: 10vh;
 `;
 
 const Categories = styled.div`
@@ -47,19 +50,27 @@ const SignButton = styled.button`
 `;
 
 function MainHeader() {
+    const navigate = useNavigate();
+    const onClickHandler = () => {
+        // 로고 클릭시 메인 페이지로 이동
+        navigate('/');
+    };
     return (
         <>
             <Header>
-                <Logo src={LogoSrc} alt="로고" />
+                <Logo src={LogoSrc} alt="" onClick={onClickHandler} />
                 <Categories>
                     <Category>
-                        <Link to="/TEST1">MBTI</Link>
+                        <Link to="/ChatLogin">성격 유형</Link>
                     </Category>
                     <Category>
-                        <Link to="/TEST2">유튜버</Link>
+                        <Link to="/TEST1">테스트</Link>
                     </Category>
                     <Category>
-                        <Link to="/TEST3">여행지</Link>
+                        <Link to="/Test2">후기</Link>
+                    </Category>
+                    <Category>
+                        <Link to="/ChatLogin">채팅</Link>
                     </Category>
                 </Categories>
 

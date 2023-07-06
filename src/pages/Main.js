@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import MainSrc from '../assets/mainimg.png';
-import LogoSrc from '../assets/TQ.png';
 import MainHeader from './Header';
+import Footer from './Footer';
 
 export const Wrapper = styled.div`
-    height: 100%;
+    height: 90vh;
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -14,19 +13,20 @@ export const Wrapper = styled.div`
 
 export const Inner = styled.div`
     margin: 0 auto;
-    width: 800px;
+    width: 100%;
     font: 14px/1 'arial';
     display: flex;
     flex-direction: column;
-    background-color: rgba(82, 88, 136, 0.8);
-    height: 750px;
+    justify-content: space-between;
+    background-color: rgba(82, 88, 136, 1);
+    height: 90vh;
     padding: 0px;
     color: white;
 `;
 
 const MainImg = styled.img`
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     margin: 0 auto;
     text-align: center;
 `;
@@ -50,6 +50,7 @@ function Main() {
                             </>
                         </a>
                     </div>
+                    <Footer />
                 </Inner>
             </Wrapper>
         </>
