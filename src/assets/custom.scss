@@ -10,9 +10,14 @@
     padding: 0px;
     margin: 0px;
     flex-wrap: wrap;
-    justify-content: flex-start;
+
+    justify-content: center;
 }
 .footer-li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
     width: 200px;
     color: rgba(255, 255, 255, 0.5);
     div {
@@ -32,6 +37,10 @@ html {
 form .loginForm {
     display: flex;
     align-items: center;
+}
+.adfit {
+    margin: 10px;
+    padding: 10px;
 }
 .loginForm {
     display: flex;
