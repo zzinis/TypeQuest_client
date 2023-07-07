@@ -3,12 +3,12 @@
     font-size: 14px;
     display: flex;
     justify-content: center;
-    background-color: #eee;
+    background-color: rgba(82, 88, 136, 1);
 }
 .resultLayout {
     display: flex;
     flex-direction: column;
-    background-color: #bce3ff;
+    background-color: rgba(82, 88, 136, 1);
     width: 100%;
     max-width: 900px;
     height: 100%;
@@ -22,6 +22,7 @@
     box-sizing: border-box;
     font-weight: 700;
     font-size: 25px;
+    color: rgba(255, 255, 255, 1);
 }
 .resultShow {
     border: 2px solid black;
