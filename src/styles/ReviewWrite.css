@@ -1,0 +1,61 @@
+.writeLayout {
+    width: 100%;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    background-color: #eee;
+}
+.Write {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(82, 88, 136, 0.8);
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    align-items: center;
+}
+.writeReview {
+    width: 670px;
+    height: 735px;
+    margin-bottom: 5px;
+}
+.content {
+    width: 750px;
+    height: 550px;
+    font-family: 'KyoboHand';
+    font-size: 25px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.title {
+    width: 670px;
+    margin: 20px 0px 20px 0px;
+    font-family: 'KyoboHand';
+    font-size: 25px;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: #f8f9ff;
+}
+.submit {
+    margin-top: 15px;
+    float: right;
+    font-family: 'KyoboHand';
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgb(41, 41, 41);
+}
+.submit:active {
+    box-shadow: none;
+}
+.font {
+    font-family: 'KyoboHand';
+    font-size: 25px;
+    font-weight: 600;
+    color: rgba(255, 246, 115, 0.975);
+}
+@font-face {
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
