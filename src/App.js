@@ -27,6 +27,7 @@ function App() {
                     <Route path="/" element={<TravleTest />} />
                     <Route path="/Result" element={<TravelResult />} />
                     <Route path="/Review" element={<Review />} />
+                    <Route path="TravelTest" element={<TravleTest />} />
                 </Routes>
             </BrowserRouter>
         </>
