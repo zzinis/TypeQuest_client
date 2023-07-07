@@ -11,6 +11,8 @@ import Chat from './pages/Chat';
 import ChatLogin from './pages/ChatLogin';
 import Review from './pages/Review';
 import './assets/custom.scss';
+import Personalities from './pages/Personalities';
+
 
 function App() {
     return (
@@ -24,6 +26,7 @@ function App() {
                     <Route path="/MbtiPage" element={<MbtiPage />}></Route>
                     {/* <Route path="/ChatLogin" element={<ChatLogin />}></Route> */}
                     {/* <Route path="/Chat" element={<Chat />}></Route> */}
+                    <Route path='/Personalities' element={<Personalities />}></Route>
                     <Route path="/TravelTest" element={<TravleTest />} />
                     <Route path="/Result" element={<TravelResult />} />
                     <Route path="/Review" element={<Review />} />

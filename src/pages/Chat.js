@@ -149,75 +149,75 @@ const SendButton = styled.button`
 `;
 
 function Chat({ username, room }) {
-    const [currentMessage, setCurrentMessage] = useState('');
-    const [messageList, setMessageList] = useState([]);
+  const [currentMessage, setCurrentMessage] = useState('');
+  const [messageList, setMessageList] = useState([]);
 
-    useEffect(() => {
-        socket.emit('join_room', room);
+  useEffect(() => {
+    socket.emit('join_room', room);
 
-        return () => {
-            socket.emit('leave_room', room);
-        };
-    }, [room]);
-
-    useEffect(() => {
-        socket.on('receive_message', (data) => {
-            setMessageList((prevMessages) => [...prevMessages, data]);
-        });
-
-        return () => {
-            socket.off('receive_message');
-        };
-    }, []);
-
-    const sendMessage = () => {
-        if (currentMessage.trim() !== '') {
-            const messageData = {
-                room: room,
-                author: username,
-                message: currentMessage,
-                time: new Date().toLocaleTimeString(),
-            };
-
-            socket.emit('send_message', messageData);
-            setMessageList((prevMessages) => [...prevMessages, messageData]);
-            setCurrentMessage('');
-        }
+    return () => {
+      socket.emit('leave_room', room);
     };
+  }, [room]);
 
-    return (
-        <ChatWindow>
-            <ChatHeader>
-                <ChatHeaderTitle>MBTI 채팅방</ChatHeaderTitle>
-            </ChatHeader>
-            <ChatBody>
-                <MessageContainer>
-                    {messageList.map((messageContent, index) => (
-                        <Message key={index} className={username === messageContent.author ? 'you' : 'other'}>
-                            <MessageContent>{messageContent.message}</MessageContent>
-                            <MessageMeta>
-                                <p id="time">{messageContent.time}</p>
-                                <p id="author">{messageContent.author}</p>
-                            </MessageMeta>
-                        </Message>
-                    ))}
-                </MessageContainer>
-            </ChatBody>
-            <ChatFooter>
-                <ChatInput
-                    type="text"
-                    value={currentMessage}
-                    placeholder="채팅창에 입력하세요"
-                    onChange={(event) => setCurrentMessage(event.target.value)}
-                    onKeyPress={(event) => {
-                        event.key === 'Enter' && sendMessage();
-                    }}
-                />
-                {/* 전송 누르면 채팅이 2번 입력됨 수정 필요 */}
-                <SendButton onClick={sendMessage}>전송</SendButton>
-            </ChatFooter>
-        </ChatWindow>
-    );
+  useEffect(() => {
+    socket.on('receive_message', (data) => {
+      setMessageList((prevMessages) => [...prevMessages, data]);
+    });
+
+    return () => {
+      socket.off('receive_message');
+    };
+  }, []);
+
+  const sendMessage = () => {
+    if (currentMessage.trim() !== '') {
+      const messageData = {
+        room: room,
+        author: username,
+        message: currentMessage,
+        time: new Date().toLocaleTimeString(),
+      };
+
+      socket.emit('send_message', messageData);
+      setMessageList((prevMessages) => [...prevMessages, messageData]);
+      setCurrentMessage('');
+    }
+  };
+
+  return (
+    <ChatWindow>
+      <ChatHeader>
+        <ChatHeaderTitle>MBTI 채팅방</ChatHeaderTitle>
+      </ChatHeader>
+      <ChatBody>
+        <MessageContainer>
+          {messageList.map((messageContent, index) => (
+            <Message key={index} className={username === messageContent.author ? 'you' : 'other'}>
+              <MessageContent>{messageContent.message}</MessageContent>
+              <MessageMeta>
+                <p id="time">{messageContent.time}</p>
+                <p id="author">{messageContent.author}</p>
+              </MessageMeta>
+            </Message>
+          ))}
+        </MessageContainer>
+      </ChatBody>
+      <ChatFooter>
+        <ChatInput
+          type="text"
+          value={currentMessage}
+          placeholder="채팅창에 입력하세요"
+          onChange={(event) => setCurrentMessage(event.target.value)}
+          onKeyPress={(event) => {
+            event.key === 'Enter' && sendMessage();
+          }}
+        />
+        {/* 전송 누르면 채팅이 2번 입력됨 수정 필요 */}
+        <SendButton onClick={sendMessage}>전송</SendButton>
+      </ChatFooter>
+    </ChatWindow>
+  );
 }
 
 export default Chat;
