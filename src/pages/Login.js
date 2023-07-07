@@ -48,12 +48,6 @@ export const Input = styled.input`
     max-width: 100%;
     min-height: 50px;
     padding: 0 10px 0 15px;
-    //모바일 사이즈
-    @media screen {
-        @media (max-width: 768px) {
-            width: 300px;
-        }
-    }
 `;
 
 export const InputBottom = styled.input`
@@ -69,12 +63,6 @@ export const InputBottom = styled.input`
     max-width: 100%;
     min-height: 50px;
     padding: 0 10px 0 15px;
-    //모바일 사이즈
-    @media screen {
-        @media (max-width: 768px) {
-            width: 300px;
-        }
-    }
 `;
 export const WarningContainer = styled.div`
     display: flex;
@@ -142,7 +130,7 @@ export const InputWrapper = styled.div`
         }
 
         @media (max-width: 768px) {
-            width: 400px;
+            width: 350px;
         }
     }
 `;
@@ -164,6 +152,9 @@ export const Filed = styled.fieldset`
     @media screen {
         @media (max-width: 768px) {
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     }
 `;
