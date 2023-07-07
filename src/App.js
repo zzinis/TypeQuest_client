@@ -24,7 +24,7 @@ function App() {
                     <Route path="/MbtiPage" element={<MbtiPage />}></Route>
                     {/* <Route path="/ChatLogin" element={<ChatLogin />}></Route> */}
                     {/* <Route path="/Chat" element={<Chat />}></Route> */}
-                    <Route path="/" element={<TravleTest />} />
+                    <Route path="/TravelTest" element={<TravleTest />} />
                     <Route path="/Result" element={<TravelResult />} />
                     <Route path="/Review" element={<Review />} />
                 </Routes>
