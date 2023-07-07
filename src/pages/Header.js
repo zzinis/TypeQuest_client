@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoSrc from '../assets/TQ.png';
-
 //navigate
 import { useNavigate } from 'react-router-dom';
 
@@ -105,7 +104,6 @@ function MainHeader() {
         // 로고 클릭시 메인 페이지로 이동
         navigate('/');
     };
-
     return (
         <>
             <Header>
