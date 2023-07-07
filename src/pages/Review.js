@@ -115,6 +115,7 @@ const BoardTime = styled.div`
 const Review = () => {
     //review 테이블
     const [posts, setPosts] = useState([]);
+    const [tests, setTests] = useState([]);
 
     const [selectedOption, setSelectedOption] = useState('');
 
@@ -122,6 +123,19 @@ const Review = () => {
     const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
     };
+
+    useEffect(() => {
+        //test 목록 가져오기(test 테이블)
+        axios
+            .get('http://localhost:8000/test')
+            .then((testResponse) => {
+                setTests(testResponse.data);
+                console.log('여기', tests);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, []);
 
     useEffect(() => {
         //게시물 목록 가져오기(게시판 테이블)
@@ -146,7 +160,7 @@ const Review = () => {
         const minutes = dateObj.getMinutes();
         const seconds = dateObj.getSeconds();
 
-        // 시간, 분, 초를 2자리로 표시하기 위해 패딩(padding) 추가
+        // 시간, 분, 초
         const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(
             seconds,
         ).padStart(2, '0')}`;
@@ -164,10 +178,18 @@ const Review = () => {
                     <h3>Type :&nbsp;&nbsp;&nbsp;&nbsp;</h3>
                     <div>
                         <select value={selectedOption} onChange={handleSelectChange}>
-                            <option value="">-- Select test--</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
+                            <option value="">All test</option>
+                            {tests.length > 0 ? (
+                                <>
+                                    {tests.map((test) => (
+                                        <option value={test.test_id} key={test.test_id}>
+                                            {test.test_name}
+                                        </option>
+                                    ))}
+                                </>
+                            ) : (
+                                <option value="">No tests available</option>
+                            )}
                         </select>
                     </div>
                 </ChooseResult>
