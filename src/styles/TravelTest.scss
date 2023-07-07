@@ -1,87 +1,115 @@
+#main-footer {
+    width: 100%;
+}
 .mainLayout {
-  width: 100%;
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  background-color: #eee;
-  height: 755px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(82, 88, 136, 1);
 }
 .questionLayout {
-  display: flex;
-  flex-direction: column;
-  background-color: #bacee0;
-  width: 100%;
-  max-width: 900px;
-  height: 100%;
-  overflow: hidden;
-  align-items: center;
-  border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(82, 88, 136, 1);
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+    border-radius: 10px;
+    height: 60vh;
+    margin: 40px 0px;
+    padding: 40px 0px;
 }
 .mbtiTitle {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  padding: 15px;
-  box-sizing: border-box;
-  font-weight: 700;
-  font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 25px;
 }
 .mbtiTitle div:nth-child(1) {
-  display: flex;
-  flex: 1;
+    display: flex;
+    flex: 1;
 }
 .questionList {
-  flex-direction: column;
-  height: 100%;
-  overflow: scroll;
-  scrollbar-width: none;
+    flex-direction: column;
+    height: 100%;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 .questionList::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 .questionItemLayout {
-  display: flex;
-  flex: 1;
-  margin: 10px 15px 5px 15px;
+    display: flex;
+    flex: 1;
+    margin: 10px 15px 5px 15px;
 }
 .answerItemLayout {
-  width: 100%;
-  background-color: #fff;
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .questionBox {
-  margin-top: 23vh;
-  width: 60vw;
+    padding: 20px;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
 }
 .slider {
-  width: 1200vw;
+    width: 1200vw;
 }
 .mbti_counter {
-  font-weight: bold;
-  height: 10vh;
+    font-weight: bold;
 }
+
+.answerLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
 .answerButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 1.2rem;
-  box-sizing: border-box;
-  background-color: #fff;
-  color: rgba(110, 110, 110, 1);
-  border: 1px solid gray;
-  border-radius: 6px;
-  border-color: #d0d0d0;
-  font-weight: 600;
-  font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    background-color: rgba(82, 88, 136, 1);
+    color: #fff;
+    border: 1px solid black;
+    border-radius: 6px;
+    border-color: #d0d0d0;
+    font-weight: 600;
+    font-size: 20px;
 }
 .answerButton:active {
-  color: #fff;
-  background-color: #61a7ed;
-  transform: scale(0.95);
-  transition: 100ms;
-  border: none;
+    color: #fff;
+    background-color: #61a7ed;
+    transform: scale(0.95);
+    transition: 100ms;
+    border: none;
+}
+
+.typequest_1 {
+    border: 2px solid black;
+    background-color: #fff;
+    min-width: 900px;
+    max-width: 900px;
+    border-radius: 10px;
+    height: 60vh;
+
+    h1 {
+        text-align: center;
+        font-size: 28px;
+    }
+    button {
+        width: 75%;
+    }
 }
