@@ -1,0 +1,111 @@
+.Layout {
+    width: 100%;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    background-color: #eee;
+}
+.resultLayout {
+    display: flex;
+    flex-direction: column;
+    background-color: #bce3ff;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    align-items: center;
+    border-radius: 10px;
+}
+.resultTitle {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 25px;
+}
+.resultShow {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    background-color: white;
+}
+p {
+    font-family: 'KCC-Ganpan';
+    font-size: 35px;
+    margin-top: 10px;
+}
+.description {
+    font-family: 'KCC-Ganpan';
+    font-size: 23px;
+    margin-top: 6px;
+}
+.img {
+    margin-top: -33px;
+}
+.travelTitle {
+    border-top: 2px solid black;
+}
+.recommend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rec_img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+.btn {
+    font-size: 22px;
+    border-radius: 20px;
+    width: 165px;
+    height: 47px;
+    margin-bottom: 20px;
+    font-family: 'ImcreSoojin';
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgb(66, 66, 66);
+}
+.share {
+    background-color: #ff9ce9;
+}
+.review {
+    background-color: #f5e16b;
+}
+.chat {
+    background-color: #4b8cf4;
+}
+.share:active {
+    background-color: #ffe5f9;
+    box-shadow: none;
+}
+.review:active {
+    background-color: #fffbd8;
+    box-shadow: none;
+}
+.chat:active {
+    background-color: #d8edff;
+    box-shadow: none;
+}
+.buttonBox {
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+}
+@font-face {
+    font-family: 'KCC-Ganpan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ImcreSoojin';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

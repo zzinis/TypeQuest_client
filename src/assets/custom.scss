@@ -1,0 +1,88 @@
+#main-footer {
+    text-align: center;
+    background: rgba(82, 88, 136, 1);
+    color: #fff;
+    padding: 30px 96px 10px 96px;
+    margin: 0px;
+}
+.ul-container {
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+.footer-li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 200px;
+    color: rgba(255, 255, 255, 0.5);
+    div {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    div:hover {
+        color: rgba(255, 255, 255, 1);
+        //올렸을때 마우스 포인터 보이게
+        cursor: pointer;
+    }
+}
+html {
+    background-color: rgba(82, 88, 136, 1);
+    height: 100vh;
+}
+
+form .loginForm {
+    display: flex;
+    align-items: center;
+}
+.adfit {
+    margin: 10px;
+    padding: 10px;
+}
+.loginForm {
+    display: flex;
+    align-items: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.Left {
+    background-color: rgba(255, 255, 255, 1);
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(82, 88, 136, 1);
+}
+
+.Right {
+    background-color: rgba(82, 88, 136, 1);
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+.contentSignup {
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
