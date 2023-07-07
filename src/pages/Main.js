@@ -1,34 +1,53 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import MainSrc from '../assets/mainimg.png';
-import LogoSrc from '../assets/TQ.png';
 import MainHeader from './Header';
+import Footer from './Footer';
 
 export const Wrapper = styled.div`
-    height: 100%;
+    height: 90vh;
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    @media screen {
+        //모바일 사이즈
+        @media (max-width: 768px) {
+            height: 92.5vh;
+        }
+    }
 `;
 
 export const Inner = styled.div`
     margin: 0 auto;
-    width: 800px;
+    width: 100%;
     font: 14px/1 'arial';
     display: flex;
     flex-direction: column;
-    background-color: rgba(82, 88, 136, 0.8);
-    height: 750px;
+    justify-content: space-between;
+    background-color: rgba(82, 88, 136, 1);
+    height: 90vh;
     padding: 0px;
     color: white;
+    @media screen {
+        //모바일 사이즈
+        @media (max-width: 768px) {
+            height: 92.5vh;
+        }
+    }
 `;
 
 const MainImg = styled.img`
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     margin: 0 auto;
     text-align: center;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 400px;
+            height: 400px;
+        }
+    }
 `;
 
 function Main() {
@@ -50,6 +69,7 @@ function Main() {
                             </>
                         </a>
                     </div>
+                    <Footer />
                 </Inner>
             </Wrapper>
         </>
