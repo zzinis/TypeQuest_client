@@ -50,6 +50,7 @@ const MainImg = styled.img`
     }
 `;
 
+
 function Main() {
     return (
         <>
