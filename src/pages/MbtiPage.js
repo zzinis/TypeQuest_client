@@ -58,6 +58,7 @@ function MbtiPage() {
         <Wrapper>
             <MbtiInner>
                 <Heading>
+                    <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="50px" />
                 </Heading>
                 <ButtonWrapper>
                     <Link to="/TravelTest">
