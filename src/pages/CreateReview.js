@@ -15,45 +15,47 @@ function CreateReview({ mbtiResult, userId, onClose }) {
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
 
-        try {
-            // Add MBTI test results and User_id to review data
-            const dataToSend = {
-                ...reviewData,
-                mbtiResult,
-                userId,
-            };
+    //     try {
+    //         // Add MBTI test results and User_id to review data
+    //         const dataToSend = {
+    //             ...reviewData,
+    //             mbtiResult,
+    //             userId,
+    //             // testId: '1',
+    //             img: '',
+    //         };
 
-            // send data to API
-            const response = await axios.post('https://localhost:8000/review', dataToSend);
-            console.log('Review was successful:', response.data);
+    //         // send data to API
+    //         // const response = await axios.post(`https://localhost:8000/review/${userId}/${testId}`, dataToSend);
+    //         console.log('Review was successful:', response.data);
 
-            // Perform necessary operations after completing review writing
-            // Example: page reloading, route navigation, etc.
+    //         // Perform necessary operations after completing review writing
+    //         // Example: page reloading, route navigation, etc.
 
-            // Close the popup
-            onClose();
-        } catch (error) {
-            console.error('Failed to write review:', error);
-        }
-    };
+    //         // Close the popup
+    //         onClose();
+    //     } catch (error) {
+    //         console.error('Failed to write review:', error);
+    //     }
+    // };
 
-    const handleClose = () => {
-        onClose();
-    };
+    // const handleClose = () => {
+    //     onClose();
+    // };
 
     return (
         <div className="popup-container">
             <div className="popup-content">
                 <div className="popup-nav">
                     <h3>리뷰 작성하기</h3>
-                    <button className="close-button" onClick={handleClose}>
-                        X
-                    </button>
+                    {/* <button className="close-button" onClick={handleClose}> */}X{/* </button> */}
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form>
+                    {/* <form onSubmit={handleSubmit}> */}
+
                     <input
                         type="text"
                         name="title"
