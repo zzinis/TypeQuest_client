@@ -80,7 +80,7 @@ function MbtiPage() {
                     <Link to="/TravelTest">
                         <Button>
                             <RiSettingsLine style={IconStyle} />
-                            랜덤
+                            주제
                         </Button>
                     </Link>
                 </ButtonWrapper>
