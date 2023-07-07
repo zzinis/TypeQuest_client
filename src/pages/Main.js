@@ -1,79 +1,60 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 import MainSrc from '../assets/mainimg.png';
-
+import MainHeader from './Header';
+import Footer from './Footer';
 
 export const Wrapper = styled.div`
-height: 100%;
-width: 100%;
-margin:0 auto;
-text-align: center;
-`
+    height: 90vh;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+`;
+
 export const Inner = styled.div`
     margin: 0 auto;
-	width: 800px;
-	font: 14px/1 "arial";
-	display: flex;
+    width: 100%;
+    font: 14px/1 'arial';
+    display: flex;
     flex-direction: column;
-	justify-content: space-around;
-	background-color: #bed7e8;
-	height: 750px;
-    padding:100px 0px;
-`
-const Header = styled.div`
-    font: bold 40px/1 'Noto Sans KR';
-    text-align: center;
-    margin-bottom:30px;
- 
-`
-const MainImg = styled.img`
-    width:600px;
-    height:600px;
-    margin: 0 auto;
-    text-align:center;
-
-`
-export const Button = styled.button`
-    width:200px;
-    height: 60px;
-    background-color: gray;
-    display:block;
-    margin: 0 auto;
-    font: 20px/1 'Noto Sans KR';
-    margin-bottom:20px;
-    cursor: pointer;
+    justify-content: space-between;
+    background-color: rgba(82, 88, 136, 1);
+    height: 90vh;
+    padding: 0px;
     color: white;
-    border:none;
+`;
 
-    
-`
+const MainImg = styled.img`
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    text-align: center;
+`;
 
 function Main() {
     return (
         <>
             <Wrapper>
+                <MainHeader />
                 <Inner>
-                    <Header>MBTI 테스트</Header>
-                    <MainImg src={MainSrc}></MainImg>
-                    <div>
-                        <Link to='/Login'>
-                            <Button>로그인</Button>
-                        </Link>
-                        <Link to='/Join'>
-                            <Button>회원가입</Button>
-                        </Link>
-
+                    <MainImg src={MainSrc} alt="메인 이미지" />
+                    <div className="hero__text">
+                        <h1>"드디어 제 성격을 이해받을 수 있어서 정말 기뻐요."</h1>
+                        <p>성격 테스트를 통해 자신의 성향과 행동에 대한 정확한 분석 결과를 확인해 보세요.</p>
+                        <a href="/">
+                            <>
+                                <span className="button__text">검사 실시</span>
+                                <span>
+                                    <title>Go</title>
+                                </span>
+                            </>
+                        </a>
                     </div>
-
-
-
+                    <Footer />
                 </Inner>
             </Wrapper>
-
-
         </>
-    )
+    );
 }
 
-export default Main
+export default Main;
