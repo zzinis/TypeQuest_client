@@ -71,7 +71,7 @@ const Sign = styled.div`
     //모바일 사이즈
     @media screen {
         @media (max-width: 768px) {
-            width: 120px;
+            width: 150px;
             height: 30px;
             padding: 5px;
         }
@@ -91,9 +91,8 @@ const SignButton = styled.button`
 
     @media screen {
         @media (max-width: 768px) {
-            width: 50px;
+            width: 70px;
             height: 30px;
-            font: 10px/1 'Noto Sans KR';
         }
     }
 `;
