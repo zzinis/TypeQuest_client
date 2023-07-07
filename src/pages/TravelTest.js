@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/TravelTest.css';
+import '../styles/TravelTest.scss';
 import { useNavigate } from 'react-router-dom';
 import Questions from '../common/api/questionApi.json';
 function TravleTest() {

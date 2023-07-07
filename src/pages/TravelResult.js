@@ -1,6 +1,6 @@
 import Mbti from '../common/api/travelResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../styles/TravelResult.css';
+import '../styles/TravelResult.scss';
 
 function TravelResult() {
     const location = useLocation();
@@ -8,7 +8,7 @@ function TravelResult() {
     const navigate = useNavigate();
 
     const goReview = () => {
-        navigate('/ReviewWrite');
+        navigate('/Review');
     };
     const goChat = () => {
         navigate('/Chat');
