@@ -1,4 +1,5 @@
 #main-footer {
+    text-align: center;
     background: rgba(82, 88, 136, 1);
     color: #fff;
     padding: 30px 96px 10px 96px;
@@ -10,9 +11,14 @@
     padding: 0px;
     margin: 0px;
     flex-wrap: wrap;
+
     justify-content: center;
 }
 .footer-li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
     width: 200px;
     color: rgba(255, 255, 255, 0.5);
     div {
@@ -32,6 +38,10 @@ html {
 form .loginForm {
     display: flex;
     align-items: center;
+}
+.adfit {
+    margin: 10px;
+    padding: 10px;
 }
 .loginForm {
     display: flex;
