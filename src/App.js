@@ -22,8 +22,8 @@ function App() {
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Join" element={<Join />}></Route>
                     <Route path="/MbtiPage" element={<MbtiPage />}></Route>
-                    <Route path="/ChatLogin" element={<ChatLogin />}></Route>
-                    <Route path="/Chat" element={<Chat />}></Route>
+                    {/* <Route path="/ChatLogin" element={<ChatLogin />}></Route> */}
+                    {/* <Route path="/Chat" element={<Chat />}></Route> */}
                     <Route path="/" element={<TravleTest />} />
                     <Route path="/Result" element={<TravelResult />} />
                     <Route path="/Review" element={<Review />} />
