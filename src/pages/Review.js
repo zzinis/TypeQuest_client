@@ -69,12 +69,9 @@ const BoardBottom = styled.div`
 const PhotoSpace = styled.div`
     width: 100%;
     height: 30%;
-    /* background-color: red; */
 `;
 
 const BoardContent = styled.div`
-    /* background-color: pink; */
-    /* border-bottom: 1px solid black; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,9 +79,15 @@ const BoardContent = styled.div`
     width: 100%;
     height: 100%;
 `;
+const ProfileImg = styled.img`
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+`;
 
 const BoardPhoto = styled.div`
-    background-color: blue;
+    /* background-color: blue; */
     width: 40%;
     height: 30%;
     border-radius: 100%;
@@ -93,18 +96,21 @@ const BoardPhoto = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     border: 5px solid white;
+    object-fit: cover;
 `;
 
 const BoardUser_id = styled.div`
     margin-top: 4vh;
+    color: rgba(50, 50, 160, 1);
+    font-weight: bolder;
 `;
 
 const BoardResult = styled.div`
-    /* background-color: pink; */
+    color: white;
 `;
 
 const BoardTime = styled.div`
-    /* background-color: pink; */
+    color: white;
 `;
 const Review = () => {
     //review 테이블
@@ -118,7 +124,7 @@ const Review = () => {
     };
 
     useEffect(() => {
-        // 게시물 목록 가져오기(게시판 테이블)
+        //게시물 목록 가져오기(게시판 테이블)
         axios
             .get('http://localhost:8000/review')
             .then((response) => {
@@ -170,12 +176,14 @@ const Review = () => {
                 <BoardWrapper>
                     {posts.map((post) => (
                         <ContainerBoard key={post.id}>
+                            {console.log(post.img)}
                             <BoardTop>
                                 <BoardContent>{post.content}</BoardContent>
                             </BoardTop>
                             <PhotoSpace></PhotoSpace>
+                            {/* {console.log(post.img)} */}
                             <BoardPhoto>
-                                <img src="" />
+                                <ProfileImg src={`../../profile/${post.img}.jpg`} />
                             </BoardPhoto>
                             <BoardBottom>
                                 <BoardUser_id>{post.user_id}</BoardUser_id>
