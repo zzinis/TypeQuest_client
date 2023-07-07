@@ -34,46 +34,46 @@ function Footer() {
         navigate('/Ask');
     };
 
-    useEffect(() => {
-        const addAdvertisement = () => {
-            let ins = document.createElement('ins');
-            let scr = document.createElement('script');
+    // useEffect(() => {
+    //     const addAdvertisement = () => {
+    //         let ins = document.createElement('ins');
+    //         let scr = document.createElement('script');
 
-            ins.className = 'kakao_ad_area';
-            ins.style.display = 'none';
-            ins.style.width = '100%';
-            scr.async = true;
-            scr.type = 'text/javascript';
-            scr.src = '//t1.daumcdn.net/kas/static/ba.min.js';
+    //         ins.className = 'kakao_ad_area';
+    //         ins.style.display = 'none';
+    //         ins.style.width = '100%';
+    //         scr.async = true;
+    //         scr.type = 'text/javascript';
+    //         scr.src = '//t1.daumcdn.net/kas/static/ba.min.js';
 
-            ins.setAttribute('data-ad-width', '728');
-            ins.setAttribute('data-ad-height', '90');
-            ins.setAttribute('data-ad-unit', 'DAN-uz3S6UQZk8mGBpZf');
+    //         ins.setAttribute('data-ad-width', '728');
+    //         ins.setAttribute('data-ad-height', '90');
+    //         ins.setAttribute('data-ad-unit', 'DAN-uz3S6UQZk8mGBpZf');
 
-            const adfit = document.querySelector('.adfit');
-            if (adfit) {
-                adfit.appendChild(ins);
-                adfit.appendChild(scr);
-            }
-        };
+    //         const adfit = document.querySelector('.adfit');
+    //         if (adfit) {
+    //             adfit.appendChild(ins);
+    //             adfit.appendChild(scr);
+    //         }
+    //     };
 
-        addAdvertisement();
+    //     addAdvertisement();
 
-        return () => {
-            const adfit = document.querySelector('.adfit');
-            if (adfit) {
-                while (adfit.firstChild) {
-                    adfit.removeChild(adfit.firstChild);
-                }
-            }
-        };
-    }, []);
+    //     return () => {
+    //         const adfit = document.querySelector('.adfit');
+    //         if (adfit) {
+    //             while (adfit.firstChild) {
+    //                 adfit.removeChild(adfit.firstChild);
+    //             }
+    //         }
+    //     };
+    // }, []);
 
     return (
         <div id="main-footer">
             <Row>
                 <div>질문이 있으신가요? 문의: 000-123-4567</div>
-                <div className="adfit"></div>
+                {/* <div className="adfit"></div> */}
                 <ul className="ul-container">
                     <li className="footer-li" onClick={listClick}>
                         <div>성격 유형</div>
