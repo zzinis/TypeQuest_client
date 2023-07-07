@@ -6,6 +6,7 @@ import LogoSrc from '../assets/TQ.png';
 import { useNavigate } from 'react-router-dom';
 
 const Header = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -117,7 +118,7 @@ function MainHeader() {
                         <Link to="/ChatLogin">성격 유형</Link>
                     </Category>
                     <Category>
-                        <Link to="/TEST1">테스트</Link>
+                        <Link to="/TravelTest">테스트</Link>
                     </Category>
                     <Category>
                         <Link to="/Review">후기</Link>
