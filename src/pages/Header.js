@@ -50,11 +50,16 @@ const Category = styled.div`
     margin: 5px 10px;
     padding: 10px;
     cursor: pointer;
+    a {
+        text-decoration: none;
+        color: rgba(11, 31, 46, 1);
+        &:hover {
+            color: rgba(131, 25, 166, 1);
 
-    &:hover {
-        border-bottom: 2px solid rgba(82, 88, 136, 1);
+            border-bottom: 2px solid rgba(131, 25, 166, 1);
+        }
     }
-    //모바일 사이즈
+    // mobile size
     @media screen {
         @media (max-width: 768px) {
             margin: 5px 5px;
