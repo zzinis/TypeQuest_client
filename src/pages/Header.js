@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoSrc from '../assets/TQ.png';
+
 //navigate
 import { useNavigate } from 'react-router-dom';
 
@@ -11,22 +12,55 @@ const Header = styled.div`
     justify-content: space-between;
     background-color: white;
     height: 10vh;
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            height: 7.5vh;
+        }
+    }
 `;
 
 const Logo = styled.img`
     width: 200px;
     height: 10vh;
+    cursor: pointer;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 150px;
+            height: 7.5vh;
+        }
+    }
 `;
 
 const Categories = styled.div`
     display: flex;
     justify-content: center;
     font: 18px/1 'Noto Sans KR';
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
 `;
 
 const Category = styled.div`
     margin: 5px 10px;
     padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+        border-bottom: 2px solid rgba(82, 88, 136, 1);
+    }
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            margin: 5px 5px;
+        }
+    }
 `;
 
 const Sign = styled.div`
@@ -35,6 +69,14 @@ const Sign = styled.div`
     height: 100px;
     align-items: center;
     justify-content: center;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 120px;
+            height: 30px;
+            padding: 5px;
+        }
+    }
 `;
 
 const SignButton = styled.button`
@@ -47,6 +89,14 @@ const SignButton = styled.button`
     color: rgba(82, 88, 136, 1);
     cursor: pointer;
     margin: 4px;
+
+    @media screen {
+        @media (max-width: 768px) {
+            width: 50px;
+            height: 30px;
+            font: 10px/1 'Noto Sans KR';
+        }
+    }
 `;
 
 function MainHeader() {
@@ -55,6 +105,7 @@ function MainHeader() {
         // 로고 클릭시 메인 페이지로 이동
         navigate('/');
     };
+
     return (
         <>
             <Header>
