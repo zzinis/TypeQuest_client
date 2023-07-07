@@ -12,6 +12,7 @@ import ChatLogin from './pages/ChatLogin';
 import Review from './pages/Review';
 import './assets/custom.scss';
 import Personalities from './pages/Personalities';
+import UserPage from './pages/UserPage';
 
 
 
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/" element={<Main />}></Route>
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Join" element={<Join />}></Route>
+                    <Route path='/UserPage' element={<UserPage />}></Route>
                     <Route path="/MbtiPage" element={<MbtiPage />}></Route>
                     {/* <Route path="/ChatLogin" element={<ChatLogin />}></Route> */}
                     {/* <Route path="/Chat" element={<Chat />}></Route> */}
