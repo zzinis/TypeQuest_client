@@ -25,8 +25,8 @@ function TravelResult() {
                             <>
                                 {data.id === mbti.mbti && (
                                     <div className="resultShow">
-                                        <p>{data.id}</p>
-                                        <p>{data.nickname}</p>
+                                        <p className="resultTitle">{data.id}</p>
+                                        <p className="resultTitle">{data.nickname}</p>
 
                                         <img
                                             src={data.img}
@@ -36,9 +36,9 @@ function TravelResult() {
                                             className="img"
                                         />
                                         <ul className="description">
-                                            <li>{data.description[0].exp}</li>
-                                            <li>{data.description[1].exp}</li>
-                                            <li>{data.description[2].exp}</li>
+                                            <li className="exp">{data.description[0].exp}</li>
+                                            <li className="exp">{data.description[1].exp}</li>
+                                            <li className="exp">{data.description[2].exp}</li>
                                         </ul>
                                         <h1 className="travelTitle">추천하는 여행지는?</h1>
                                         <div className="recommend">
