@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Wrapper } from './Main';
 import { RiChat1Line, RiUserLine, RiSettingsLine } from 'react-icons/ri';
+import TypingEffect from '../components/TypingEffect';
+
 
 const MbtiInner = styled.div`
   margin: 0 auto;
@@ -45,7 +47,7 @@ const IconStyle = {
 };
 
 const Heading = styled.h1`
-  font-size: 28px;
+  font-size: 48px;
   margin-bottom: 30px;
   color: #333333;
   font-weight: bold;
@@ -55,7 +57,8 @@ function MbtiPage() {
     return (
         <Wrapper>
             <MbtiInner>
-                <Heading>MBTI 테스트</Heading>
+                <Heading>
+                </Heading>
                 <ButtonWrapper>
                     <Link to="/TravelTest">
                         <Button>
