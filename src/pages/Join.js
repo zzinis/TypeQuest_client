@@ -91,8 +91,8 @@ export const SlectProfile = styled.div`
     align-items: center;
 `;
 const ProfileImage = styled.img`
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
     border-radius: 100%;
     object-fit: cover;
 `;
@@ -157,14 +157,11 @@ function Login() {
 
     const handleProfileSelection = (profile) => {
         setSelectedProfile(profile);
-        console.log('확인', selectedProfile);
     };
 
-    const onSubmit = async (data, selectedProfile) => {
-        console.log(selectedProfile);
+    const onSubmit = async (data) => {
         setLoading(true);
-        console.log(data);
-        const { user_id, password, name, email } = data;
+        const { user_id, password, email, name } = data;
         //이미지데이터 DB저장 형식으로 변환 코드 추가
         try {
             const response = await axios.post('http://localhost:8000/signin', {
@@ -172,6 +169,7 @@ function Login() {
                 password,
                 name,
                 email,
+                profile: selectedProfile,
             });
             if (response.data.result === 'user') {
                 alert(response.data.msg);
@@ -265,47 +263,47 @@ function Login() {
                                     <Profile>
                                         <input
                                             type="checkbox"
-                                            value="강아지"
-                                            onChange={() => handleProfileSelection('강아지')}
-                                            checked={selectedProfile === '강아지'}
+                                            value="dog"
+                                            onChange={() => handleProfileSelection('dog')}
+                                            checked={selectedProfile === 'dog'}
                                         />
-                                        <ProfileImage src="../../profile/강아지.jpg" />
+                                        <ProfileImage src="../../profile/dog.jpg" />
                                     </Profile>
                                     <Profile>
                                         <input
                                             type="checkbox"
-                                            value="고양이"
-                                            onChange={() => handleProfileSelection('고양이')}
-                                            checked={selectedProfile === '고양이'}
+                                            value="cat"
+                                            onChange={() => handleProfileSelection('cat')}
+                                            checked={selectedProfile === 'cat'}
                                         />
-                                        <ProfileImage src="../../profile/고양이.jpg" />
+                                        <ProfileImage src="../../profile/cat.jpg" />
                                     </Profile>
                                     <Profile>
                                         <input
                                             type="checkbox"
-                                            value="햄스터"
-                                            onChange={() => handleProfileSelection('햄스터')}
-                                            checked={selectedProfile === '햄스터'}
+                                            value="hamster"
+                                            onChange={() => handleProfileSelection('hamster')}
+                                            checked={selectedProfile === 'hamster'}
                                         />
-                                        <ProfileImage src="../../profile/햄스터.jpg" />
+                                        <ProfileImage src="../../profile/hamster.jpg" />
                                     </Profile>
                                     <Profile>
                                         <input
                                             type="checkbox"
-                                            value="돼지"
-                                            onChange={() => handleProfileSelection('돼지')}
-                                            checked={selectedProfile === '돼지'}
+                                            value="pig"
+                                            onChange={() => handleProfileSelection('pig')}
+                                            checked={selectedProfile === 'pig'}
                                         />
-                                        <ProfileImage src="../../profile/돼지.jpg" />
+                                        <ProfileImage src="../../profile/pig.jpg" />
                                     </Profile>
                                     <Profile>
                                         <input
                                             type="checkbox"
-                                            value="참새"
-                                            onChange={() => handleProfileSelection('참새')}
-                                            checked={selectedProfile === '참새'}
+                                            value="bird"
+                                            onChange={() => handleProfileSelection('bird')}
+                                            checked={selectedProfile === 'bird'}
                                         />
-                                        <ProfileImage src="../../profile/참새.jpg" />
+                                        <ProfileImage src="../../profile/bird.jpg" />
                                     </Profile>
                                 </SlectProfile>
 

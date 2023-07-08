@@ -2,6 +2,8 @@ import { useState } from 'react';
 import '../styles/TravelTest.scss';
 import { useNavigate } from 'react-router-dom';
 import Questions from '../common/api/questionApi.json';
+import Footer from './Footer';
+import MainHeader from './Header';
 function TravleTest() {
     const [currentPage, setCurrentPage] = useState(1);
     const [id, setId] = useState(1);
@@ -58,37 +60,40 @@ function TravleTest() {
     resultMbti();
     return (
         <div className="mainLayout">
+            <MainHeader />
             <div className="questionLayout">
-                <div className="mbtiTitle">
-                    <div>여행 MBTI 테스트</div>
-                    <div>{`${currentPage} / ${Questions.length}`}</div>
+                <div className="typequest_1">
+                    <div className="mbtiTitle">
+                        <div>여행 MBTI 테스트</div>
+                        <div>{`${currentPage} / ${Questions.length}`}</div>
+                    </div>
+                    {Questions.map((data) => {
+                        return (
+                            <>
+                                {data.id === id && (
+                                    <div className="questionBox" key={data.id}>
+                                        <div className="mbti_counter">
+                                            <h1 className="questionTitle">
+                                                Q{data.id}. {data.q}
+                                            </h1>
+                                        </div>
+                                        <div className="answerLayout">
+                                            <button type="button" className="answerButton" onClick={nextSlide1}>
+                                                {data.a[0].text}
+                                            </button>
+                                            <br />
+                                            <button type="button" className="answerButton" onClick={nextSlide2}>
+                                                {data.a[1].text}
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </>
+                        );
+                    })}
                 </div>
-
-                {Questions.map((data) => {
-                    return (
-                        <>
-                            {data.id === id && (
-                                <div className="questionBox" key={data.id}>
-                                    <div className="mbti_counter">
-                                        <h1 className="questionTitle">
-                                            Q{data.id}. {data.q}
-                                        </h1>
-                                    </div>
-                                    <div className="answerLayout">
-                                        <button type="button" className="answerButton" onClick={nextSlide1}>
-                                            {data.a[0].text}
-                                        </button>
-                                        <br />
-                                        <button type="button" className="answerButton" onClick={nextSlide2}>
-                                            {data.a[1].text}
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
-                        </>
-                    );
-                })}
             </div>
+            <Footer />
         </div>
     );
 }

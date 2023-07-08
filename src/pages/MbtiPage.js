@@ -1,20 +1,91 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { Wrapper } from './Main';
+import { RiChat1Line, RiUserLine, RiSettingsLine } from 'react-icons/ri';
+import TypingEffect from '../components/TypingEffect';
+
+
+const MbtiInner = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+`;
+
+const ButtonWrapper = styled.div`
+  margin: 10px;
+`;
+
+const Button = styled.button`
+  width: 200px;
+  height: 60px;
+  background-color: #F2F2F2;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: #e6e6e6;
+    cursor: pointer;
+  }
+`;
+
+const IconStyle = {
+    marginRight: '10px',
+    fontSize: '24px',
+};
+
+const Heading = styled.h1`
+  font-size: 48px;
+  margin-bottom: 30px;
+  color: #333333;
+  font-weight: bold;
+`;
 
 function MbtiPage() {
     return (
-        <>
-            <h1>000님 MBTI 검사</h1>
-            <Link to="/TravelTest">
-                <button className="btn">1</button>
-            </Link>
-            <Link to="/Test2">
-                <button className="btn">2</button>
-            </Link>
-            <Link to="/Test3">
-                <button className="btn">3</button>
-            </Link>
-        </>
+        <Wrapper>
+            <MbtiInner>
+                <Heading>
+                    <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="50px" />
+                </Heading>
+                <ButtonWrapper>
+                    <Link to="/TravelTest">
+                        <Button>
+                            <RiChat1Line style={IconStyle} />
+                            여행
+                        </Button>
+                    </Link>
+                </ButtonWrapper>
+                <ButtonWrapper>
+                    <Link to="/TravelTest">
+                        <Button>
+                            <RiUserLine style={IconStyle} />
+                            유튜브
+                        </Button>
+                    </Link>
+                </ButtonWrapper>
+                <ButtonWrapper>
+                    <Link to="/TravelTest">
+                        <Button>
+                            <RiSettingsLine style={IconStyle} />
+                            주제
+                        </Button>
+                    </Link>
+                </ButtonWrapper>
+            </MbtiInner>
+        </Wrapper>
     );
 }
 
