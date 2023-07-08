@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { Wrapper } from './Main';
 import { RiChat1Line, RiUserLine, RiSettingsLine } from 'react-icons/ri';
 import TypingEffect from '../components/TypingEffect';
+import MainHeader from './Header';
+import Footer from './Footer';
 
 const MbtiInner = styled.div`
     margin: 0 auto;
@@ -54,37 +56,40 @@ const Heading = styled.h1`
 
 function MbtiPage() {
     return (
-        <Wrapper>
-            <MbtiInner>
-                <Heading>
-                    <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="50px" />
-                </Heading>
-                <ButtonWrapper>
-                    <Link to="/TravelTest">
-                        <Button>
-                            <RiChat1Line style={IconStyle} />
-                            여행
-                        </Button>
-                    </Link>
-                </ButtonWrapper>
-                <ButtonWrapper>
-                    <Link to="/YoutubeTest">
-                        <Button>
-                            <RiUserLine style={IconStyle} />
-                            유튜브
-                        </Button>
-                    </Link>
-                </ButtonWrapper>
-                <ButtonWrapper>
-                    <Link to="/JobTest">
-                        <Button>
-                            <RiSettingsLine style={IconStyle} />
-                            주제
-                        </Button>
-                    </Link>
-                </ButtonWrapper>
-            </MbtiInner>
-        </Wrapper>
+        <>
+            <MainHeader></MainHeader>
+            <Wrapper>
+                <MbtiInner>
+                    <Heading>
+                        <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="50px" />
+                    </Heading>
+                    <ButtonWrapper>
+                        <Link to="/TravelTest">
+                            <Button>
+                                <RiChat1Line style={IconStyle} />
+                                여행
+                            </Button>
+                        </Link>
+                    </ButtonWrapper>
+                    <ButtonWrapper>
+                        <Link to="/YoutubeTest">
+                            <Button>
+                                <RiUserLine style={IconStyle} />
+                                유튜브
+                            </Button>
+                        </Link>
+                    </ButtonWrapper>
+                    <ButtonWrapper>
+                        <Link to="/JobTest">
+                            <Button>
+                                <RiSettingsLine style={IconStyle} />
+                                직업
+                            </Button>
+                        </Link>
+                    </ButtonWrapper>
+                </MbtiInner>
+            </Wrapper>
+        </>
     );
 }
 
