@@ -6,6 +6,7 @@ import LogoSrc from '../assets/TQ.png';
 import { useNavigate } from 'react-router-dom';
 
 const Header = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,11 +51,16 @@ const Category = styled.div`
     margin: 5px 10px;
     padding: 10px;
     cursor: pointer;
+    a {
+        text-decoration: none;
+        color: rgba(11, 31, 46, 1);
+        &:hover {
+            color: rgba(131, 25, 166, 1);
 
-    &:hover {
-        border-bottom: 2px solid rgba(82, 88, 136, 1);
+            border-bottom: 2px solid rgba(131, 25, 166, 1);
+        }
     }
-    //모바일 사이즈
+    // mobile size
     @media screen {
         @media (max-width: 768px) {
             margin: 5px 5px;
@@ -112,7 +118,7 @@ function MainHeader() {
                         <Link to="/Personalities">성격 유형</Link>
                     </Category>
                     <Category>
-                        <Link to="/Mbtipage">테스트</Link>
+                        <Link to="/TravelTest">테스트</Link>
                     </Category>
                     <Category>
                         <Link to="/Review">후기</Link>

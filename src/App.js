@@ -33,6 +33,7 @@ function App() {
                     <Route path="/TravelTest" element={<TravleTest />} />
                     <Route path="/Result" element={<TravelResult />} />
                     <Route path="/Review" element={<Review />} />
+                    <Route path="TravelTest" element={<TravleTest />} />
                 </Routes>
             </BrowserRouter>
         </>

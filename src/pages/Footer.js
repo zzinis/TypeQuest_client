@@ -27,7 +27,7 @@ function Footer() {
     };
 
     const testClick = () => {
-        navigate('/Test');
+        navigate('/TravelTest');
     };
 
     const reviewClick = () => {

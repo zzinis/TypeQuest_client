@@ -1,18 +1,33 @@
+import React, { useState } from 'react';
+import axios from 'axios';
 import Mbti from '../common/api/travelResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/TravelResult.scss';
+
+import CreateReview from './CreateReview';
 
 function TravelResult() {
     const location = useLocation();
     const mbti = location.state.id;
     const navigate = useNavigate();
+    const [isPopupOpen, setPopupOpen] = useState(false);
+
+    const openPopup = () => {
+        setPopupOpen(true);
+    };
+
+    const closePopup = () => {
+        setPopupOpen(false);
+    };
 
     const goReview = () => {
-        navigate('/Review');
+        openPopup();
     };
+
     const goChat = () => {
         navigate('/Chat');
     };
+
     return (
         <>
             <div className="Layout">
@@ -66,6 +81,14 @@ function TravelResult() {
                     </div>
                 </div>
             </div>
+
+            {isPopupOpen && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <CreateReview onClose={closePopup} />
+                    </div>
+                </div>
+            )}
         </>
     );
 }
