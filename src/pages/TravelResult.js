@@ -40,8 +40,8 @@ function TravelResult() {
                             <>
                                 {data.id === mbti.mbti && (
                                     <div className="resultShow">
-                                        <p className="resultTitle">{data.id}</p>
-                                        <p className="resultTitle">{data.nickname}</p>
+                                        <p className="resultMain">{data.id}</p>
+                                        <p className="resultMain">{data.nickname}</p>
 
                                         <img
                                             src={data.img}

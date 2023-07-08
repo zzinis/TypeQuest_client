@@ -14,8 +14,8 @@
                 "exp": "어떻게 하면 본인에게 변화를 줄 수 있는지 남몰래 연구함"
             }
         ],
-        "rec_img": "travel/여행지enfp.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/3aBvbIftZH4",
+        "text": "출처:문명특급"
     },
     {
         "id": "ESTJ",
@@ -30,8 +30,8 @@
             },
             { "exp": "유튜브를 1차로 보고 완벽 마스터 후 실행에 옮기는 스타일" }
         ],
-        "rec_img": "travel/여행지estj.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/nqbKOvQ8x1s",
+        "text": "출처:마크의 지식서재"
     },
     {
         "id": "ENFJ",
@@ -48,8 +48,8 @@
                 "exp": "밤엔 몰래 명상하는 영상을 봄"
             }
         ],
-        "rec_img": "travel/여행지enfj.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/DT8yZJpECTI",
+        "text": "출처:sbs 뉴스"
     },
     {
         "id": "ENTP",
@@ -66,8 +66,8 @@
                 "exp": "지루한 거 못 참지만 가끔은 공상과학같은 영상 보는데 어차피 잠들어서 봤는지도 까먹음"
             }
         ],
-        "rec_img": "travel/여행지entp.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/imAXt8ewX8E",
+        "text": "출처:공부왕찐천재 홍진경"
     },
     {
         "id": "ENTJ",
@@ -84,8 +84,8 @@
                 "exp": "사실 entj는 바빠서 유튜브 잘 못 봄"
             }
         ],
-        "rec_img": "travel/여행지entj.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/4B3d0OvH-1U",
+        "text": "출처:김창옥TV"
     },
     {
         "id": "ESTP",
@@ -102,8 +102,8 @@
                 "exp": "유튜브 소신 발언하는 댓글 있으면 거의 estp임"
             }
         ],
-        "rec_img": "travel/여행지estp.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/0L5gAT1fJaM",
+        "text": "출처:Thankyou BUBU"
     },
     {
         "id": "ESFP",
@@ -118,8 +118,8 @@
                 "exp": "타로카드 관련 영상도 가끔씩 봄"
             }
         ],
-        "rec_img": "travel/여행지esfp.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/UZexWIJvxFw",
+        "text": "블루밍나나"
     },
     {
         "id": "ESFJ",
@@ -136,8 +136,8 @@
                 "exp": "인간관계에 관심도 많고 스트레스도 많아서 인간관계 강연 영상 보면서 깨달음 얻고 성찰함"
             }
         ],
-        "rec_img": "travel/여행지esfj.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/qbxW8emjo4w",
+        "text": "옛드:MBC 레전드 드라마"
     },
     {
         "id": "ISFP",
@@ -150,8 +150,8 @@
             },
             { "exp": "만들기 영상 한 번 빠지기 시작하면 밤새도록 넋 놓고 봄" }
         ],
-        "rec_img": "travel/여행지isfp.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/B_HHrUxvKG4",
+        "text": "달리 [SBS DALI]"
     },
     {
         "id": "ISFJ",
@@ -168,8 +168,8 @@
                 "exp": "거절하는 방법, 인간관계 관련 영상으로 마무리함"
             }
         ],
-        "rec_img": "travel/여행지isfj.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/STwHSJSA86c",
+        "text": "Beginagain 비긴어게인"
     },
     {
         "id": "ISTP",
@@ -186,8 +186,8 @@
                 "exp": "손으로 만드는 영상을 봄"
             }
         ],
-        "rec_img": "travel/여행지istp.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/v0vvD2bUNZ0",
+        "text": "Vito ASMR"
     },
     {
         "id": "ISTJ",
@@ -204,8 +204,8 @@
                 "exp": "아니면 검색할 거 있을 때 가끔씩 보는 정도"
             }
         ],
-        "rec_img": "travel/여행지istj.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/lqMvBAK1OCI",
+        "text": "한문철 TV"
     },
     {
         "id": "INFP",
@@ -222,8 +222,8 @@
                 "exp": "자기 전엔 인간관계 관심 많아서 관련 영상 보다가 판타지 asmr 듣고 상상하면서 잠듦"
             }
         ],
-        "rec_img": "travel/여행지infp.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/T7YJviWhquo",
+        "text": "백종원 PAIK JONG WON"
     },
     {
         "id": "INFJ",
@@ -240,8 +240,8 @@
                 "exp": "아니면 미니멀라이프, 재밌는 영상 찾아봄"
             }
         ],
-        "rec_img": "travel/여행지infj.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/wgP9ARwAbNw",
+        "text": "빠다너스 BDNS"
     },
     {
         "id": "INTP",
@@ -258,8 +258,8 @@
                 "exp": "동물농장같은 귀여운 동물 나오는거 좋아함"
             }
         ],
-        "rec_img": "travel/여행지intp.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/wgP9ARwAbNw",
+        "text": "빠다너스 BDNS"
     },
     {
         "id": "INTJ",
@@ -276,7 +276,7 @@
                 "exp": "해석+깊게 파고드는거 좋아해서 이쪽 영상은 알고리즘 뜨는 것까지 다 봄"
             }
         ],
-        "rec_img": "travel/여행지intj.png",
-        "text": "출처:"
+        "video": "https://www.youtube.com/embed/KVebuiTJ9D8",
+        "text": "WIDia"
     }
 ]

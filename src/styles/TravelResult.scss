@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center;
     background-color: rgba(82, 88, 136, 1);
-    background-color: rgba(82, 88, 136, 1);
 }
 .resultLayout {
     display: flex;
@@ -13,7 +12,6 @@
     width: 100%;
     max-width: 900px;
     align-items: center;
-    border-radius: 10px;
 }
 .resultTitle {
     width: 100%;
@@ -22,7 +20,6 @@
     box-sizing: border-box;
     font-weight: 700;
     font-size: 25px;
-    color: rgba(255, 255, 255, 1);
 }
 .resultShow {
     border: 2px solid black;
@@ -34,7 +31,7 @@
     margin-bottom: 40px;
     background-color: white;
 }
-.resultTitle {
+.resultMain {
     font-family: 'KCC-Ganpan';
     font-size: 35px;
     margin-top: 10px;

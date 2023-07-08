@@ -25,8 +25,8 @@ function YoutubeResult() {
                             <>
                                 {data.id === mbti.mbti && (
                                     <div className="resultShow">
-                                        <p className="resultTitle">{data.id}</p>
-                                        <p className="resultTitle">{data.nickname}</p>
+                                        <p className="resultMain">{data.id}</p>
+                                        <p className="resultMain">{data.nickname}</p>
 
                                         <img
                                             src={data.img}
@@ -42,9 +42,16 @@ function YoutubeResult() {
                                         </ul>
                                         <h1 className="travelTitle">추천하는 유튜브 영상은?</h1>
                                         <div className="recommend">
-                                            <h2>{data.text}</h2>
-
-                                            <img src={data.rec_img} alt="kk" className="rec_img" />
+                                            <iframe
+                                                width="560"
+                                                height="315"
+                                                src={data.video}
+                                                title="YouTube video player"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowfullscreen
+                                            ></iframe>
+                                            <h4>{data.text}</h4>
                                         </div>
                                     </div>
                                 )}
