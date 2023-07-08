@@ -10,6 +10,8 @@ import GlobalStyle from './components/GlobalStyle';
 import Chat from './pages/Chat';
 import ChatLogin from './pages/ChatLogin';
 import Review from './pages/Review';
+import YoutubeTest from './pages/YoutubeTest';
+import YoutubeResult from './pages/YoutubeResult';
 import './assets/custom.scss';
 import Personalities from './pages/Personalities';
 import UserPage from './pages/UserPage';
@@ -32,6 +34,8 @@ function App() {
                     <Route exact path='/Personalities' element={<Personalities />}></Route>
                     <Route path="/TravelTest" element={<TravleTest />} />
                     <Route path="/Result" element={<TravelResult />} />
+                    <Route path="/YoutubeTest" element={<YoutubeTest />} />
+                    <Route path="/YoutubeResult" element={<YoutubeResult />} />
                     <Route path="/Review" element={<Review />} />
                     <Route path="TravelTest" element={<TravleTest />} />
                 </Routes>

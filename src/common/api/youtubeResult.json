@@ -1,0 +1,282 @@
+[
+    {
+        "id": "ENFP",
+        "nickname": "핵인싸",
+        "img": "youtube/y_enfp.png",
+        "description": [
+            {
+                "exp": "문명특급같은 요즘 핫한 연예인들 나오는 프로그램 좋아함"
+            },
+            {
+                "exp": "아이돌 릴레이 댄스 반복재생하고 밤마다 춤연습함"
+            },
+            {
+                "exp": "어떻게 하면 본인에게 변화를 줄 수 있는지 남몰래 연구함"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/3aBvbIftZH4",
+        "text": "출처:문명특급"
+    },
+    {
+        "id": "ESTJ",
+        "nickname": "빨리빨리",
+        "img": "youtube/y_estj.png",
+        "description": [
+            {
+                "exp": "최근에 빠진 게 있으면 무조건 파야 직성이 풀리는 스타일"
+            },
+            {
+                "exp": "모든 것이 완벽해야 함"
+            },
+            { "exp": "유튜브를 1차로 보고 완벽 마스터 후 실행에 옮기는 스타일" }
+        ],
+        "video": "https://www.youtube.com/embed/nqbKOvQ8x1s",
+        "text": "출처:마크의 지식서재"
+    },
+    {
+        "id": "ENFJ",
+        "nickname": "도라에몽",
+        "img": "youtube/y_enfj.png",
+        "description": [
+            {
+                "exp": "시민영웅이나 잠자던 시민의식을 깨워주는 영상을 보면 희열을 느낌"
+            },
+            {
+                "exp": "우수 시민이 상까지 받는 영상을 봄"
+            },
+            {
+                "exp": "밤엔 몰래 명상하는 영상을 봄"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/DT8yZJpECTI",
+        "text": "출처:sbs 뉴스"
+    },
+    {
+        "id": "ENTP",
+        "nickname": "박물관 지박령",
+        "img": "youtube/y_entp.png",
+        "description": [
+            {
+                "exp": "웃긴 영상은 다 보고 있음"
+            },
+            {
+                "exp": "유튜브 웃긴 댓글은 거의 entp임"
+            },
+            {
+                "exp": "지루한 거 못 참지만 가끔은 공상과학같은 영상 보는데 어차피 잠들어서 봤는지도 까먹음"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/imAXt8ewX8E",
+        "text": "출처:공부왕찐천재 홍진경"
+    },
+    {
+        "id": "ENTJ",
+        "nickname": "짱가형",
+        "img": "youtube/y_entj.png",
+        "description": [
+            {
+                "exp": "자기 계발 관련 영상 보면서 자아성찰하거나 본인 관심거리는 무조건 팜"
+            },
+            {
+                "exp": "반대로 단순 재미 영상만 보는 사람도 있음"
+            },
+            {
+                "exp": "사실 entj는 바빠서 유튜브 잘 못 봄"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/4B3d0OvH-1U",
+        "text": "출처:김창옥TV"
+    },
+    {
+        "id": "ESTP",
+        "nickname": "고집불통",
+        "img": "youtube/y_estp.png",
+        "description": [
+            {
+                "exp": "유튜브 보다가 '재밌어 보이는 거 있으면 해보자!!'함"
+            },
+            {
+                "exp": "땅끄부부 보면서 운동함"
+            },
+            {
+                "exp": "유튜브 소신 발언하는 댓글 있으면 거의 estp임"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/0L5gAT1fJaM",
+        "text": "출처:Thankyou BUBU"
+    },
+    {
+        "id": "ESFP",
+        "nickname": "합석장인",
+        "img": "youtube/y_esfp.png",
+        "description": [
+            { "exp": "요즘 유행하는 건 다 알고 있음" },
+            {
+                "exp": "알고리즘엔 세상 다양한 꿀팁, 꿀템이 많음"
+            },
+            {
+                "exp": "타로카드 관련 영상도 가끔씩 봄"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/UZexWIJvxFw",
+        "text": "블루밍나나"
+    },
+    {
+        "id": "ESFJ",
+        "nickname": "광고형 여행자",
+        "img": "youtube/y_esfj.png",
+        "description": [
+            {
+                "exp": "요즘 하는 드라마나 옛날 드라마 이미 다 봤음"
+            },
+            {
+                "exp": "그냥 핸드폰 가로로 돌려서 뭐 보고 있으면 드라마임"
+            },
+            {
+                "exp": "인간관계에 관심도 많고 스트레스도 많아서 인간관계 강연 영상 보면서 깨달음 얻고 성찰함"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/qbxW8emjo4w",
+        "text": "옛드:MBC 레전드 드라마"
+    },
+    {
+        "id": "ISFP",
+        "nickname": "신밧드",
+        "img": "youtube/y_isfp.png",
+        "description": [
+            { "exp": "유쾌하고 재밌는 주제의 영상을 자주 봄" },
+            {
+                "exp": "꼬꼬무같은 실화를 다룬 이야기도 좋아함"
+            },
+            { "exp": "만들기 영상 한 번 빠지기 시작하면 밤새도록 넋 놓고 봄" }
+        ],
+        "video": "https://www.youtube.com/embed/B_HHrUxvKG4",
+        "text": "달리 [SBS DALI]"
+    },
+    {
+        "id": "ISFJ",
+        "nickname": "보살",
+        "img": "youtube/y_isfj.png",
+        "description": [
+            {
+                "exp": "가수들 노래 부르는거 보고 힐링"
+            },
+            {
+                "exp": "예능 레전드 편, 드라마 하이라이트 봄"
+            },
+            {
+                "exp": "거절하는 방법, 인간관계 관련 영상으로 마무리함"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/STwHSJSA86c",
+        "text": "Beginagain 비긴어게인"
+    },
+    {
+        "id": "ISTP",
+        "nickname": "모험 변태",
+        "img": "youtube/y_istp.png",
+        "description": [
+            {
+                "exp": "요리, 빗소리, 우주, 슬라임 등 별의별 ASMR을 다 봄"
+            },
+            {
+                "exp": "웹툰이나 웹 소설, 웹드라마등 시리즈물을 잘 보는 편임"
+            },
+            {
+                "exp": "손으로 만드는 영상을 봄"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/v0vvD2bUNZ0",
+        "text": "Vito ASMR"
+    },
+    {
+        "id": "ISTJ",
+        "nickname": "광기 어린 계획 실천가",
+        "img": "youtube/y_istj.png",
+        "description": [
+            {
+                "exp": "다른 사람들 어떻게 사는지 관심 없어서 브이로그 안봄"
+            },
+            {
+                "exp": "사실 유튜브 잘 안보는데 봐도 알고리즘에 뜨는거 봄"
+            },
+            {
+                "exp": "아니면 검색할 거 있을 때 가끔씩 보는 정도"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/lqMvBAK1OCI",
+        "text": "한문철 TV"
+    },
+    {
+        "id": "INFP",
+        "nickname": "낭만적 거절가",
+        "img": "youtube/y_infp.png",
+        "description": [
+            {
+                "exp": "세상 감성적인 건 다 infp영상"
+            },
+            {
+                "exp": "요리레시피 보고 만들어 먹음"
+            },
+            {
+                "exp": "자기 전엔 인간관계 관심 많아서 관련 영상 보다가 판타지 asmr 듣고 상상하면서 잠듦"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/T7YJviWhquo",
+        "text": "백종원 PAIK JONG WON"
+    },
+    {
+        "id": "INFJ",
+        "nickname": "충전형 이타주의자",
+        "img": "youtube/y_infj.png",
+        "description": [
+            {
+                "exp": "혼자 있을 때 나에 대해 생각을 많이 해서 자아 성찰 영상을 봄"
+            },
+            {
+                "exp": "유튜브까지 보면서 생각하기는 싫어서 쇼츠 영상 봄"
+            },
+            {
+                "exp": "아니면 미니멀라이프, 재밌는 영상 찾아봄"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/wgP9ARwAbNw",
+        "text": "빠다너스 BDNS"
+    },
+    {
+        "id": "INTP",
+        "nickname": "알쓸번잡",
+        "img": "youtube/y_intp.png",
+        "description": [
+            {
+                "exp": "최근에 유행하는 밈 있으면 리믹스 버전까지 들어야함"
+            },
+            {
+                "exp": "아따맘마 같은 옛날 애니 좋아함"
+            },
+            {
+                "exp": "동물농장같은 귀여운 동물 나오는거 좋아함"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/wgP9ARwAbNw",
+        "text": "빠다너스 BDNS"
+    },
+    {
+        "id": "INTJ",
+        "nickname": "계획 변태",
+        "img": "youtube/y_intj.png",
+        "description": [
+            {
+                "exp": "심오한 탐구 영상 좋아함"
+            },
+            {
+                "exp": "영화보다가 의문 남으면 영화리뷰까지 다 봄"
+            },
+            {
+                "exp": "해석+깊게 파고드는거 좋아해서 이쪽 영상은 알고리즘 뜨는 것까지 다 봄"
+            }
+        ],
+        "video": "https://www.youtube.com/embed/KVebuiTJ9D8",
+        "text": "WIDia"
+    }
+]

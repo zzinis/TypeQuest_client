@@ -1,41 +1,26 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Mbti from '../common/api/travelResult.json';
+import YMbti from '../common/api/youtubeResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../styles/TravelResult.scss';
+import '../styles/YoutubeResult.css';
 
-import CreateReview from './CreateReview';
-
-function TravelResult() {
+function YoutubeResult() {
     const location = useLocation();
     const mbti = location.state.id;
     const navigate = useNavigate();
-    const [isPopupOpen, setPopupOpen] = useState(false);
-
-    const openPopup = () => {
-        setPopupOpen(true);
-    };
-
-    const closePopup = () => {
-        setPopupOpen(false);
-    };
 
     const goReview = () => {
-        openPopup();
+        navigate('/Review');
     };
-
     const goChat = () => {
         navigate('/Chat');
     };
-
     return (
         <>
             <div className="Layout">
                 <div className="resultLayout">
                     <div className="resultTitle">
-                        <h2>님의 여행MBTI 결과는?</h2>
+                        <h2>님의 유튜브 MBTI 결과는?</h2>
                     </div>
-                    {Mbti.map((data) => {
+                    {YMbti.map((data) => {
                         return (
                             <>
                                 {data.id === mbti.mbti && (
@@ -55,11 +40,18 @@ function TravelResult() {
                                             <li className="exp">{data.description[1].exp}</li>
                                             <li className="exp">{data.description[2].exp}</li>
                                         </ul>
-                                        <h1 className="travelTitle">추천하는 여행지는?</h1>
+                                        <h1 className="travelTitle">추천하는 유튜브 영상은?</h1>
                                         <div className="recommend">
-                                            <h2>{data.text}</h2>
-
-                                            <img src={data.rec_img} alt="kk" className="rec_img" />
+                                            <iframe
+                                                width="560"
+                                                height="315"
+                                                src={data.video}
+                                                title="YouTube video player"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowfullscreen
+                                            ></iframe>
+                                            <h4>{data.text}</h4>
                                         </div>
                                     </div>
                                 )}
@@ -81,16 +73,8 @@ function TravelResult() {
                     </div>
                 </div>
             </div>
-
-            {isPopupOpen && (
-                <div className="popup">
-                    <div className="popup-content">
-                        <CreateReview onClose={closePopup} />
-                    </div>
-                </div>
-            )}
         </>
     );
 }
 
-export default TravelResult;
+export default YoutubeResult;
