@@ -1,4 +1,4 @@
-.mainLayout {
+.MainLayout {
     width: 100%;
     font-size: 14px;
     display: flex;
@@ -6,7 +6,7 @@
     background-color: rgba(82, 88, 136, 1);
     height: 755px;
 }
-.questionLayout {
+.youtubeLayout {
     display: flex;
     flex-direction: column;
     background-color: #eee;
@@ -17,7 +17,7 @@
     align-items: center;
     border-radius: 10px;
 }
-.mbtiTitle {
+.mbtiName {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -27,19 +27,19 @@
     font-weight: 700;
     font-size: 25px;
 }
-.mbtiTitle div:nth-child(1) {
+.mbtiName div:nth-child(1) {
     display: flex;
     flex: 1;
 }
-.questionBox {
+.youtubeBox {
     margin-top: 23vh;
     width: 60vw;
 }
-.mbti_counter {
+.mbtiCounter {
     font-weight: bold;
     height: 10vh;
 }
-.answerButton {
+.answerBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,9 +54,9 @@
     font-weight: 600;
     font-size: 20px;
 }
-.answerButton:active {
+.answerBtn:active {
     color: #fff;
-    background-color: #61a7ed;
+    background-color: #fd4d4d;
     transform: scale(0.95);
     transition: 100ms;
     border: none;
