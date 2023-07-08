@@ -1,23 +1,34 @@
-.MainLayout {
+#main-footer {
     width: 100%;
-    font-size: 14px;
+}
+.mainLayout {
+    width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background-color: rgba(82, 88, 136, 1);
-    height: 755px;
 }
-.youtubeLayout {
+.questionLayout {
     display: flex;
     flex-direction: column;
-    background-color: #eee;
+    background-color: rgba(82, 88, 136, 1);
     width: 100%;
-    max-width: 900px;
-    height: 100%;
-    overflow: hidden;
     align-items: center;
     border-radius: 10px;
+    height: 60vh;
+    margin: 40px 0px;
+    padding: 40px 0px;
 }
-.mbtiName {
+.mbtiTitle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 25px;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -27,38 +38,71 @@
     font-weight: 700;
     font-size: 25px;
 }
-.mbtiName div:nth-child(1) {
+.mbtiTitle div:nth-child(1) {
     display: flex;
     flex: 1;
 }
-.youtubeBox {
-    margin-top: 23vh;
-    width: 60vw;
+.questionItemLayout {
+    display: flex;
+    flex: 1;
+    margin: 10px 15px 5px 15px;
 }
-.mbtiCounter {
+.answerItemLayout {
+    width: 100%;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.questionBox {
+    padding: 20px;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+}
+.mbti_counter {
     font-weight: bold;
-    height: 10vh;
 }
-.answerBtn {
+
+.answerLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.answerButton {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     padding: 1.2rem;
     box-sizing: border-box;
-    background-color: #fff;
-    color: rgba(110, 110, 110, 1);
-    border: 1px solid gray;
+    background-color: white;
+    border: 1px solid #d0d0d0;
     border-radius: 6px;
-    border-color: #d0d0d0;
     font-weight: 600;
     font-size: 20px;
     box-shadow: 3px 3px 3px rgb(63, 63, 63);
 }
-.answerBtn:active {
+.answerButton:active {
     color: #fff;
     background-color: #fd4d4d;
     transform: scale(0.95);
     transition: 100ms;
     border: none;
+}
+
+.typequest_1 {
+    border: 2px solid black;
+    background-color: #eee;
+    min-width: 900px;
+    max-width: 900px;
+    border-radius: 10px;
+    height: 60vh;
+
+    h1 {
+        text-align: center;
+        font-size: 28px;
+    }
+    button {
+        width: 75%;
+    }
 }

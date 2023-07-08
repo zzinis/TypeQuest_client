@@ -76,7 +76,7 @@ function MbtiPage() {
                     </Link>
                 </ButtonWrapper>
                 <ButtonWrapper>
-                    <Link to="/TravelTest">
+                    <Link to="/JobTest">
                         <Button>
                             <RiSettingsLine style={IconStyle} />
                             주제

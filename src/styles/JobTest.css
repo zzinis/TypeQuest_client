@@ -76,15 +76,16 @@
     padding: 1.2rem;
     box-sizing: border-box;
     background-color: white;
-    border: 1px solid #d0d0d0;
+    border: 1px solid black;
     border-radius: 6px;
+    border-color: #d0d0d0;
     font-weight: 600;
     font-size: 20px;
     box-shadow: 3px 3px 3px rgb(63, 63, 63);
 }
 .answerButton:active {
     color: #fff;
-    background-color: #f9e97b;
+    background-color: #61a7ed;
     transform: scale(0.95);
     transition: 100ms;
     border: none;
