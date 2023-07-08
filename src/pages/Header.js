@@ -115,7 +115,7 @@ function MainHeader() {
                 <Logo src={LogoSrc} alt="" onClick={onClickHandler} />
                 <Categories>
                     <Category>
-                        <Link to="/ChatLogin">성격 유형</Link>
+                        <Link to="/Personalities">성격 유형</Link>
                     </Category>
                     <Category>
                         <Link to="/TravelTest">테스트</Link>

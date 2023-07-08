@@ -30,8 +30,18 @@
     box-sizing: border-box;
     font-weight: 700;
     font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 25px;
 }
 .mbtiTitle div:nth-child(1) {
+    display: flex;
+    flex: 1;
     display: flex;
     flex: 1;
 }
@@ -40,16 +50,29 @@
     height: 100%;
     overflow: scroll;
     scrollbar-width: none;
+    flex-direction: column;
+    height: 100%;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 .questionList::-webkit-scrollbar {
+    display: none;
     display: none;
 }
 .questionItemLayout {
     display: flex;
     flex: 1;
     margin: 10px 15px 5px 15px;
+    display: flex;
+    flex: 1;
+    margin: 10px 15px 5px 15px;
 }
 .answerItemLayout {
+    width: 100%;
+    background-color: #fff;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     background-color: #fff;
     padding-bottom: 10px;
@@ -62,6 +85,7 @@
     margin-bottom: 6vh;
 }
 .slider {
+    width: 1200vw;
     width: 1200vw;
 }
 .mbti_counter {
@@ -90,6 +114,11 @@
     font-size: 20px;
 }
 .answerButton:active {
+    color: #fff;
+    background-color: #61a7ed;
+    transform: scale(0.95);
+    transition: 100ms;
+    border: none;
     color: #fff;
     background-color: #61a7ed;
     transform: scale(0.95);
