@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoSrc from '../assets/TQ.png';
-
 //navigate
 import { useNavigate } from 'react-router-dom';
 
 const Header = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,11 +51,16 @@ const Category = styled.div`
     margin: 5px 10px;
     padding: 10px;
     cursor: pointer;
+    a {
+        text-decoration: none;
+        color: rgba(11, 31, 46, 1);
+        &:hover {
+            color: rgba(131, 25, 166, 1);
 
-    &:hover {
-        border-bottom: 2px solid rgba(82, 88, 136, 1);
+            border-bottom: 2px solid rgba(131, 25, 166, 1);
+        }
     }
-    //모바일 사이즈
+    // mobile size
     @media screen {
         @media (max-width: 768px) {
             margin: 5px 5px;
@@ -72,7 +77,7 @@ const Sign = styled.div`
     //모바일 사이즈
     @media screen {
         @media (max-width: 768px) {
-            width: 120px;
+            width: 150px;
             height: 30px;
             padding: 5px;
         }
@@ -92,9 +97,8 @@ const SignButton = styled.button`
 
     @media screen {
         @media (max-width: 768px) {
-            width: 50px;
+            width: 70px;
             height: 30px;
-            font: 10px/1 'Noto Sans KR';
         }
     }
 `;
@@ -105,17 +109,16 @@ function MainHeader() {
         // 로고 클릭시 메인 페이지로 이동
         navigate('/');
     };
-
     return (
         <>
             <Header>
                 <Logo src={LogoSrc} alt="" onClick={onClickHandler} />
                 <Categories>
                     <Category>
-                        <Link to="/ChatLogin">성격 유형</Link>
+                        <Link to="/Personalities">성격 유형</Link>
                     </Category>
                     <Category>
-                        <Link to="/TEST1">테스트</Link>
+                        <Link to="/MbtiPage">테스트</Link>
                     </Category>
                     <Category>
                         <Link to="/Review">후기</Link>

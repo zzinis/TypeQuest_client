@@ -8,10 +8,12 @@
 .resultLayout {
     display: flex;
     flex-direction: column;
-    background-color: rgba(82, 88, 136, 1);
+    background-color: #eee;
     width: 100%;
     max-width: 900px;
+    height: 100%;
     align-items: center;
+    border-radius: 10px;
 }
 .resultTitle {
     width: 100%;

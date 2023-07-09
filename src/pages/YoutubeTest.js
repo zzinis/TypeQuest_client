@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/TravelTest.scss';
 import { useNavigate } from 'react-router-dom';
-import Questions from '../common/api/questionApi.json';
+import Youtube_Q from '../common/api/youtubeQuestion.json';
 import Footer from './Footer';
 import MainHeader from './Header';
 function TravleTest() {
@@ -20,14 +20,14 @@ function TravleTest() {
     };
     //위에 버튼 눌렀을 때
     const nextSlide1 = () => {
-        setMbtiList(mbtiList + Questions[num].a[0].type);
+        setMbtiList(mbtiList + Youtube_Q[num].a[0].type);
         setId(id + 1);
         setNum(num + 1);
         setCurrentPage(currentPage + 1);
     };
     //아래 버튼 눌렀을 때
     const nextSlide2 = () => {
-        setMbtiList(mbtiList + Questions[num].a[1].type);
+        setMbtiList(mbtiList + Youtube_Q[num].a[1].type);
         setId(id + 1);
         setNum(num + 1);
         setCurrentPage(currentPage + 1);
@@ -64,10 +64,10 @@ function TravleTest() {
             <div className="questionLayout">
                 <div className="typequest_1">
                     <div className="mbtiTitle">
-                        <div>여행 MBTI 테스트</div>
-                        <div>{`${currentPage} / ${Questions.length}`}</div>
+                        <div>유튜브 MBTI 테스트</div>
+                        <div>{`${currentPage} / ${Youtube_Q.length}`}</div>
                     </div>
-                    {Questions.map((data) => {
+                    {Youtube_Q.map((data) => {
                         return (
                             <>
                                 {data.id === id && (

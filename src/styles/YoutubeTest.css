@@ -84,7 +84,7 @@
 }
 .answerButton:active {
     color: #fff;
-    background-color: #f9e97b;
+    background-color: #fd4d4d;
     transform: scale(0.95);
     transition: 100ms;
     border: none;
