@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Card, CardContent, Typography, Button } from '@mui/material';
 import styled from 'styled-components';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import MainHeader from './Header';
 
 const customTheme = createTheme({
     typography: {
@@ -173,6 +174,7 @@ const Personalities = () => {
 
     return (
         <>
+            <MainHeader />
             <ThemeProvider theme={customTheme}>
                 <Title>MBTI 유형</Title>
                 <div style={{ margin: '100px auto' }}>

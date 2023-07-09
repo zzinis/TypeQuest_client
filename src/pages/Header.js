@@ -118,7 +118,7 @@ function MainHeader() {
                         <Link to="/Personalities">성격 유형</Link>
                     </Category>
                     <Category>
-                        <Link to="/TravelTest">테스트</Link>
+                        <Link to="/MbtiPage">테스트</Link>
                     </Category>
                     <Category>
                         <Link to="/Review">후기</Link>
