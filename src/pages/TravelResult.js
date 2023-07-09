@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Mbti from '../common/api/travelResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -27,6 +27,23 @@ function TravelResult() {
     const goChat = () => {
         navigate('/Chat');
     };
+
+    useEffect(() => {
+        // 데이터 전송을 위한 함수
+        const sendData = async () => {
+            const result = Mbti.find((data) => data.id === mbti.mbti)?.text || '';
+            const test_name = '여행Test'; // 전송할 테스트명
+            const user_id = sessionStorage.getItem('user_id'); // 세션에 저장된 사용자 ID
+
+            try {
+                await axios.post('http://localhost:8000/participation', { user_id, result, test_name });
+                console.log('데이터 전송 완료', { user_id, result, test_name });
+            } catch (error) {
+                console.error('데이터 전송 실패:', error);
+            }
+        };
+        sendData();
+    }, []);
 
     return (
         <>
