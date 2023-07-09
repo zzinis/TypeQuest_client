@@ -78,6 +78,7 @@ const BoardContent = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
+    margin: 20px;
 `;
 const ProfileImg = styled.img`
     width: 100%;
@@ -114,39 +115,63 @@ const BoardTime = styled.div`
 `;
 const Review = () => {
     //review 테이블
+    const [tests, setTests] = useState([]);
     const [posts, setPosts] = useState([]);
 
-    const [selectedOption, setSelectedOption] = useState('');
-
-    //select에 결과 넣어주기
-    const handleSelectChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
+    const [selectedOption, setSelectedOption] = useState('All');
 
     useEffect(() => {
-        //게시물 목록 가져오기(게시판 테이블)
+        //test 목록 가져오기(test 테이블)
         axios
-            .get('http://localhost:8000/review')
-            .then((response) => {
-                setPosts(response.data);
+            .get('http://localhost:8000/test')
+            .then((testResponse) => {
+                setTests(testResponse.data);
             })
             .catch((error) => {
                 console.error(error);
             });
     }, []);
 
+    //선택한 option값으로 post가져오기 function
+    const getPosts = (option) => {
+        axios
+            .get('http://localhost:8000/review', {
+                params: {
+                    selectedOption: option,
+                },
+            })
+            .then((response) => {
+                setPosts(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+
+    useEffect(() => {
+        //게시물 목록 가져오기(게시판 테이블)
+        getPosts(selectedOption);
+    }, [selectedOption]);
+
+    //select에 결과 넣어주기
+    const handleSelectChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
+
+    //날짜
     const extractDate = (dateTime) => {
         const [date] = dateTime.split('T');
         return date;
     };
 
+    //시간
     const formatTime = (dateTime) => {
         const dateObj = new Date(dateTime);
         const hours = dateObj.getHours();
         const minutes = dateObj.getMinutes();
         const seconds = dateObj.getSeconds();
 
-        // 시간, 분, 초를 2자리로 표시하기 위해 패딩(padding) 추가
+        // 시, 분, 초
         const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(
             seconds,
         ).padStart(2, '0')}`;
@@ -164,10 +189,18 @@ const Review = () => {
                     <h3>Type :&nbsp;&nbsp;&nbsp;&nbsp;</h3>
                     <div>
                         <select value={selectedOption} onChange={handleSelectChange}>
-                            <option value="">-- Select test--</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
+                            <option value="All">All test</option>
+                            {tests.length > 0 ? (
+                                <>
+                                    {tests.map((test) => (
+                                        <option value={test.test_name} key={test.test_id}>
+                                            {test.test_name}
+                                        </option>
+                                    ))}
+                                </>
+                            ) : (
+                                <option value="none">No tests available</option>
+                            )}
                         </select>
                     </div>
                 </ChooseResult>
@@ -176,12 +209,10 @@ const Review = () => {
                 <BoardWrapper>
                     {posts.map((post) => (
                         <ContainerBoard key={post.id}>
-                            {console.log(post.img)}
                             <BoardTop>
                                 <BoardContent>{post.content}</BoardContent>
                             </BoardTop>
                             <PhotoSpace></PhotoSpace>
-                            {/* {console.log(post.img)} */}
                             <BoardPhoto>
                                 <ProfileImg src={`../../profile/${post.img}.jpg`} />
                             </BoardPhoto>
