@@ -29,14 +29,7 @@
     box-sizing: border-box;
     font-weight: 700;
     font-size: 25px;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    padding: 15px;
-    box-sizing: border-box;
-    font-weight: 700;
-    font-size: 25px;
+    font-family: 'KCC-Ganpan';
 }
 .mbtiTitle div:nth-child(1) {
     display: flex;
@@ -58,6 +51,10 @@
     margin-top: 6vh;
     margin-bottom: 6vh;
 }
+.questionTitle {
+    font-family: 'KCC-Ganpan';
+    font-weight: 300;
+}
 .mbti_counter {
     font-weight: bold;
 }
@@ -78,9 +75,9 @@
     background-color: white;
     border: 1px solid #d0d0d0;
     border-radius: 6px;
-    font-weight: 600;
     font-size: 20px;
     box-shadow: 3px 3px 3px rgb(63, 63, 63);
+    font-family: 'KCC-Ganpan';
 }
 .answerButton:active {
     color: #fff;
@@ -96,7 +93,7 @@
     min-width: 900px;
     max-width: 900px;
     border-radius: 10px;
-    height: 60vh;
+    height: 70vh;
 
     h1 {
         text-align: center;
@@ -105,4 +102,10 @@
     button {
         width: 75%;
     }
+}
+@font-face {
+    font-family: 'KCC-Ganpan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }

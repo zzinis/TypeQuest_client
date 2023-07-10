@@ -1,6 +1,8 @@
 import YMbti from '../common/api/youtubeResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/YoutubeResult.css';
+import Footer from './Footer';
+import MainHeader from './Header';
 
 function YoutubeResult() {
     const location = useLocation();
@@ -16,9 +18,10 @@ function YoutubeResult() {
     return (
         <>
             <div className="Layout">
+                <MainHeader />
                 <div className="resultLayout">
                     <div className="resultTitle">
-                        <h2>님의 직업 MBTI 결과는?</h2>
+                        <h2>유튜브 MBTI 결과는?</h2>
                     </div>
                     {YMbti.map((data) => {
                         return (
@@ -41,7 +44,7 @@ function YoutubeResult() {
                                             <li className="exp">{data.description[2].exp}</li>
                                         </ul>
                                         <h1 className="travelTitle">추천하는 유튜브 영상은?</h1>
-                                        <div className="recommend">
+                                        <div className="recommend1">
                                             <iframe
                                                 width="560"
                                                 height="315"
@@ -51,7 +54,7 @@ function YoutubeResult() {
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                 allowfullscreen
                                             ></iframe>
-                                            <h4>{data.text}</h4>
+                                            <h4>출처:{data.text}</h4>
                                         </div>
                                     </div>
                                 )}
@@ -72,6 +75,7 @@ function YoutubeResult() {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         </>
     );

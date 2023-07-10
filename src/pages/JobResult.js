@@ -1,6 +1,8 @@
 import JobMbti from '../common/api/jobResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Jobresult.css';
+import Footer from './Footer';
+import MainHeader from './Header';
 
 function JobResult() {
     const location = useLocation();
@@ -16,9 +18,10 @@ function JobResult() {
     return (
         <>
             <div className="Layout">
+                <MainHeader />
                 <div className="resultLayout">
                     <div className="resultTitle">
-                        <h2>님의 직업 MBTI 결과는?</h2>
+                        <h2>직업 MBTI 결과는?</h2>
                     </div>
                     {JobMbti.map((data) => {
                         return (
@@ -65,6 +68,7 @@ function JobResult() {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         </>
     );
