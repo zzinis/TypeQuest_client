@@ -41,7 +41,6 @@ function TravelResult() {
                     result,
                     test_name,
                 });
-                console.log('data transfer completed', { user_id, result, test_name });
             } catch (error) {
                 console.error('Failed to send data:', error);
             }
