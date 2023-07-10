@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/CreateReview.scss';
 
@@ -7,6 +8,7 @@ function CreateReview({ mbtiResult, onClose }) {
         title: '',
         content: '',
     });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setReviewData({
@@ -36,6 +38,7 @@ function CreateReview({ mbtiResult, onClose }) {
 
             // Close the popup
             onClose();
+            navigate('/Review'); // 페이지 이동
         } catch (error) {
             console.error('Failed to write review:', error);
         }
