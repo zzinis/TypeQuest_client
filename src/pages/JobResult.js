@@ -1,8 +1,8 @@
-import YMbti from '../common/api/youtubeResult.json';
+import JobMbti from '../common/api/jobResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../styles/YoutubeResult.css';
+import '../styles/Jobresult.css';
 
-function YoutubeResult() {
+function JobResult() {
     const location = useLocation();
     const mbti = location.state.id;
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ function YoutubeResult() {
                     <div className="resultTitle">
                         <h2>님의 직업 MBTI 결과는?</h2>
                     </div>
-                    {YMbti.map((data) => {
+                    {JobMbti.map((data) => {
                         return (
                             <>
                                 {data.id === mbti.mbti && (
@@ -39,19 +39,12 @@ function YoutubeResult() {
                                             <li className="exp">{data.description[0].exp}</li>
                                             <li className="exp">{data.description[1].exp}</li>
                                             <li className="exp">{data.description[2].exp}</li>
+                                            <li className="exp">{data.description[3].exp}</li>
                                         </ul>
-                                        <h1 className="travelTitle">추천하는 유튜브 영상은?</h1>
+                                        <h1 className="travelTitle">추천하는 직업은?</h1>
                                         <div className="recommend">
-                                            <iframe
-                                                width="560"
-                                                height="315"
-                                                src={data.video}
-                                                title="YouTube video player"
-                                                frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                allowfullscreen
-                                            ></iframe>
-                                            <h4>{data.text}</h4>
+                                            <img src={data.img1} alt="kk" className="jobImg" />
+                                            <img src={data.img2} alt="kk" className="jobImg" />
                                         </div>
                                     </div>
                                 )}
@@ -77,4 +70,4 @@ function YoutubeResult() {
     );
 }
 
-export default YoutubeResult;
+export default JobResult;
