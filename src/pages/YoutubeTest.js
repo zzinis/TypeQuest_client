@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/TravelTest.scss';
+import '../styles/YoutubeTest.css';
 import { useNavigate } from 'react-router-dom';
 import Youtube_Q from '../common/api/youtubeQuestion.json';
 import Footer from './Footer';
@@ -54,7 +54,7 @@ function TravleTest() {
             }
             let final_mbti = [i >= 2 ? 'I' : 'E', s >= 2 ? 'S' : 'N', t >= 2 ? 'T' : 'F', p >= 2 ? 'P' : 'J'];
             const mbti = final_mbti.join('');
-            navigate('/Result', { state: { id: { mbti } } });
+            navigate('/YoutubeResult', { state: { id: { mbti } } });
         }
     };
     resultMbti();

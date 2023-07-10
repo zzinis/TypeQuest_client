@@ -117,7 +117,7 @@ function MbtiPage() {
             <Wrapper>
                 <MbtiInner responsive>
                     <Heading responsive>
-                        <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="5vw" />
+                        <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="4vw" />
                     </Heading>
                     <Image src={MbtiSrc} responsive />
                     <ButtonWrapper responsive>
