@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Typography, TextField, Button, Box } from '@mui/material';
+import axios from 'axios';
 
 function Ask() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [inquiries, setInquiries] = useState([]);
+    const [editId, setEditId] = useState(null);
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -15,16 +17,76 @@ function Ask() {
     };
 
     const handleSubmit = () => {
-        const newInquiry = {
-            id: Date.now(),
-            title: title,
-            content: content,
-        };
+        if (editId) {
+            // 수정 로직 작성
+            const updatedInquiries = inquiries.map((inquiry) => {
+                if (inquiry.id === editId) {
+                    return {
+                        ...inquiry,
+                        title: title,
+                        content: content,
+                    };
+                }
+                return inquiry;
+            });
+            // axios
+            //     .put(`/Ask/${editId}`, { title, content })
+            //     .then(() => {
+            //         setInquiries(updatedInquiries);
+            //         setEditId(null);
+            //     })
+            //     .catch((error) => {
+            //         console.error('문의 수정에 실패했습니다:', error);
+            //         // 오류 처리 로직 추가
+            //     });
 
-        setInquiries([...inquiries, newInquiry]);
+            setInquiries(updatedInquiries);
+            setEditId(null);
+        } else {
+            // 등록 로직 작성
+            const newInquiry = {
+                id: Date.now(),
+                title: title,
+                content: content,
+            };
+
+            setInquiries([...inquiries, newInquiry]);
+            // axios
+            //     .post('/Ask', newInquiry)
+            //     .then(() => {
+            //         setInquiries([...inquiries, newInquiry]);
+            //     })
+            //     .catch((error) => {
+            //         console.error('문의 등록에 실패했습니다:', error);
+            //         // 오류 처리 로직 추가
+            //     });
+        }
 
         setTitle('');
         setContent('');
+    };
+
+    const handleEdit = (id) => {
+        const selectedInquiry = inquiries.find((inquiry) => inquiry.id === id);
+        if (selectedInquiry) {
+            setTitle(selectedInquiry.title);
+            setContent(selectedInquiry.content);
+            setEditId(id);
+        }
+    };
+
+    const handleDelete = (id) => {
+        setInquiries(inquiries.filter((inquiry) => inquiry.id !== id));
+
+        // axios
+        //     .delete(`/Ask/${id}`)
+        //     .then(() => {
+        //         setInquiries(inquiries.filter((inquiry) => inquiry.id !== id));
+        //     })
+        //     .catch((error) => {
+        //         console.error('문의 삭제에 실패했습니다:', error);
+        //         // 오류 처리 로직 추가
+        //     });
     };
 
     return (
@@ -55,7 +117,7 @@ function Ask() {
                 />
             </div>
             <Button variant="contained" onClick={handleSubmit} sx={{ marginBottom: 2 }}>
-                문의 등록
+                {editId ? '수정하기' : '문의 등록'}
             </Button>
 
             <div>
@@ -72,32 +134,54 @@ function Ask() {
                             position: 'relative',
                         }}
                     >
-                        <Typography variant="h6">{inquiry.title}</Typography>
-                        <Box sx={{ flexGrow: 1, whiteSpace: 'pre-wrap' }}>
-                            <Typography>{inquiry.content}</Typography>
-                        </Box>
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                            <Button
-                                variant="outlined"
-                                sx={{ marginRight: 1 }}
-                                onClick={() => {
-                                    // 수정 버튼 동작
-                                    console.log('수정 버튼이 클릭되었습니다.');
-                                }}
-                            >
-                                수정
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                color="error"
-                                onClick={() => {
-                                    // 삭제 버튼 동작
-                                    setInquiries(inquiries.filter((item) => item.id !== inquiry.id));
-                                }}
-                            >
-                                삭제
-                            </Button>
-                        </Box>
+                        {editId === inquiry.id ? (
+                            <>
+                                <TextField
+                                    label="제목"
+                                    variant="outlined"
+                                    fullWidth
+                                    value={title}
+                                    onChange={handleTitleChange}
+                                    sx={{ marginBottom: 2 }}
+                                />
+                                <TextField
+                                    label="내용"
+                                    variant="outlined"
+                                    multiline
+                                    fullWidth
+                                    rows={4}
+                                    value={content}
+                                    onChange={handleContentChange}
+                                    sx={{ marginBottom: 2 }}
+                                />
+                                <Button variant="contained" onClick={handleSubmit} sx={{ marginBottom: 1 }}>
+                                    수정하기
+                                </Button>
+                            </>
+                        ) : (
+                            <>
+                                <Typography variant="h6">{inquiry.title}</Typography>
+                                <Box sx={{ flexGrow: 1, whiteSpace: 'pre-wrap' }}>
+                                    <Typography>{inquiry.content}</Typography>
+                                </Box>
+                                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                    <Button
+                                        variant="outlined"
+                                        sx={{ marginRight: 1 }}
+                                        onClick={() => handleEdit(inquiry.id)}
+                                    >
+                                        수정
+                                    </Button>
+                                    <Button
+                                        variant="outlined"
+                                        color="error"
+                                        onClick={() => handleDelete(inquiry.id)}
+                                    >
+                                        삭제
+                                    </Button>
+                                </Box>
+                            </>
+                        )}
                     </Box>
                 ))}
             </div>
