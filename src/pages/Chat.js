@@ -7,7 +7,7 @@ const socket = io.connect('http://localhost:8000');
 // chat 스타일 컴포넌트
 const ChatWindow = styled.div`
     width: 600px;
-    height: 800px;
+    height: 100%;
 `;
 
 const ChatHeader = styled.div`
@@ -45,61 +45,114 @@ const MessageContainer = styled(ScrollToBottom)`
         display: none;
     }
 `;
-
 const Message = styled.div`
-    height: auto;
-    padding: 10px;
-    display: flex;
+  height: auto;
+  padding: 10px;
+  display: flex;
 
-    &:last-child {
-        margin-bottom: 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.you {
+    justify-content: flex-start;
+
+    .message-content {
+      justify-content: flex-start;
     }
 
-    &.you {
-        justify-content: flex-start;
+    .message-meta {
+      justify-content: flex-start;
+      margin-left: 5px;
+    }
+  }
 
-        .message-content {
-            justify-content: flex-start;
-        }
+  &.other {
+    justify-content: flex-end;
 
-        .message-meta {
-            justify-content: flex-start;
-            margin-left: 5px;
-        }
+    .message-content {
+      justify-content: flex-end;
     }
 
-    &.other {
-        justify-content: flex-end;
-
-        .message-content {
-            justify-content: flex-end;
-            background-color: cornflowerblue;
-        }
-
-        .message-meta {
-            justify-content: flex-end;
-            margin-right: 5px;
-        }
+    .message-meta {
+      justify-content: flex-end;
+      margin-right: 5px;
     }
+  }
 `;
 
 const MessageContent = styled.div`
-    width: auto;
-    height: auto;
-    min-height: 40px;
-    max-width: 120px;
-    background-color: #f4e9dc;
-    border-radius: 5px;
-    color: black;
-    display: flex;
-    align-items: center;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
-    overflow-wrap: break-word;
-    word-break: break-word;
+  width: auto;
+  height: auto;
+  min-height: 40px;
+  max-width: 120px;
+  background-color: #f4e9dc;
+  border-radius: 5px;
+  color: black;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 `;
+
+// const Message = styled.div`
+//     height: auto;
+//     padding: 10px;
+//     display: flex;
+
+//     &:last-child {
+//         margin-bottom: 0;
+//     }
+
+//     &.you {
+//         justify-content: flex-start;
+
+//         .message-content {
+//             justify-content: flex-start;
+//         }
+
+//         .message-meta {
+//             justify-content: flex-start;
+//             margin-left: 5px;
+//         }
+//     }
+
+//     &.other {
+//         justify-content: flex-end;
+
+//         .message-content {
+//             justify-content: flex-end;
+//             background-color: cornflowerblue;
+//         }
+
+//         .message-meta {
+//             justify-content: flex-end;
+//             margin-right: 5px;
+//         }
+//     }
+// `;
+
+// const MessageContent = styled.div`
+//     width: auto;
+//     height: auto;
+//     min-height: 40px;
+//     max-width: 120px;
+//     background-color: #f4e9dc;
+//     border-radius: 5px;
+//     color: black;
+//     display: flex;
+//     align-items: center;
+//     margin-right: 5px;
+//     margin-left: 5px;
+//     padding-right: 5px;
+//     padding-left: 5px;
+//     overflow-wrap: break-word;
+//     word-break: break-word;
+// `;
 
 const MessageMeta = styled.div`
     display: flex;
