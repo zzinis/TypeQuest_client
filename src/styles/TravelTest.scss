@@ -69,7 +69,7 @@
     padding: 40px 20px;
 }
 
-.answerButton {
+.answerBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,7 +82,7 @@
     font-size: 20px;
     box-shadow: 3px 3px 3px rgb(63, 63, 63);
 }
-.answerButton:active {
+.answerBtn:active {
     color: #fff;
     background-color: #f9e97b;
     transform: scale(0.95);

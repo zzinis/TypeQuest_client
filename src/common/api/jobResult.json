@@ -1,0 +1,326 @@
+[
+    {
+        "id": "ENFP",
+        "nickname": "호기심 많고 자신감 넘치는 아이디어 뱅크",
+        "img": "job/job_enfp.png",
+        "description": [
+            {
+                "exp": "자신의 업무가 실현되어 직접 볼 수 있는 일"
+            },
+            {
+                "exp": "창의적으로 다양하고 자유로운 환경에서 할 수 있는 일 선호"
+            },
+            {
+                "exp": "수평적 분위기에서 여러 사람과 함께 진행하는 프로젝트"
+            },
+            {
+                "exp": "최소한의 규칙과 규율이 존재하는 일"
+            }
+        ],
+        "img1": "job_recommend/enfp1.png",
+        "img2": "job_recommend/enfp2.png"
+    },
+    {
+        "id": "ESTJ",
+        "nickname": "실용성을 추구하는 현실주의자",
+        "img": "job/job_estj.png",
+        "description": [
+            {
+                "exp": "논리적인 결과를 위해 시간과 자원을 효율적으로 사용할 수 있는 일"
+            },
+            {
+                "exp": "공정하고 논리적이며 분명하고 객관적인 기준으로 평가받을 수 있는 일"
+            },
+            { "exp": "현실적이고 구체적인 일" },
+            { "exp": "자기와 타인에 대해 책임을 지면서,다른 사람과 함께할 수 있는 일" }
+        ],
+        "img1": "job_recommend/estj1.png",
+        "img2": "job_recommend/estj2.png"
+    },
+    {
+        "id": "ENFJ",
+        "nickname": "활기차고 사교적인 사랑 전도사",
+        "img": "job/job_enfj.png",
+        "description": [
+            {
+                "exp": "다양한 활동이 인정되는 한편 비교적 정돈된 환경에서 계획적으로 할 수 있는 일"
+            },
+            {
+                "exp": "사람들 간의 갈등과 긴장이 없는 환경에서 할 수 있는 일"
+            },
+            {
+                "exp": "문제점을 창의적으로 해결할 수 있는 충분한 시간이 주어지고, 이에 대해 다른 사람들과 의견을 나눌 수 있는 일"
+            },
+            {
+                "exp": "자신의 조직 능력과 의사 결정 능력을 활용할 수 있는 일"
+            }
+        ],
+        "img1": "job_recommend/enfj1.png",
+        "img2": "job_recommend/enfj2.png"
+    },
+    {
+        "id": "ENTP",
+        "nickname": "새로운 도전을 즐기는 모험가",
+        "img": "job/job_entp.png",
+        "description": [
+            {
+                "exp": "창조적이고 혁신적인 일을 만들어 내는 일"
+            },
+            {
+                "exp": "짜여 있지 않은 환경에서 할 수 있는 일"
+            },
+            {
+                "exp": "사람들과 깊은 관계를 맺으면서 에너지가 넘치는 환경에서 할 수 있는 일"
+            },
+            {
+                "exp": "재미, 행동, 흥분으로 가득 찬 다양한 상황을 경험할 수 있게 해주는 일"
+            }
+        ],
+        "img1": "job_recommend/entp1.png",
+        "img2": "job_recommend/entp2.png"
+    },
+    {
+        "id": "ENTJ",
+        "nickname": "전략 수립 능력이 뛰어난 리더",
+        "img": "job/job_entj.png",
+        "description": [
+            {
+                "exp": "기획, 지도&통솔을 할 수 있으며 다른 사람을 감독하고 관리하는 일"
+            },
+            {
+                "exp": "다양한 문제에 대해 혁신적이고 해결책을 생각해 내는 일"
+            },
+            {
+                "exp": "자신의 능력을 발휘하며 조직 내에서 발전 기회가 있는 일"
+            },
+            {
+                "exp": "장기적 계획 수립과 창조적 문제 해결이 필요한 일"
+            }
+        ],
+        "img1": "job_recommend/entj1.png",
+        "img2": "job_recommend/entj2.png"
+    },
+    {
+        "id": "ESTP",
+        "nickname": "고집불통",
+        "img": "job/job_estp.png",
+        "description": [
+            {
+                "exp": "이론이나 아이디어가 아니라 실제 사람과 사물을 대하는 일"
+            },
+            {
+                "exp": "직접 경험과 뛰어난 분석력을 통해서 문제를 해결할 수 있는 일"
+            },
+            {
+                "exp": "위기 상황과 위급한 문제를 적절히 처리할 수 있는 일"
+            },
+            {
+                "exp": "많은 사람들과 자발적으로 만나서 교류할 수 있는 일"
+            }
+        ],
+        "img1": "job_recommend/estp1.png",
+        "img2": "job_recommend/estp2.png"
+    },
+    {
+        "id": "ESFP",
+        "nickname": "생기발랄한 장난꾸러기",
+        "img": "job/job_esfp.png",
+        "description": [
+            { "exp": "활동적이고 사교적인 환경에서 많은 사람들과 일할 수 있는 일" },
+            {
+                "exp": "미적 취향과 디자인 감각을 이용할 수 있는 일"
+            },
+            {
+                "exp": "정보를 수집해서 새로운 접근으로 문제를 해결할 수 있는 일"
+            },
+            {
+                "exp": "조용하고 딱딱한 환경을 피하고 편안한 분위기에서 하는 일"
+            }
+        ],
+        "img1": "job_recommend/esfp1.png",
+        "img2": "job_recommend/esfp2.png"
+    },
+    {
+        "id": "ESFJ",
+        "nickname": "사교적인 전통주의자",
+        "img": "job/job_esfj.png",
+        "description": [
+            {
+                "exp": "사람들이 공통의 목표를 향해 조화롭게 나아갈 수 있도록 돕는 일"
+            },
+            {
+                "exp": "기대치가 분명하고 객관적인 기준에 따라 자신의 일을 평가 받을 수 있는 일"
+            },
+            {
+                "exp": "명령 계통이 분명하고 권위가 존중 받는 조직적인 환경에서 하는 일"
+            },
+            {
+                "exp": "의사 결정 과정에 주체적으로 참여할 수 있는 일"
+            }
+        ],
+        "img1": "job_recommend/esfj1.png",
+        "img2": "job_recommend/esfj2.png"
+    },
+    {
+        "id": "ISFP",
+        "nickname": "따뜻한 예술가",
+        "img": "job/job_isfp.png",
+        "description": [
+            { "exp": "팀원들과 성실하고 좋은 분위기에서 사람들과 함께 하는 일" },
+            {
+                "exp": "밝고 협조적인 환경에서 조용히 할 수 있는 일, 갈등이 거의 없는 일"
+            },
+            { "exp": "실질적인 도움을 제공해서 재빨리 문제를 해결할 수 있는 일" },
+            { "exp": "대중 앞에 서지 않고 잘 모르는 집단을 지도하거나 낯선 사람을 만나지 않는 일" }
+        ],
+        "img1": "job_recommend/isfp1.png",
+        "img2": "job_recommend/isfp2.png"
+    },
+    {
+        "id": "ISFJ",
+        "nickname": "겸손하고 단호한 수호자",
+        "img": "job/job_isfj.png",
+        "description": [
+            {
+                "exp": "한 번에 하나의 프로젝트를 할 수 있는 일"
+            },
+            {
+                "exp": "세심한 관찰력과 정확성이 요구되는 일"
+            },
+            {
+                "exp": "개인의 가치관과 신념을 공유할 수 있는 사람들과 함께 하는 일"
+            },
+            {
+                "exp": "사적인 공간이 있어서 주의에 방해받지 않고 완전히 집중할 수 있는 일"
+            }
+        ],
+        "img1": "job_recommend/isfj1.png",
+        "img2": "job_recommend/isfj2.png"
+    },
+    {
+        "id": "ISTP",
+        "nickname": "직설적이고 정직한 만능 재주꾼",
+        "img": "job/job_istp.png",
+        "description": [
+            {
+                "exp": "쓸데없는 것에 에너지를 쏟지 않는 일"
+            },
+            {
+                "exp": "즐길 수 있고 지속적인 자극이 필요한 일"
+            },
+            {
+                "exp": "자신의 기술을 활용할 수 있는 일"
+            },
+            {
+                "exp": "혼자만의 시간을 가질 수 있는 시간적 여유가 많은 일"
+            }
+        ],
+        "img1": "job_recommend/istp1.png",
+        "img2": "job_recommend/istp2.png"
+    },
+    {
+        "id": "ISTJ",
+        "nickname": "책임과 헌신을 중요시하는 논리주의자",
+        "img": "job/job_istj.png",
+        "description": [
+            {
+                "exp": "혼자 일할 시간이 많고, 독립적으로 하는 일"
+            },
+            {
+                "exp": "결과가 눈에 보이고 측정, 예측이 가능한 일"
+            },
+            {
+                "exp": "자신의 현실적 판단과 경험을 높이 평하고 보상해 주는 환경에서 하는 일"
+            },
+            {
+                "exp": "목표가 분명하고 조직의 체계가 명확한 일"
+            }
+        ],
+        "img1": "job_recommend/istj1.png",
+        "img2": "job_recommend/istj2.png"
+    },
+    {
+        "id": "INFP",
+        "nickname": "예민한 이상주의자",
+        "img": "job/job_infp.png",
+        "description": [
+            {
+                "exp": "규치이나 규율이 엄격한 환경이 아닌 창조적이고 따뜻한 일을 만들어 내는 일"
+            },
+            {
+                "exp": "시간적 여유가 있고 일에 있어서 직접 결정권을 가진 일"
+            },
+            {
+                "exp": "엄격한 실적이나 성과와 마감이 없는 일"
+            },
+            {
+                "exp": "사적인 공간과 남들의 방해를 적게 받는 공간에서 하는 일"
+            }
+        ],
+        "img1": "job_recommend/infp1.png",
+        "img2": "job_recommend/infp2.png"
+    },
+    {
+        "id": "INFJ",
+        "nickname": "고한 원칙을 가진 상담가",
+        "img": "job/job_infj.png",
+        "description": [
+            {
+                "exp": "새로운 아이디어나 접근 방식을 찾아내서 사람과 함께 성장과 발전을 도울 수 있는 일"
+            },
+            {
+                "exp": "업무 과정에서 큰 영향력을 행사할 수 있고 권한을 가지고 있는 일"
+            },
+            {
+                "exp": "공의적 일이나 봉사하는 일에 아이디어를 쓸 수 있는 일"
+            },
+            {
+                "exp": "친근하고 긴장감이 없는 환경에서 할 수 있는 일"
+            }
+        ],
+        "img1": "job_recommend/infj1.png",
+        "img2": "job_recommend/infj2.png"
+    },
+    {
+        "id": "INTP",
+        "nickname": "독립적이고 창의적인 문제 해결사",
+        "img": "job/job_intp.png",
+        "description": [
+            {
+                "exp": "아이디어를 개발하고, 분석하고, 비판하는 일"
+            },
+            {
+                "exp": "복잡한 문제를 다룰 수 있는 일"
+            },
+            {
+                "exp": "사람들을 직접 조직하거나 감독하지 않아도 되는 일"
+            },
+            {
+                "exp": "개인 시간이 많고 독립적으로 할 수 있는 일"
+            }
+        ],
+        "img1": "job_recommend/intp1.png",
+        "img2": "job_recommend/intp2.png"
+    },
+    {
+        "id": "INTJ",
+        "nickname": "창의적인 완벽주의자",
+        "img": "job/job_intj.png",
+        "description": [
+            {
+                "exp": "시스템을 혁신적이고 독창적으로 해결책을 개발해 내는 일"
+            },
+            {
+                "exp": "전문성을 갖춘 동료와 함께할 수 있는 일"
+            },
+            {
+                "exp": "세세하고 반복적인 것을 요구하지 않는 일"
+            },
+            {
+                "exp": "독창적으로 권한이 주어지는 일"
+            }
+        ],
+        "img1": "job_recommend/intj1.png",
+        "img2": "job_recommend/intj2.png"
+    }
+]

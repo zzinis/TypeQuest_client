@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/TravelTest.scss';
+import '../styles/YoutubeTest.css';
 import { useNavigate } from 'react-router-dom';
 import Youtube_Q from '../common/api/youtubeQuestion.json';
 import Footer from './Footer';
