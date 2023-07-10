@@ -104,6 +104,7 @@ const MobileCategories = styled.div`
     opacity: ${({ open }) => (open ? '1' : '0')};
     transition: opacity 300ms;
     z-index:10;
+    width: -webkit-fill-available;
   }
 `;
 
