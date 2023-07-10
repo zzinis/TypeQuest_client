@@ -1,3 +1,4 @@
+//footer페이지 Css
 #main-footer {
     text-align: center;
     background: #525888;
@@ -6,8 +7,12 @@
     margin: 0px;
     //모바일 사이즈
     @media (max-width: 768px) {
-        padding: 30px 10px 10px 10px;
+        padding: 20px 0px 10px 0px;
     }
+}
+.row {
+    text-align: center;
+    margin: 10px 0px;
 }
 .ul-container {
     display: flex;
@@ -77,6 +82,8 @@ form .loginForm {
         display: block;
     }
 }
+
+//로그인 페이지 css
 .Left {
     background-color: rgba(255, 255, 255, 1);
     height: 100vh;
@@ -108,7 +115,7 @@ form .loginForm {
         height: 50vh;
     }
 }
-
+//로그인 페이지 css
 .contentSignup {
     color: rgba(255, 255, 255, 1);
     font-size: 1.5rem;

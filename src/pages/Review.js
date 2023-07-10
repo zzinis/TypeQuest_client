@@ -100,7 +100,7 @@ const BoardPhoto = styled.div`
     object-fit: cover;
 `;
 
-const BoardUser_id = styled.div`
+const BoardUserId = styled.div`
     margin-top: 4vh;
     color: rgba(50, 50, 160, 1);
     font-weight: bolder;
@@ -217,7 +217,7 @@ const Review = () => {
                                 <ProfileImg src={`../../profile/${post.img}.jpg`} />
                             </BoardPhoto>
                             <BoardBottom>
-                                <BoardUser_id>{post.user_id}</BoardUser_id>
+                                <BoardUserId>{post.user_id}</BoardUserId>
                                 <BoardResult>{post.result}</BoardResult>
                                 <BoardTime>
                                     {extractDate(post.created_at)} {formatTime(post.created_at)}

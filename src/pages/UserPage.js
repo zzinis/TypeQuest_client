@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Avatar, Typography, Box, Button, Grid, Paper, TextField, ThemeProvider, createTheme } from '@mui/material';
 import { styled } from '@mui/system';
 import MainHeader from './Header';
 import Footer from './Footer';
-
 
 const customTheme = createTheme({
     typography: {
@@ -15,7 +15,7 @@ const customTheme = createTheme({
         },
         body1: {
             fontSize: '18px',
-            fontWeight: '500'
+            fontWeight: '500',
         },
     },
     palette: {
@@ -25,53 +25,34 @@ const customTheme = createTheme({
     },
 });
 
-
-
-
 const StyledPaper = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(3),
     backgroundColor: '#f5f5f5',
     minHeight: '600px',
-    marginTop: "100px",
-    width: "600px",
-
+    marginTop: '100px',
+    width: '600px',
 }));
 
-const initialUsers = [
-    {
-        id: 'testId1',
-        pw: 'testpw1',
-        name: 'John Doe',
-        email: 'john@example.com',
-        img: 'dog'
-    },
-    {
-        id: 'testId2',
-        pw: 'testpw2',
-        name: 'Jane Smith',
-        email: 'jane@example.com',
-        img: 'pig'
-    },
-    {
-        id: 'testId3',
-        pw: 'testpw3',
-        name: 'Alice Johnson',
-        email: 'alice@example.com',
-        img: 'hamster'
-    },
-    {
-        id: 'testId4',
-        pw: 'testpw4',
-        name: 'Bob Wilson',
-        email: 'bob@example.com',
-        img: 'cat'
-    }
-];
-
 const MyPage = () => {
-    const [user, setUser] = React.useState(initialUsers[0]);
-    const [isEditing, setIsEditing] = React.useState(false);
-    const [editedUser, setEditedUser] = React.useState({});
+    const [users, setUsers] = useState([]);
+    const [user, setUser] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedUser, setEditedUser] = useState({});
+    const id = sessionStorage.getItem('user_data');
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/user/${id}`);
+                setUsers(response.data.user);
+                setUser(response.data.user); // 첫 번째 사용자를 기본 사용자로 설정
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchUsers();
+    }, []);
 
     const handleProfileEdit = () => {
         setIsEditing(true);
@@ -90,22 +71,31 @@ const MyPage = () => {
         setUser(editedUser);
         setIsEditing(false);
     };
+
+    if (!user) {
+        return null; // 사용자 데이터가 로드되지 않은 경우, 로딩 중이라고 표시하거나 다른 처리를 할 수 있습니다.
+    }
+
     return (
         <>
             <MainHeader />
             <ThemeProvider theme={customTheme}>
-                <Box
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                >
+                <Box display="flex" justifyContent="center" alignItems="center">
                     <StyledPaper elevation={3}>
                         <Grid container spacing={2} justifyContent="center" alignItems="center">
                             <Grid item>
                                 {isEditing ? (
-                                    <Avatar alt="User Avatar" src={`/path/to/${editedUser.img}.jpg`} sx={{ width: 120, height: 120 }} />
+                                    <Avatar
+                                        alt="User Avatar"
+                                        src={`../../profile/${user.img}.jpg`}
+                                        sx={{ width: 120, height: 120 }}
+                                    />
                                 ) : (
-                                    <Avatar alt="User Avatar" src={`/path/to/${user.img}.jpg`} sx={{ width: 120, height: 120 }} />
+                                    <Avatar
+                                        alt="User Avatar"
+                                        src={`../../profile/${user.img}.jpg`}
+                                        sx={{ width: 120, height: 120 }}
+                                    />
                                 )}
                             </Grid>
                             <Grid item>
@@ -122,7 +112,7 @@ const MyPage = () => {
                                     </Typography>
                                 )}
 
-                                <Typography variant="subtitle1" component="p" color="textSecondary">
+                                <Typography variant="subtitle1" component="div" color="textSecondary">
                                     {isEditing ? (
                                         <TextField
                                             name="email"
@@ -149,11 +139,12 @@ const MyPage = () => {
                         </Grid>
 
                         <Box mt={3}>
-                            <Typography variant="h6" component="h2" mt={6}>
+                            <Typography variant="h6" component="div" mt={6}>
                                 개인 정보
                             </Typography>
-                            <Typography variant="body1" component="p" mt={1} color="textSecondary">
-                                아이디 :  {isEditing ? (
+                            <Typography variant="body1" component="div" mt={1} color="textSecondary">
+                                아이디:{' '}
+                                {isEditing ? (
                                     <TextField
                                         name="id"
                                         label="ID"
@@ -164,8 +155,9 @@ const MyPage = () => {
                                     user.id
                                 )}
                             </Typography>
-                            <Typography variant="body1" component="p" mt={1} color="textSecondary">
-                                비밀번호 :  {isEditing ? (
+                            <Typography variant="body1" component="div" mt={1} color="textSecondary">
+                                비밀번호:{' '}
+                                {isEditing ? (
                                     <TextField
                                         type="password"
                                         name="pw"
@@ -177,8 +169,8 @@ const MyPage = () => {
                                     ' ********'
                                 )}
                             </Typography>
-                            <Typography variant="body1" component="p" mt={1} color="textSecondary">
-                                이메일 : {user.email}
+                            <Typography variant="body1" component="div" mt={1} color="textSecondary">
+                                이메일: {user.email}
                             </Typography>
                         </Box>
                     </StyledPaper>
