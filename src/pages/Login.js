@@ -215,6 +215,8 @@ function Login() {
                     window.location.href = '../Login';
                     return;
                 } else {
+                    //로그인 성공시 입력한 id, pw를 세션스토리지에 데이터 저장
+                    sessionStorage.setItem('user_data', user_id.current);
                     navigate('../MbtiPage');
                 }
             })
