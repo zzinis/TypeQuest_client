@@ -103,6 +103,7 @@ const MobileCategories = styled.div`
     top: 7%;
     opacity: ${({ open }) => (open ? '1' : '0')};
     transition: opacity 300ms;
+    z-index:10;
   }
 `;
 
