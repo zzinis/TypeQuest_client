@@ -4,31 +4,30 @@ import styled from 'styled-components';
 import LogoSrc from '../assets/TQ.png';
 //navigate
 import { useNavigate } from 'react-router-dom';
-
+import { CSSTransition } from 'react-transition-group';
 
 
 const Hamburger = styled.div`
-    display: none;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
 
-    @media screen and (max-width: 768px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 30px;
-        height: 20px;
-        padding: 5px;
-    }
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 20px;
+    padding: 5px;
+  }
 `;
 
 const HamburgerLine = styled.div`
-    width: 100%;
-    height: 2px;
-    background-color: rgba(11, 31, 46, 1);
-    margin-bottom: 4px;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(11, 31, 46, 1);
+  margin-bottom: 4px;
 `;
-
 
 const Header = styled.div`
     width: 100%;
@@ -60,63 +59,66 @@ const Logo = styled.img`
         }
     }
 `;
-const Categories = styled.div`
-    display: flex;
-    justify-content: center;
-    font: 18px/1 'Noto Sans KR';
 
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
+
+const Categories = styled.div`
+  display: flex;
+  justify-content: center;
+  font: 18px/1 'Noto Sans KR';
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Category = styled.div`
-    margin: 5px 10px;
-    padding: 10px;
-    cursor: pointer;
+  margin: 5px 10px;
+  padding: 10px;
+  cursor: pointer;
 
-    a {
-        text-decoration: none;
-        color: rgba(11, 31, 46, 1);
+  a {
+    text-decoration: none;
+    color: rgba(11, 31, 46, 1);
 
-        &:hover {
-            color: rgba(131, 25, 166, 1);
-            border-bottom: 2px solid rgba(131, 25, 166, 1);
-        }
+    &:hover {
+      color: rgba(131, 25, 166, 1);
+      border-bottom: 2px solid rgba(131, 25, 166, 1);
     }
+  }
 `;
 
 const MobileCategories = styled.div`
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-    @media screen and (max-width: 768px) {
-        display: ${({ open }) => (open ? 'block' : 'none')};
-        position:absolute;
-        top:7%;
-        
-    }
+  @media screen and (max-width: 768px) {
+    display: ${({ open }) => (open ? 'block' : 'none')};
+    position: absolute;
+    top: 7%;
+    opacity: ${({ open }) => (open ? '1' : '0')};
+    transition: opacity 300ms;
+  }
 `;
 
 const MobileCategory = styled.div`
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 
-    a {
-        text-decoration: none;
-        color: rgba(11, 31, 46, 1);
+  a {
+    text-decoration: none;
+    color: rgba(11, 31, 46, 1);
 
-        &:hover {
-            color: rgba(131, 25, 166, 1);
-            border-bottom: 2px solid rgba(131, 25, 166, 1);
-        }
+    &:hover {
+      color: rgba(131, 25, 166, 1);
+      border-bottom: 2px solid rgba(131, 25, 166, 1);
     }
+  }
 `;
 
 
@@ -153,6 +155,29 @@ const SignButton = styled.button`
             height: 30px;
         }
     }
+`;
+const MobileCategoriesTransition = styled(CSSTransition)`
+  &.menu-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  &.menu-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  &.menu-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.menu-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 300ms, transform 300ms;
+  }
 `;
 
 function MainHeader() {
@@ -208,20 +233,27 @@ function MainHeader() {
                         <Link to="/ChatLogin">채팅</Link>
                     </Category>
                 </Categories>
-                <MobileCategories open={mobileMenuOpen}>
-                    <MobileCategory>
-                        <Link to="/Personalities">성격 유형</Link>
-                    </MobileCategory>
-                    <MobileCategory>
-                        <Link to="/MbtiPage">테스트</Link>
-                    </MobileCategory>
-                    <MobileCategory>
-                        <Link to="/Review">후기</Link>
-                    </MobileCategory>
-                    <MobileCategory>
-                        <Link to="/ChatLogin">채팅</Link>
-                    </MobileCategory>
-                </MobileCategories>
+                <MobileCategoriesTransition
+                    in={mobileMenuOpen}
+                    classNames="menu"
+                    timeout={300}
+                    unmountOnExit
+                >
+                    <MobileCategories open={mobileMenuOpen}>
+                        <MobileCategory>
+                            <Link to="/Personalities">성격 유형</Link>
+                        </MobileCategory>
+                        <MobileCategory>
+                            <Link to="/MbtiPage">테스트</Link>
+                        </MobileCategory>
+                        <MobileCategory>
+                            <Link to="/Review">후기</Link>
+                        </MobileCategory>
+                        <MobileCategory>
+                            <Link to="/ChatLogin">채팅</Link>
+                        </MobileCategory>
+                    </MobileCategories>
+                </MobileCategoriesTransition>
 
 
                 <Sign>
