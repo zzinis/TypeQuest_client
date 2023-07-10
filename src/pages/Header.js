@@ -5,7 +5,7 @@ import LogoSrc from '../assets/TQ.png';
 //navigate
 import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-
+import { FiMenu } from 'react-icons/fi';
 
 const Hamburger = styled.div`
   display: none;
@@ -16,8 +16,8 @@ const Hamburger = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 20px;
+    width: 40px;
+    height: 30px;
     padding: 5px;
   }
 `;
@@ -54,7 +54,6 @@ const Logo = styled.img`
         @media (max-width: 768px) {
             width: 150px;
             height: 7.5vh;
-            margin-right: 235px;
 
         }
     }
@@ -277,9 +276,7 @@ function MainHeader() {
                     )}
                 </Sign>
                 <Hamburger onClick={handleMenuToggle}>
-                    <HamburgerLine />
-                    <HamburgerLine />
-                    <HamburgerLine />
+                    <FiMenu size={25} />
                 </Hamburger>
             </Header>
 
