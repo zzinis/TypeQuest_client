@@ -3,6 +3,8 @@ import axios from 'axios';
 import Mbti from '../common/api/travelResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/TravelResult.scss';
+import Footer from './Footer';
+import MainHeader from './Header';
 
 import CreateReview from './CreateReview';
 
@@ -53,9 +55,10 @@ function TravelResult() {
     return (
         <>
             <div className="Layout">
+                <MainHeader />
                 <div className="resultLayout">
                     <div className="resultTitle">
-                        <h2>님의 여행MBTI 결과는?</h2>
+                        <h2>여행MBTI 결과는?</h2>
                     </div>
                     {Mbti.find((data) => data.id === mbti.mbti) && (
                         <div className="resultShow">
@@ -81,7 +84,7 @@ function TravelResult() {
                                 </li>
                             </ul>
                             <h1 className="travelTitle">추천하는 여행지는?</h1>
-                            <div className="recommend">
+                            <div className="recommend1">
                                 <h2>{Mbti.find((data) => data.id === mbti.mbti)?.text}</h2>
 
                                 <img
@@ -106,6 +109,7 @@ function TravelResult() {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
 
             {isPopupOpen && (

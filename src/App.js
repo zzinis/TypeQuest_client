@@ -13,6 +13,7 @@ import Review from './pages/Review';
 import YoutubeTest from './pages/YoutubeTest';
 import YoutubeResult from './pages/YoutubeResult';
 import JobTest from './pages/JobTest';
+import JobResult from './pages/JobResult';
 import './assets/custom.scss';
 import Personalities from './pages/Personalities';
 import UserPage from './pages/UserPage';
@@ -42,6 +43,7 @@ function App() {
                     <Route path="/YoutubeResult" element={<YoutubeResult />} />
                     <Route path="/Review" element={<Review />} />
                     <Route path="/JobTest" element={<JobTest />} />
+                    <Route path="/JobResult" element={<JobResult />} />
                 </Routes>
             </BrowserRouter>
         </>
