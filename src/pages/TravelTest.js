@@ -10,6 +10,11 @@ function TravleTest() {
     const [num, setNum] = useState(0);
     const [mbtiList, setMbtiList] = useState([]);
     const navigate = useNavigate();
+    if (sessionStorage.getItem('user_data') === null) {
+        alert('로그인 후 이용해주세요');
+        window.location.href = '/Login';
+        return;
+    }
     //배열 자르기 함수
     const chunk = (data = [], size = 1) => {
         const arr = [];
@@ -32,32 +37,28 @@ function TravleTest() {
         setNum(num + 1);
         setCurrentPage(currentPage + 1);
     };
-    //mbti 추출
-    const resultMbti = () => {
-        let result = [];
-        let i = 0;
-        let s = 0;
-        let t = 0;
-        let p = 0;
-        if (id === 13) {
-            result = chunk(mbtiList, 1);
-            for (let j = 0; j < 12; j++) {
-                if (result[j] === 'I') {
-                    i += 1;
-                } else if (result[j] === 'S') {
-                    s += 1;
-                } else if (result[j] === 'T') {
-                    t += 1;
-                } else if (result[j] === 'P') {
-                    p += 1;
-                }
+    let result = [];
+    let i = 0;
+    let s = 0;
+    let t = 0;
+    let p = 0;
+    if (id === 13) {
+        result = chunk(mbtiList, 1);
+        for (let j = 0; j < 12; j++) {
+            if (result[j] === 'I') {
+                i += 1;
+            } else if (result[j] === 'S') {
+                s += 1;
+            } else if (result[j] === 'T') {
+                t += 1;
+            } else if (result[j] === 'P') {
+                p += 1;
             }
-            let final_mbti = [i >= 2 ? 'I' : 'E', s >= 2 ? 'S' : 'N', t >= 2 ? 'T' : 'F', p >= 2 ? 'P' : 'J'];
-            const mbti = final_mbti.join('');
-            navigate('/Result', { state: { id: { mbti } } });
         }
-    };
-    resultMbti();
+        let final_mbti = [i >= 2 ? 'I' : 'E', s >= 2 ? 'S' : 'N', t >= 2 ? 'T' : 'F', p >= 2 ? 'P' : 'J'];
+        const mbti = final_mbti.join('');
+        navigate('/Result', { state: { id: { mbti } } });
+    }
     return (
         <div className="mainLayout">
             <MainHeader />
