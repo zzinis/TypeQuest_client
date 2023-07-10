@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoSrc from '../assets/TQ.png';
 //navigate
@@ -105,28 +105,33 @@ const SignButton = styled.button`
 
 function MainHeader() {
     const navigate = useNavigate();
+    const [loggedIn, setLoggedIn] = useState();
     const onClickHandler = () => {
         // 로고 클릭시 메인 페이지로 이동
         navigate('/');
     };
 
-    useEffect(() => {
-        isLoggedIn();
-        showAlert();
-    }, []);
     //로그인 시 이용할 수 있는 기능에 넣어놓기
     function showAlert() {
-        if (!isLoggedIn()) {
-            // 로그인되지 않은 상태인지 확인
+        if (!loggedIn) {
             alert('로그인 후 이용가능합니다.');
         }
     }
 
-    function isLoggedIn() {
+    function checkLoggedIn() {
         let isLoggedIn = sessionStorage.getItem('user_data'); // 로그인 상태 확인
         isLoggedIn = isLoggedIn ? true : false;
-        return isLoggedIn;
+        setLoggedIn(isLoggedIn);
     }
+
+    const handleLogout = () => {
+        sessionStorage.removeItem('user_data');
+        setLoggedIn(false);
+    };
+    useEffect(() => {
+        checkLoggedIn();
+        // showAlert();
+    }, []);
 
     return (
         <>
@@ -148,16 +153,16 @@ function MainHeader() {
                 </Categories>
 
                 <Sign>
-                    {isLoggedIn() === true ? (
-                        <Link to="/Join">
-                            <SignButton>로그아웃</SignButton>
+                    {loggedIn === true ? (
+                        <Link to="/">
+                            <SignButton onClick={handleLogout}>로그아웃</SignButton>
                         </Link>
                     ) : (
                         <Link to="/Login">
                             <SignButton>로그인</SignButton>
                         </Link>
                     )}
-                    {isLoggedIn() === true ? (
+                    {loggedIn === true ? (
                         <Link to="/UserPage">
                             <SignButton>MyPage</SignButton>
                         </Link>
