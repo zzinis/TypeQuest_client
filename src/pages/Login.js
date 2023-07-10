@@ -10,6 +10,14 @@ const LoginHeader = styled.h1`
     font: bold 35px/1 'Noto Sans KR';
     margin: 25px;
     padding: 25px;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            font: bold 20px/1 'Noto Sans KR';
+            margin: 10px;
+            padding: 10px;
+        }
+    }
 `;
 
 export const InputContainer = styled.div`
@@ -18,6 +26,14 @@ export const InputContainer = styled.div`
     flex-direction: column;
     margin: 15px;
     position: relative; /* 추가 */
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            max-width: 414px;
+            margin: 0px;
+        }
+    }
 `;
 export const Input = styled.input`
     width: 460px;
@@ -73,7 +89,7 @@ export const SignInBtn = styled.button`
 export const SubmitBtn = styled.button`
     border: 0px;
     display: block;
-    background-color: rgba(82, 88, 136, 1);
+    background-color: #04202f;
     color: #fff;
     height: 3rem;
     padding: 0.625rem 1rem;
@@ -86,6 +102,18 @@ export const SubmitBtn = styled.button`
         font: 18px;
         cursor: pointer;
     }
+    a {
+        color: rgba(82, 88, 136, 1);
+    }
+
+    // 모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 100px;
+            height: 2rem;
+            font-size: 0.8rem;
+        }
+    }
 `;
 
 export const InputWrapper = styled.div`
@@ -94,6 +122,17 @@ export const InputWrapper = styled.div`
     width: 460px;
     align-items: center;
     justify-content: center;
+    margin: 0px;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 930px) {
+            width: 350px;
+        }
+
+        @media (max-width: 768px) {
+            width: 350px;
+        }
+    }
 `;
 export const Warn = styled.p`
     display: flex;
@@ -105,6 +144,19 @@ export const Warn = styled.p`
 `;
 export const Filed = styled.fieldset`
     border: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 `;
 
 export const Hidden = styled.legend`
@@ -119,6 +171,13 @@ const Logo = styled.img`
     left: 0px;
     width: 200px;
     height: 10vh;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 150px;
+            height: 7.5vh;
+        }
+    }
 `;
 
 function Login() {
@@ -156,6 +215,8 @@ function Login() {
                     window.location.href = '../Login';
                     return;
                 } else {
+                    //로그인 성공시 입력한 id, pw를 세션스토리지에 데이터 저장
+                    sessionStorage.setItem('user_data', user_id.current);
                     navigate('../MbtiPage');
                 }
             })

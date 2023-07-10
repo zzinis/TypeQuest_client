@@ -1,0 +1,108 @@
+#main-footer {
+    width: 100%;
+}
+.mainLayout {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(82, 88, 136, 1);
+}
+.questionLayout {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(82, 88, 136, 1);
+    width: 100%;
+    align-items: center;
+    border-radius: 10px;
+    height: 60vh;
+    margin: 40px 0px;
+    padding: 40px 0px;
+}
+.mbtiTitle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 25px;
+}
+.mbtiTitle div:nth-child(1) {
+    display: flex;
+    flex: 1;
+}
+.questionItemLayout {
+    display: flex;
+    flex: 1;
+    margin: 10px 15px 5px 15px;
+}
+.answerItemLayout {
+    width: 100%;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.questionBox {
+    padding: 20px;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+}
+.mbti_counter {
+    font-weight: bold;
+}
+
+.answerLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.answerButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 20px;
+    box-shadow: 3px 3px 3px rgb(63, 63, 63);
+}
+.answerButton:active {
+    color: #fff;
+    background-color: #fd4d4d;
+    transform: scale(0.95);
+    transition: 100ms;
+    border: none;
+}
+
+.typequest_1 {
+    border: 2px solid black;
+    background-color: #eee;
+    min-width: 900px;
+    max-width: 900px;
+    border-radius: 10px;
+    height: 60vh;
+
+    h1 {
+        text-align: center;
+        font-size: 28px;
+    }
+    button {
+        width: 75%;
+    }
+}

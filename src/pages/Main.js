@@ -9,6 +9,12 @@ export const Wrapper = styled.div`
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    @media screen {
+        //모바일 사이즈
+        @media (max-width: 768px) {
+            height: 92.5vh;
+        }
+    }
 `;
 
 export const Inner = styled.div`
@@ -22,6 +28,12 @@ export const Inner = styled.div`
     height: 90vh;
     padding: 0px;
     color: white;
+    @media screen {
+        //모바일 사이즈
+        @media (max-width: 768px) {
+            height: 92.5vh;
+        }
+    }
 `;
 
 const MainImg = styled.img`
@@ -29,7 +41,15 @@ const MainImg = styled.img`
     height: 500px;
     margin: 0 auto;
     text-align: center;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 400px;
+            height: 400px;
+        }
+    }
 `;
+
 
 function Main() {
     return (

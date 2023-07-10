@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import io from 'socket.io-client';
 import Chat from './Chat';
+import MainHeader from './Header';
+import Footer from './Footer';
 // 임시 소켓 주소
 const socket = io.connect('http://localhost:8000');
 
@@ -10,9 +12,9 @@ const socket = io.connect('http://localhost:8000');
 
 const AppContainer = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 `;
 
 const JoinChatContainer = styled.div`
@@ -20,11 +22,12 @@ const JoinChatContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 20px;
     padding: 20px;
     border-radius: 5px;
     background-color: #c3e6f7;
     width: 500px;
-    height: 800px;
+    height: 80vh;
 `;
 
 const Title = styled.h3`
@@ -68,6 +71,7 @@ function ChatLogin() {
 
     return (
         <AppContainer>
+            <MainHeader />
             {!showChat ? (
                 <JoinChatContainer>
                     <Title>MBTI 채팅방</Title>
@@ -90,6 +94,7 @@ function ChatLogin() {
             ) : (
                 <Chat socket={socket} username={username} room={room} />
             )}
+            <Footer />
         </AppContainer>
     );
 }
