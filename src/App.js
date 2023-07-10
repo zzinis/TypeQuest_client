@@ -17,6 +17,7 @@ import './assets/custom.scss';
 import Personalities from './pages/Personalities';
 import UserPage from './pages/UserPage';
 import Ask from './pages/Ask';
+import AdminPage from './pages/Adminpage';
 
 function App() {
     return (
@@ -28,6 +29,8 @@ function App() {
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Join" element={<Join />}></Route>
                     <Route path='/Ask' element={<Ask />}></Route>
+                    <Route path='/Adminpage' element={<AdminPage />}></Route>
+
                     <Route path="/UserPage" element={<UserPage />}></Route>
                     <Route path="/MbtiPage" element={<MbtiPage />}></Route>
                     <Route path="/ChatLogin" element={<ChatLogin />}></Route>
