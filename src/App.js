@@ -16,6 +16,7 @@ import JobTest from './pages/JobTest';
 import './assets/custom.scss';
 import Personalities from './pages/Personalities';
 import UserPage from './pages/UserPage';
+import Ask from './pages/Ask';
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                     <Route path="/" element={<Main />}></Route>
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Join" element={<Join />}></Route>
+                    <Route path='/Ask' element={<Ask />}></Route>
                     <Route path="/UserPage" element={<UserPage />}></Route>
                     <Route path="/MbtiPage" element={<MbtiPage />}></Route>
                     <Route path="/ChatLogin" element={<ChatLogin />}></Route>
