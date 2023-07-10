@@ -5,6 +5,31 @@ import LogoSrc from '../assets/TQ.png';
 //navigate
 import { useNavigate } from 'react-router-dom';
 
+
+
+const Hamburger = styled.div`
+    display: none;
+    cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 20px;
+        padding: 5px;
+    }
+`;
+
+const HamburgerLine = styled.div`
+    width: 100%;
+    height: 2px;
+    background-color: rgba(11, 31, 46, 1);
+    margin-bottom: 4px;
+`;
+
+
 const Header = styled.div`
     width: 100%;
     display: flex;
@@ -30,20 +55,18 @@ const Logo = styled.img`
         @media (max-width: 768px) {
             width: 150px;
             height: 7.5vh;
+            margin-right: 235px;
+
         }
     }
 `;
-
 const Categories = styled.div`
     display: flex;
     justify-content: center;
     font: 18px/1 'Noto Sans KR';
 
-    //모바일 사이즈
-    @media screen {
-        @media (max-width: 768px) {
-            display: none;
-        }
+    @media screen and (max-width: 768px) {
+        display: none;
     }
 `;
 
@@ -51,22 +74,51 @@ const Category = styled.div`
     margin: 5px 10px;
     padding: 10px;
     cursor: pointer;
+
     a {
         text-decoration: none;
         color: rgba(11, 31, 46, 1);
+
         &:hover {
             color: rgba(131, 25, 166, 1);
-
             border-bottom: 2px solid rgba(131, 25, 166, 1);
         }
     }
-    // mobile size
-    @media screen {
-        @media (max-width: 768px) {
-            margin: 5px 5px;
+`;
+
+const MobileCategories = styled.div`
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    @media screen and (max-width: 768px) {
+        display: ${({ open }) => (open ? 'block' : 'none')};
+        position:absolute;
+        top:7%;
+        
+    }
+`;
+
+const MobileCategory = styled.div`
+    margin-bottom: 10px;
+
+    a {
+        text-decoration: none;
+        color: rgba(11, 31, 46, 1);
+
+        &:hover {
+            color: rgba(131, 25, 166, 1);
+            border-bottom: 2px solid rgba(131, 25, 166, 1);
         }
     }
 `;
+
 
 const Sign = styled.div`
     display: flex;
@@ -105,6 +157,11 @@ const SignButton = styled.button`
 
 function MainHeader() {
     const navigate = useNavigate();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const handleMenuToggle = () => {
+        setMobileMenuOpen(!mobileMenuOpen);
+    };
+
     const [loggedIn, setLoggedIn] = useState();
     const onClickHandler = () => {
         // 로고 클릭시 메인 페이지로 이동
@@ -151,6 +208,21 @@ function MainHeader() {
                         <Link to="/ChatLogin">채팅</Link>
                     </Category>
                 </Categories>
+                <MobileCategories open={mobileMenuOpen}>
+                    <MobileCategory>
+                        <Link to="/Personalities">성격 유형</Link>
+                    </MobileCategory>
+                    <MobileCategory>
+                        <Link to="/MbtiPage">테스트</Link>
+                    </MobileCategory>
+                    <MobileCategory>
+                        <Link to="/Review">후기</Link>
+                    </MobileCategory>
+                    <MobileCategory>
+                        <Link to="/ChatLogin">채팅</Link>
+                    </MobileCategory>
+                </MobileCategories>
+
 
                 <Sign>
                     {loggedIn === true ? (
@@ -172,7 +244,13 @@ function MainHeader() {
                         </Link>
                     )}
                 </Sign>
+                <Hamburger onClick={handleMenuToggle}>
+                    <HamburgerLine />
+                    <HamburgerLine />
+                    <HamburgerLine />
+                </Hamburger>
             </Header>
+
         </>
     );
 }
