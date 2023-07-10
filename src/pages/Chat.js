@@ -10,6 +10,7 @@ const ChatWindow = styled.div`
   height: 80vh;
   display: flex;
   flex-direction: column;
+  margin-top:30px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -64,33 +65,35 @@ const Message = styled.div`
   &:last-child {
     margin-bottom: 0;
   }
+  
 
   ${props =>
     props.isYou
       ? css`
+        justify-content: flex-start;
+
+        .message-content {
           justify-content: flex-start;
+        }
 
-          .message-content {
-            justify-content: flex-start;
-          }
-
-          .message-meta {
-            justify-content: flex-start;
-            margin-left: 5px;
-          }
-        `
+        .message-meta {
+          justify-content: flex-start;
+          margin-left: 5px;
+        }
+      `
       : css`
+        justify-content: flex-end;
+
+        .message-content {
           justify-content: flex-end;
+        }
 
-          .message-content {
-            justify-content: flex-end;
-          }
+        .message-meta {
+          justify-content: flex-end;
+          margin-right: 5px;
+        }
+      `}
 
-          .message-meta {
-            justify-content: flex-end;
-            margin-right: 5px;
-          }
-        `}
 `;
 
 const MessageContent = styled.div`
