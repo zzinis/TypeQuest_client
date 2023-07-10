@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoSrc from '../assets/TQ.png';
@@ -109,6 +109,26 @@ function MainHeader() {
         // 로고 클릭시 메인 페이지로 이동
         navigate('/');
     };
+
+    //로그인 시 이용할 수 있는 기능에 넣어놓기
+    function showAlert() {
+        if (!isLoggedIn()) {
+            // 로그인되지 않은 상태인지 확인
+            alert('로그인 후 이용가능합니다.');
+        }
+    }
+
+    function isLoggedIn() {
+        let isLoggedIn = sessionStorage.getItem('user_data'); // 로그인 상태 확인
+        isLoggedIn = !isLoggedIn ? true : false;
+        return isLoggedIn; // 문자열로 저장된 상태를 불리언 값으로 반환
+    }
+
+    useEffect(() => {
+        showAlert();
+    }, []);
+
+    // const isLoggedIn = false; //임시
     return (
         <>
             <Header>
@@ -127,12 +147,24 @@ function MainHeader() {
                 </Categories>
 
                 <Sign>
-                    <Link to="/Login">
-                        <SignButton>로그인</SignButton>
-                    </Link>
-                    <Link to="/Join">
-                        <SignButton>회원가입</SignButton>
-                    </Link>
+                    {isLoggedIn == true ? (
+                        <Link to="/Join">
+                            <SignButton>로그아웃</SignButton>
+                        </Link>
+                    ) : (
+                        <Link to="/Login">
+                            <SignButton>로그인</SignButton>
+                        </Link>
+                    )}
+                    {isLoggedIn == true ? (
+                        <Link to="/UserPage">
+                            <SignButton>MyPage</SignButton>
+                        </Link>
+                    ) : (
+                        <Link to="/Join">
+                            <SignButton>회원가입</SignButton>
+                        </Link>
+                    )}
                 </Sign>
             </Header>
         </>
