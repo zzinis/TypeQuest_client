@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typography, TextField, Button, Box } from '@mui/material';
 import axios from 'axios';
 
@@ -29,39 +29,40 @@ function Ask() {
                 }
                 return inquiry;
             });
-            // axios
-            //     .put(`/Ask/${editId}`, { title, content })
-            //     .then(() => {
-            //         setInquiries(updatedInquiries);
-            //         setEditId(null);
-            //     })
-            //     .catch((error) => {
-            //         console.error('문의 수정에 실패했습니다:', error);
-            //         // 오류 처리 로직 추가
-            //     });
+            axios
+                .patch(`http://localhost:8000/ask/${editId}`, { title, content })
+                .then(() => {
+                    setInquiries(updatedInquiries);
+                    setEditId(null);
+                })
+                .catch((error) => {
+                    console.error('문의 수정에 실패했습니다:', error);
+                    // 오류 처리 로직 추가
+                });
 
             setInquiries(updatedInquiries);
             setEditId(null);
         } else {
             // 등록 로직 작성
+            const user_id = sessionStorage.getItem('user_data');
+            console.log('user_id', user_id);
             const newInquiry = {
-                id: Date.now(),
+                user_id: user_id,
                 title: title,
                 content: content,
             };
 
             setInquiries([...inquiries, newInquiry]);
-            // axios
-            //     .post('/Ask', newInquiry)
-            //     .then(() => {
-            //         setInquiries([...inquiries, newInquiry]);
-            //     })
-            //     .catch((error) => {
-            //         console.error('문의 등록에 실패했습니다:', error);
-            //         // 오류 처리 로직 추가
-            //     });
+            axios
+                .post('http://localhost:8000/ask', newInquiry)
+                .then(() => {
+                    setInquiries([...inquiries, newInquiry]);
+                })
+                .catch((error) => {
+                    console.error('문의 등록에 실패했습니다:', error);
+                    // 오류 처리 로직 추가
+                });
         }
-
         setTitle('');
         setContent('');
     };
@@ -88,6 +89,20 @@ function Ask() {
         //         // 오류 처리 로직 추가
         //     });
     };
+
+    useEffect(() => {
+        const user_id = sessionStorage.getItem('user_data');
+        axios
+            .get('http://localhost:8000/ask', { params: { user_id } })
+            .then((result) => {
+                setInquiries(result.data);
+            })
+            .catch((error) => {
+                console.error('문의 등록에 실패했습니다:', error);
+                // 오류 처리 로직 추가
+            });
+    }, []);
+    console.log(inquiries, 'inquiries');
 
     return (
         <Box sx={{ maxWidth: 600, margin: 'auto', padding: 2 }}>
@@ -172,11 +187,7 @@ function Ask() {
                                     >
                                         수정
                                     </Button>
-                                    <Button
-                                        variant="outlined"
-                                        color="error"
-                                        onClick={() => handleDelete(inquiry.id)}
-                                    >
+                                    <Button variant="outlined" color="error" onClick={() => handleDelete(inquiry.id)}>
                                         삭제
                                     </Button>
                                 </Box>
