@@ -1,50 +1,61 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import io from 'socket.io-client';
+
 const socket = io.connect('http://localhost:8000');
 
-// chat 스타일 컴포넌트
 const ChatWindow = styled.div`
-    width: 600px;
-    height: 100%;
+  width: 600px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 70vh;
+  }
 `;
 
 const ChatHeader = styled.div`
-    height: 45px;
-    border-radius: 6px;
-    background: #4b8fed;
-    position: relative;
-    cursor: pointer;
-    padding: 10px;
+  height: 45px;
+  border-radius: 6px;
+  background: #4b8fed;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
 `;
 
 const ChatHeaderTitle = styled.p`
-    display: block;
-    padding: 0;
-    color: #fff;
-    font-size: 20px;
-    font: bold 25px/1px 'arial';
+  display: block;
+  padding: 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'arial';
 `;
 
 const ChatBody = styled.div`
-    min-height: 600px;
-    height: 100%;
-    border: 1px solid #263238;
-    background: #c3e6f7;
-    position: relative;
+  flex-grow: 1;
+  border: 1px solid #263238;
+  background: #c3e6f7;
+  position: relative;
+  overflow: hidden;
 `;
 
 const MessageContainer = styled(ScrollToBottom)`
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
-    ::-webkit-scrollbar {
-        display: none;
-    }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  scroll-behavior: smooth;
 `;
+
 const Message = styled.div`
   height: auto;
   padding: 10px;
@@ -54,31 +65,32 @@ const Message = styled.div`
     margin-bottom: 0;
   }
 
-  &.you {
-    justify-content: flex-start;
+  ${props =>
+    props.isYou
+      ? css`
+          justify-content: flex-start;
 
-    .message-content {
-      justify-content: flex-start;
-    }
+          .message-content {
+            justify-content: flex-start;
+          }
 
-    .message-meta {
-      justify-content: flex-start;
-      margin-left: 5px;
-    }
-  }
+          .message-meta {
+            justify-content: flex-start;
+            margin-left: 5px;
+          }
+        `
+      : css`
+          justify-content: flex-end;
 
-  &.other {
-    justify-content: flex-end;
+          .message-content {
+            justify-content: flex-end;
+          }
 
-    .message-content {
-      justify-content: flex-end;
-    }
-
-    .message-meta {
-      justify-content: flex-end;
-      margin-right: 5px;
-    }
-  }
+          .message-meta {
+            justify-content: flex-end;
+            margin-right: 5px;
+          }
+        `}
 `;
 
 const MessageContent = styled.div`
@@ -99,106 +111,51 @@ const MessageContent = styled.div`
   word-break: break-word;
 `;
 
-// const Message = styled.div`
-//     height: auto;
-//     padding: 10px;
-//     display: flex;
-
-//     &:last-child {
-//         margin-bottom: 0;
-//     }
-
-//     &.you {
-//         justify-content: flex-start;
-
-//         .message-content {
-//             justify-content: flex-start;
-//         }
-
-//         .message-meta {
-//             justify-content: flex-start;
-//             margin-left: 5px;
-//         }
-//     }
-
-//     &.other {
-//         justify-content: flex-end;
-
-//         .message-content {
-//             justify-content: flex-end;
-//             background-color: cornflowerblue;
-//         }
-
-//         .message-meta {
-//             justify-content: flex-end;
-//             margin-right: 5px;
-//         }
-//     }
-// `;
-
-// const MessageContent = styled.div`
-//     width: auto;
-//     height: auto;
-//     min-height: 40px;
-//     max-width: 120px;
-//     background-color: #f4e9dc;
-//     border-radius: 5px;
-//     color: black;
-//     display: flex;
-//     align-items: center;
-//     margin-right: 5px;
-//     margin-left: 5px;
-//     padding-right: 5px;
-//     padding-left: 5px;
-//     overflow-wrap: break-word;
-//     word-break: break-word;
-// `;
-
 const MessageMeta = styled.div`
-    display: flex;
-    font-size: 12px;
+  display: flex;
+  font-size: 12px;
 
-    #author {
-        margin-left: 10px;
-        font-weight: bold;
-    }
+  #author {
+    margin-left: 10px;
+    font-weight: bold;
+  }
 `;
 
 const ChatFooter = styled.div`
-    height: 40px;
-    border: 1px solid #263238;
-    border-top: none;
-    display: flex;
+  height: 40px;
+  border: 1px solid #263238;
+  border-top: none;
+  display: flex;
 `;
 
 const ChatInput = styled.input`
-    height: 100%;
-    flex: 85%;
-    border: 0;
-    padding: 0 0.7em;
-    font-size: 1em;
-    border-right: 1px dotted #607d8b;
-    outline: none;
-    font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  flex: 85%;
+  border: 0;
+  padding: 0 0.7em;
+  font-size: 1em;
+  border-right: 1px dotted #607d8b;
+  outline: none;
+  font-family: 'Open Sans', sans-serif;
 `;
 
 const SendButton = styled.button`
-    border: 0;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    flex: 15%;
-    height: 100%;
-    background: transparent;
-    outline: none;
-    font-size: 15px;
-    color: lightgray;
-    font-weight: bold;
-    background-color: gray;
+  border: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: 15%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  color: lightgray;
+  font-weight: bold;
+  background-color: gray;
 
-    &:hover {
-        color: #f0f2f5;
-    }
+  &:hover {
+    color: #f0f2f5;
+  }
 `;
 
 function Chat({ username, room }) {
@@ -246,7 +203,10 @@ function Chat({ username, room }) {
       <ChatBody>
         <MessageContainer>
           {messageList.map((messageContent, index) => (
-            <Message key={index} className={username === messageContent.author ? 'you' : 'other'}>
+            <Message
+              key={index}
+              isYou={username === messageContent.author}
+            >
               <MessageContent>{messageContent.message}</MessageContent>
               <MessageMeta>
                 <p id="time">{messageContent.time}</p>
@@ -266,7 +226,6 @@ function Chat({ username, room }) {
             event.key === 'Enter' && sendMessage();
           }}
         />
-        {/* 전송 누르면 채팅이 2번 입력됨 수정 필요 */}
         <SendButton onClick={sendMessage}>전송</SendButton>
       </ChatFooter>
     </ChatWindow>
