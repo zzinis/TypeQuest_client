@@ -74,6 +74,7 @@ const CloseButton = styled(Button)`
 const CardWrapper = styled.div`
     cursor: pointer;
     transition: transform 0.3s ease;
+    width: 100%;
 
     &:hover {
         transform: scale(1.05);
@@ -87,7 +88,13 @@ const CardImage = styled.img`
 const Personalities = () => {
     const sliderRef = useRef(null);
     const [modalOpen, setModalOpen] = useState(false);
-    const [selectedCard, setSelectedCard] = useState({ type_id: '', img: '', content: '' });
+    const [selectedCard, setSelectedCard] = useState({
+        type_id: '',
+        img: '',
+        content1: '',
+        content2: '',
+        content3: '',
+    });
 
     const next = () => {
         sliderRef.current.slickNext();
@@ -97,8 +104,8 @@ const Personalities = () => {
         sliderRef.current.slickPrev();
     };
 
-    const openModal = (type_id, img, content) => {
-        setSelectedCard({ type_id, img, content });
+    const openModal = (type_id, img, content1, content2, content3) => {
+        setSelectedCard({ type_id, img, content1, content2, content3 });
         setModalOpen(true);
     };
 
@@ -110,91 +117,120 @@ const Personalities = () => {
         {
             type_id: 'ENFP',
             img: 'mbti/enfp.png',
-            content:
-                '정열적이고 활기가 넘치며 상상력이 풍부하다. 온정적이고 창의적이며 항상 새로운 가능성을 찾고 시도하는 유형이다. 문제 해결에 재빠르고 관심이 있는 일은 수행해내는 능력과 열성이 있다. 반복되는 일상적인 일을 참지 못하고 열성이 나지 않는다. 또한 한 가지 일을 끝내기도 전에 몇 가지 다른 일을 또 벌이는 경향을 가지고 있다. 통찰력과 창의력이 요구되지 않는 일에는 흥미를 느끼지 못하고 열성을 불러일으키지 못한다',
+            content1: '정열적이고 열정적인 성격',
+            content2: '상상력과 창의력이 풍부하며 새로운 가능성을 탐구함',
+            content3: '타인에게 긍정적인 영감을 줄 수 있음',
         },
         {
             type_id: 'INFP',
             img: 'mbti/infp.png',
-            content:
-                '인간 본연에 대한 애정으로 사람들의 장점을 발견하고, 이들의 가능성을 성취할 수 있도록 도우며, 세상을 더 나은 곳으로 만든다. 하지만 대그룹에 있을 경우 그들의 에너지가 쉽게 고갈되는 경향이 있고, 그들이 엄선한 친밀도가 높은 소수의 사람들과 상호작용 하는 것을 선호한다. 혼자 있기를 좋아하는 개인적인 성향도 있지만, 수줍음과 혼동되어서는 안되며 혼자 시간을 보내는 것으로부터 에너지를 얻는다',
+            content1: '이상적이고 이해심 많은 성격',
+            content2: '감성적이며 창의적인 면이 있음',
+            content3: '자기 신념과 가치를 중시하고 추구함',
         },
         {
             type_id: 'ESFJ',
             img: 'mbti/esfj.png',
-            content:
-                '현실적이며 리더십이 있는 ESTJ 유형의 사람들은 연인에게 책임감 있고 헌신적인 타입이며 연인에게도 책임감을 요구한다. 데이트를 할 때도 계획적으로 움직이며 안정적인 연애를 선호하는 편이기에 ESTJ와는 결혼까지 이어질 확률이 높으며, 혼인 후 안정적인 배우자가 될 가능성이 높다.',
+            content1: '사교적이고 친절한 성격',
+            content2: '다른 사람들에게 도움을 주는 데 관심이 많음',
+            content3: '조화와 안정을 중요시함',
         },
         {
             type_id: 'ISFJ',
             img: 'mbti/isfj.png',
-            content: '매우 독립적인 성격으로 다른 사람의 기대를 따르기보다는 자신만의 아이디어를 추구',
+            content1: '책임감이 강하고 협조적인 성격',
+            content2: '타인의 감정을 잘 이해하고 돌봄의 역할을 선호',
+            content3: '신뢰성과 충실성을 중요시함',
         },
         {
             type_id: 'ISFP',
             img: 'mbti/isfp.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '예술적이고 감각적인 성격',
+            content2: '자유로운 영혼으로서 자기 정체성을 중요시함',
+            content3: '타인에게 온정과 배려를 베풀어 줌',
         },
         {
             type_id: 'ESFP',
             img: 'mbti/esfp.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '사교적이고 외향적인 성격',
+            content2: '즉흥적이며 다양한 경험과 새로운 것에 열려 있음',
+            content3: '타인에게 즐거움을 주는 능력이 있음',
         },
         {
             type_id: 'INTP',
             img: 'mbti/intp.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '분석적이고 논리적인 사고 방식',
+            content2: '호기심이 많고 지적인 욕구가 강함',
+            content3: '새로운 아이디어와 개념을 탐구함',
         },
         {
             type_id: 'INFJ',
             img: 'mbti/infj.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '비전을 가지고 목표를 추구하는 성격',
+            content2: '타인의 감정을 민감하게 인지하고 돌봄의 역할을 수행함',
+            content3: '심층적인 이해와 동료애를 중요시함',
         },
         {
             type_id: 'ENFJ',
             img: 'mbti/enfj.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '친절하고 동정심이 많은 성격',
+            content2: '타인의 감정을 잘 이해하고 돌봄의 역할을 선호함',
+            content3: '타인과 협력하여 목표를 달성하는 능력이 있음',
         },
         {
             type_id: 'ENTP',
             img: 'mbti/entp.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '명석하고 독창적인 사고 방식',
+            content2: '논쟁과 토론을 즐기며 새로운 아이디어를 탐색함',
+            content3: '도전과 변화를 추구하는 성향',
         },
         {
             type_id: 'ESTJ',
             img: 'mbti/estj.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '현실적이고 현실감각이 뛰어난 성격',
+            content2: '조직적이고 책임감 있게 업무를 수행함',
+            content3: '논리적인 사고와 결정을 선호함',
         },
         {
             type_id: 'ISTJ',
             img: 'mbti/istj.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '신중하고 조용한 성격',
+            content2: '현실적이고 실용적인 사고 방식',
+            content3: '계획을 세우고 목표를 추구하는 경향',
         },
         {
             type_id: 'INTJ',
             img: 'mbti/intj.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '전략적이고 분석적인 사고 방식',
+            content2: '목표 달성과 성과 중심적인 성격',
+            content3: '독립적이고 신중한 결정을 내림',
         },
         {
             type_id: 'ISTP',
             img: 'mbti/istp.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '조용하고 관찰력이 뛰어난 성격',
+            content2: '문제 해결과 기술적인 역할에 능숙함',
+            content3: '현재 상황에 대한 실질적인 대응력을 보임',
         },
         {
             type_id: 'ESTP',
             img: 'mbti/estp.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '행동력과 대처능력이 뛰어난 성격',
+            content2: '현재의 경험과 활동에 집중함',
+            content3: '위험을 감수하며 도전을 즐김',
         },
         {
             type_id: 'ENTJ',
             img: 'mbti/entj.png',
-            content: '동행 중에서 리더 격으로 여행을 이끌며 동행에게 알맞은 역할을 부여, 효율적인 여행을 이끌어냄',
+            content1: '대담하고 결단력 있는 성격',
+            content2: '리더십과 조직 능력이 뛰어남',
+            content3: '목표를 달성하기 위해 계획적으로 행동함',
         },
     ];
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
             {
@@ -234,7 +270,9 @@ const Personalities = () => {
                             {cardData.map((data) => (
                                 <CardWrapper
                                     key={data.type_id}
-                                    onClick={() => openModal(data.type_id, data.img, data.content)}
+                                    onClick={() =>
+                                        openModal(data.type_id, data.img, data.content1, data.content2, data.content3)
+                                    }
                                 >
                                     <Card sx={{ mr: 2, minHeight: 400 }}>
                                         <CardContent>
@@ -279,7 +317,14 @@ const Personalities = () => {
                                     style={{ width: '80%', height: 'auto', objectFit: 'cover' }}
                                 />
                             </div>
-                            <ModalDescription>{selectedCard.content}</ModalDescription>
+                            <ModalDescription>
+                                ► {selectedCard.content1}
+                                <br />
+                                <br />► {selectedCard.content2}
+                                <br />
+                                <br />► {selectedCard.content3}
+                            </ModalDescription>
+
                             <CloseButton variant="outlined" color="primary" onClick={closeModal}>
                                 Close
                             </CloseButton>
