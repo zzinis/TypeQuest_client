@@ -4,6 +4,8 @@
     display: flex;
     justify-content: center;
     background-color: rgba(82, 88, 136, 1);
+    flex-direction: column;
+    align-items: center;
 }
 .resultLayout {
     display: flex;
@@ -13,6 +15,7 @@
     max-width: 900px;
     height: 100%;
     align-items: center;
+    margin-top: 25px;
     border-radius: 10px;
 }
 .resultTitle {
@@ -22,6 +25,7 @@
     box-sizing: border-box;
     font-weight: 700;
     font-size: 25px;
+    font-family: 'TTWanjudaedunsancheB';
 }
 .resultShow {
     border: 2px solid black;
@@ -52,6 +56,7 @@
 }
 .travelTitle {
     border-top: 2px solid black;
+    font-family: 'TTWanjudaedunsancheB';
 }
 .recommend {
     display: flex;
@@ -103,6 +108,7 @@
     margin-bottom: 20px;
     width: 100%;
 }
+
 @font-face {
     font-family: 'KCC-Ganpan';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
@@ -113,5 +119,12 @@
     font-family: 'ImcreSoojin';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff') format('woff');
     font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TTWanjudaedunsancheB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2')
+        format('woff2');
+    font-weight: 700;
     font-style: normal;
 }
