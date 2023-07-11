@@ -12,36 +12,37 @@ import { StyleSheetManager } from 'styled-components';
 
 
 const MbtiInner = styled.div`
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 90vh;
-  background-color: rgb(82, 88, 136);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    background-color: rgb(82, 88, 136);
 
-  /* 반응형 스타일 추가 */
-  ${props =>
-    props.responsive &&
-    css`
-      @media (max-width: 768px) {
-        height: 80vh;
-      }
-    `}
+    /* 반응형 스타일 추가 */
+    ${(props) =>
+        props.responsive &&
+        css`
+            @media (max-width: 768px) {
+                height: 80vh;
+            }
+        `}
 `;
 
 const ButtonWrapper = styled.div`
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 
-  /* 반응형 스타일 추가 */
-  ${props =>
-    props.responsive &&
-    css`
-      @media (max-width: 768px) {
-        margin-bottom: 20px;
-      }
-    `}
+    /* 반응형 스타일 추가 */
+    ${(props) =>
+        props.responsive &&
+        css`
+            @media (max-width: 768px) {
+                margin-bottom: 20px;
+            }
+        `}
 `;
+
 
 const Button = styled.button.withConfig({
   shouldForwardProp: (prop) => prop !== 'responsive',
@@ -61,21 +62,21 @@ const Button = styled.button.withConfig({
   align-items: center;
   justify-content: center;
 
-  &:hover {
-    background-color: #e6e6e6;
-    cursor: pointer;
-  }
+    &:hover {
+        background-color: #e6e6e6;
+        cursor: pointer;
+    }
 
-  /* 반응형 스타일 추가 */
-  ${props =>
-    props.responsive &&
-    css`
-      @media (max-width: 768px) {
-        width: 150px;
-        height: 50px;
-        font-size: 16px;
-      }
-    `}
+    /* 반응형 스타일 추가 */
+    ${(props) =>
+        props.responsive &&
+        css`
+            @media (max-width: 768px) {
+                width: 150px;
+                height: 50px;
+                font-size: 16px;
+            }
+        `}
 `;
 
 const IconStyle = {
@@ -84,11 +85,20 @@ const IconStyle = {
 };
 
 const Heading = styled.h1`
-  font-size: 48px;
-  margin-bottom: -20px;
-  color: #333333;
-  font-weight: bold;
-
+    font-size: 48px;
+    margin-bottom: -20px;
+    color: #333333;
+    font-weight: bold;
+    
+    /* 반응형 스타일 추가 */
+    ${(props) =>
+        props.responsive &&
+        css`
+            @media (max-width: 768px) {
+                font-size: 36px;
+                margin-bottom: 0;
+            }
+        `}
   /* 반응형 스타일 추가 */
   ${props =>
     props.responsive &&
@@ -98,22 +108,15 @@ const Heading = styled.h1`
         margin-bottom: 0;
       }
     `}
-`;
-
-const Image = styled.img`
-  width: 400px;
-  height: 400px;
-  margin-bottom: 20px;
-
-  /* 반응형 스타일 추가 */
-  ${props =>
-    props.responsive &&
-    css`
-      @media (max-width: 768px) {
-        width: 330px;
-        height: 300px;
-      }
-    `}
+    /* 반응형 스타일 추가 */
+    ${(props) =>
+        props.responsive &&
+        css`
+            @media (max-width: 768px) {
+                width: 330px;
+                height: 300px;
+            }
+        `}
 `;
 
 function MbtiPage() {
@@ -157,6 +160,7 @@ function MbtiPage() {
       {/* <Footer /> */}
     </>
   );
+
 }
 
 export default MbtiPage;
