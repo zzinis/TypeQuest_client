@@ -274,6 +274,7 @@ function Login() {
                                                         value: 10,
                                                         message: '아이디는 10자 이하로 만들어주세요,',
                                                     },
+                                                    inputProps: { autoComplete: 'off' },
                                                 })}
                                             />
                                             {errors.user_id && <Warn>{errors.user_id.message}</Warn>}
@@ -291,6 +292,7 @@ function Login() {
                                                         message:
                                                             '비밀번호는 대문자와 숫자를 포함하여 4자리 이상 입력해주세요',
                                                     },
+                                                    inputProps: { autoComplete: 'off' },
                                                 })}
                                             />
                                             {errors.password && <Warn>{errors.password.message}</Warn>}
