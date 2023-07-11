@@ -2,14 +2,10 @@ import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Card, CardContent, Typography, Button } from '@mui/material';
-import styled from 'styled-components';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import styled, { ThemeProvider } from 'styled-components';
 import MainHeader from './Header';
-import { StyleSheetManager } from 'styled-components';
-import isPropValid from '@emotion/is-prop-valid';
 
-const customTheme = createTheme({
+const customTheme = {
     typography: {
         fontFamily: 'Noto Sans KR, sans-serif',
         h5: {
@@ -23,70 +19,99 @@ const customTheme = createTheme({
             main: '#42a5f5',
         },
     },
-});
+};
+
 const Title = styled.h1`
-    padding: 20px;
-    font-size: 50px;
-    text-align: center;
+  padding: 20px;
+  font-size: 50px;
+  text-align: center;
 `;
 
-const ModalOverlay = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
-
-const ModalContent = styled.div`
-    background: #fff;
-    padding: 20px;
-    max-width: 600px;
-    width: 90%;
-`;
-
-const ModalTitle = styled.h2`
-    font-size: 40px;
-    margin-bottom: 10px;
-    text-align: center;
-`;
-
-const ModalDescription = styled.p`
-    font-size: 18px;
-    margin-bottom: 40px;
-`;
-
-const CloseButton = styled(Button)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-        background-color: #999;
-    }
+const PersonalitiesWrapper = styled.div`
+  margin: 100px auto;
+  padding: 0px 40px;
 `;
 
 const CardWrapper = styled.div`
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 100%;
 
-    &:hover {
-        transform: scale(1.05);
-    }
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
+
+const Card = styled.div`
+  background-color: #fff;
+  padding: 20px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const CardTitle = styled.h2`
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+`;
+
 const CardImage = styled.img`
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 20px;
 `;
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ModalContent = styled.div`
+  background: #fff;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+`;
+
+const ModalTitle = styled.h2`
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+`;
+
+const ModalDescription = styled.p`
+  font-size: 18px;
+  margin-bottom: 40px;
+`;
+
+const CloseButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #999;
+  }
+`;
+
 const Personalities = () => {
     const sliderRef = useRef(null);
     const [modalOpen, setModalOpen] = useState(false);
@@ -229,10 +254,11 @@ const Personalities = () => {
             content3: '목표를 달성하기 위해 계획적으로 행동함',
         },
     ];
+
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         responsive: [
             {
@@ -241,7 +267,6 @@ const Personalities = () => {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true,
                 },
             },
             {
@@ -266,48 +291,23 @@ const Personalities = () => {
             <MainHeader />
             <ThemeProvider theme={customTheme}>
                 <Title>MBTI 유형</Title>
-                <div style={{ margin: '100px auto' }}>
-                    <div style={{ padding: '0px 40px' }}>
-                        <Slider ref={sliderRef} {...settings}>
-                            {cardData.map((data) => (
-                                <CardWrapper
-                                    key={data.type_id}
-                                    onClick={() =>
-                                        openModal(data.type_id, data.img, data.content1, data.content2, data.content3)
-                                    }
-                                >
-                                    <Card sx={{ mr: 2, minHeight: 400 }}>
-                                        <CardContent>
-                                            <Typography
-                                                variant="h5"
-                                                component="h2"
-                                                style={{ marginBottom: '10px', textAlign: 'center' }}
-                                            >
-                                                {data.type_id}
-                                            </Typography>
-                                            <div
-                                                style={{
-                                                    display: 'flex',
-                                                    justifyContent: 'center',
-                                                    marginBottom: '20px',
-                                                }}
-                                            >
-                                                <img
-                                                    src={data.img}
-                                                    alt={data.type_id}
-                                                    style={{ width: '80%', height: 'auto', objectFit: 'cover' }}
-                                                />
-                                            </div>
-                                            {/* <Typography variant="body2" color="text.secondary" style={{ textAlign: 'center' }}>
-                                            {data.content}
-                                        </Typography> */}
-                                        </CardContent>
-                                    </Card>
-                                </CardWrapper>
-                            ))}
-                        </Slider>
-                    </div>
-                </div>
+                <PersonalitiesWrapper>
+                    <Slider ref={sliderRef} {...settings}>
+                        {cardData.map((data) => (
+                            <CardWrapper
+                                key={data.type_id}
+                                onClick={() =>
+                                    openModal(data.type_id, data.img, data.content1, data.content2, data.content3)
+                                }
+                            >
+                                <Card>
+                                    <CardTitle>{data.type_id}</CardTitle>
+                                    <CardImage src={data.img} alt={data.type_id} />
+                                </Card>
+                            </CardWrapper>
+                        ))}
+                    </Slider>
+                </PersonalitiesWrapper>
                 {modalOpen && (
                     <ModalOverlay>
                         <ModalContent>
@@ -326,10 +326,7 @@ const Personalities = () => {
                                 <br />
                                 <br />► {selectedCard.content3}
                             </ModalDescription>
-
-                            <CloseButton variant="outlined" color="primary" onClick={closeModal}>
-                                Close
-                            </CloseButton>
+                            <CloseButton onClick={closeModal}>Close</CloseButton>
                         </ModalContent>
                     </ModalOverlay>
                 )}

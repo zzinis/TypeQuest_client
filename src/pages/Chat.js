@@ -10,7 +10,7 @@ const ChatWindow = styled.div`
   height: 80vh;
   display: flex;
   flex-direction: column;
-  margin-top:30px;
+  margin-top: 30px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -65,40 +65,12 @@ const Message = styled.div`
   &:last-child {
     margin-bottom: 0;
   }
-  
 
   ${props =>
-    props.isYou
-      ? css`
-        justify-content: flex-end;
-
-        
-
-        .message-content {
-          justify-content: flex-end;
-          
-        }
-
-        .message-meta {
-          justify-content: flex-end;
-          margin-left: 5px;
-          
-        }
-      `
-      : css`
-        justify-content: flex-start;
-
-        .message-content {
-          justify-content: flex-start;
-        }
-
-        .message-meta {
-          justify-content: flex-start;
-          margin-right: 5px;
-        }
-      `}
-
-
+    props.isyou &&
+    css`
+      justify-content: flex-end;
+    `}
 `;
 
 const MessageContent = styled.div`
@@ -106,8 +78,7 @@ const MessageContent = styled.div`
   height: auto;
   min-height: 40px;
   max-width: 120px;
-  background-color: #f4e9dc;
-  border-radius: 5px;
+  background-color: ${props => (props.isyou ? '#f7f7b2' : '#b5b5b5')};  border-radius: 5px;
   color: black;
   display: flex;
   align-items: center;
@@ -117,7 +88,6 @@ const MessageContent = styled.div`
   padding-left: 5px;
   overflow-wrap: break-word;
   word-break: break-word;
-
 `;
 
 const MessageMeta = styled.div`
@@ -180,8 +150,8 @@ function Chat({ username, room }) {
   }, [room]);
 
   useEffect(() => {
-    socket.on('receive_message', (data) => {
-      setMessageList((prevMessages) => [...prevMessages, data]);
+    socket.on('receive_message', data => {
+      setMessageList(prevMessages => [...prevMessages, data]);
     });
 
     return () => {
@@ -199,9 +169,19 @@ function Chat({ username, room }) {
       };
 
       socket.emit('send_message', messageData);
-      setMessageList((prevMessages) => [...prevMessages, messageData]);
+      setMessageList(prevMessages => [...prevMessages, messageData]);
       setCurrentMessage('');
     }
+  };
+
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
+  };
+
+  const isyouMessage = message => {
+    return message.author === username;
   };
 
   return (
@@ -212,11 +192,10 @@ function Chat({ username, room }) {
       <ChatBody>
         <MessageContainer>
           {messageList.map((messageContent, index) => (
-            <Message
-              key={index}
-              isYou={username === messageContent.author}
-            >
-              <MessageContent>{messageContent.message}</MessageContent>
+            <Message key={index} isyou={isyouMessage(messageContent)}>
+              <MessageContent isyou={isyouMessage(messageContent)}>
+                {messageContent.message}
+              </MessageContent>
               <MessageMeta>
                 <p id="time">{messageContent.time}</p>
                 <p id="author">{messageContent.author}</p>
@@ -228,12 +207,10 @@ function Chat({ username, room }) {
       <ChatFooter>
         <ChatInput
           type="text"
+          placeholder="메시지를 입력하세요."
           value={currentMessage}
-          placeholder="채팅창에 입력하세요"
-          onChange={(event) => setCurrentMessage(event.target.value)}
-          onKeyPress={(event) => {
-            event.key === 'Enter' && sendMessage();
-          }}
+          onChange={e => setCurrentMessage(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
         <SendButton onClick={sendMessage}>전송</SendButton>
       </ChatFooter>
