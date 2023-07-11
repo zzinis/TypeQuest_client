@@ -129,3 +129,24 @@
         justify-content: space-around;
     }
 }
+.leftBox {
+    //가로정렬
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        border-top: 1px solid #d0d0d0;
+        width: 50%;
+    }
+}
+.rightBox {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        border-top: 1px solid #d0d0d0;
+        width: 50%;
+    }
+}
