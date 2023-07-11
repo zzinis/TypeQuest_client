@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/TravelTest.scss';
+import '../styles/TotalTest.css';
 import { useNavigate } from 'react-router-dom';
 import Questions from '../common/api/questionApi.json';
 import Footer from './Footer';
@@ -62,7 +63,7 @@ function TravleTest() {
         const final_mbti = [i >= 2 ? 'I' : 'E', s >= 2 ? 'S' : 'N', t >= 2 ? 'T' : 'F', p >= 2 ? 'P' : 'J'];
 
         const mbti = final_mbti.join('');
-        navigate('/Result', { state: { id: { mbti } } });
+        navigate('/TravelResult', { state: { id: { mbti } } });
     }
 
     return (
@@ -84,11 +85,11 @@ function TravleTest() {
                                         </h1>
                                     </div>
                                     <div className="answerLayout">
-                                        <button type="button" className="answerButton" onClick={nextSlide1}>
+                                        <button type="button" className="answerBtn" onClick={nextSlide1}>
                                             {data.a[0].text}
                                         </button>
                                         <br />
-                                        <button type="button" className="answerButton" onClick={nextSlide2}>
+                                        <button type="button" className="answerBtn" onClick={nextSlide2}>
                                             {data.a[1].text}
                                         </button>
                                     </div>

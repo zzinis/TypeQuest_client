@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import '../styles/YoutubeTest.css';
+import '../styles/TotalTest.css';
 import { useNavigate } from 'react-router-dom';
 import Youtube_Q from '../common/api/youtubeQuestion.json';
 import Footer from './Footer';
 import MainHeader from './Header';
-function TravleTest() {
+function YoutubeTest() {
     const [currentPage, setCurrentPage] = useState(1);
     const [id, setId] = useState(1);
     const [num, setNum] = useState(0);
@@ -98,4 +99,4 @@ function TravleTest() {
     );
 }
 
-export default TravleTest;
+export default YoutubeTest;
