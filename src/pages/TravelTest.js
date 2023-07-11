@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../styles/TravelTest.scss';
-import '../styles/TotalTest.css';
+import '../styles/TotalTest.scss';
 import { useNavigate } from 'react-router-dom';
 import Questions from '../common/api/questionApi.json';
 import Footer from './Footer';
@@ -85,13 +85,16 @@ function TravleTest() {
                                         </h1>
                                     </div>
                                     <div className="answerLayout">
-                                        <button type="button" className="answerBtn" onClick={nextSlide1}>
-                                            {data.a[0].text}
-                                        </button>
-                                        <br />
-                                        <button type="button" className="answerBtn" onClick={nextSlide2}>
-                                            {data.a[1].text}
-                                        </button>
+                                        <div className="leftBox">
+                                            <button type="button" className="answerLeftBtn" onClick={nextSlide1}>
+                                                <div className="buttonText">{data.a[0].text}</div>
+                                            </button>
+                                        </div>
+                                        <div className="rightBox">
+                                            <button type="button" className="answerRightBtn" onClick={nextSlide2}>
+                                                <div className="buttonText">{data.a[1].text}</div>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             );

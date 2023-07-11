@@ -34,8 +34,6 @@ function CreateReview({ mbtiResult, onClose }) {
         try {
             // send data to API
             const response = await axios.post(`${SERVER}/review`, dataToSend);
-            console.log('Review was successful:', response.data);
-            // Add MBTI test results and User_id to review data
 
             // Close the popup
             onClose();

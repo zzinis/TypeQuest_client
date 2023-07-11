@@ -9,8 +9,6 @@ import { SERVER } from '../lib/constant';
 const socket = io.connect(`${SERVER}`);
 
 // 채팅방 들어가기 전 닉네임,룸 설정
-// 같은 MBTI끼리 연결 필요
-
 const AppContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -26,9 +24,22 @@ const JoinChatContainer = styled.div`
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
-    background-color: #c3e6f7;
+    background-color: rgba(82, 88, 136, 0.8);
     width: 500px;
     height: 80vh;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    border-radius: 10px;
+
+    //모바일 사이즈
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 92.5vh;
+        margin: 0px;
+        padding: 0px;
+        border: none;
+        border-radius: 0px;
+    }
 `;
 
 const Title = styled.h3`
@@ -51,7 +62,7 @@ const Button = styled.button`
     margin-top: 80px;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #4b8fed;
+    background-color: #04202f;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -193,12 +204,44 @@ function ChatLogin() {
                         </select>
                     )}
 
+                    {test === '직업Test' && (
+                        <select
+                            value={room2}
+                            onChange={handleRoomChange2}
+                            style={{
+                                marginBottom: '10px',
+                                padding: '10px',
+                                borderRadius: '5px',
+                                border: '1px solid #ccc',
+                                height: '50px',
+                                width: '200px',
+                            }}
+                        >
+                            <option value="">직업 select</option>
+                            <option value="아이디어 뱅크">호기심 많고 자신감 넘치는 아이디어 뱅크</option>
+                            <option value="현실주의자">실용성을 추구하는 현실주의자</option>
+                            <option value="사랑 전도사">활기차고 사교적인 사랑 전도사</option>
+                            <option value="모험가">새로운 도전을 즐기는 모험가</option>
+                            <option value="리더">전략 수립 능력이 뛰어난 리더</option>
+                            <option value="고집불통">고집불통</option>
+                            <option value="장난꾸러기">생기발랄한 장난꾸러기</option>
+                            <option value="전통주의자">사교적인 전통주의자</option>
+                            <option value="예술가">따뜻한 예술가</option>
+                            <option value="수호자">겸손하고 단호한 수호자</option>
+                            <option value="재주꾼">직설적이고 정직한 만능 재주꾼</option>
+                            <option value="논리주의자">책임과 헌신을 중요시하는 논리주의자</option>
+                            <option value="이상주의자">예민한 이상주의자</option>
+                            <option value="상담가">고한 원칙을 가진 상담가</option>
+                            <option value="문제 해결사">독립적이고 창의적인 문제 해결사</option>
+                            <option value="완벽주의자">창의적인 완벽주의자</option>
+                        </select>
+                    )}
+
                     <Button onClick={joinRoom}>채팅방 들어가기</Button>
                 </JoinChatContainer>
             ) : (
                 <Chat socket={socket} username={username} room={room1} />
             )}
-            <Footer />
         </AppContainer>
     );
 }

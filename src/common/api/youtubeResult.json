@@ -1,7 +1,7 @@
 [
     {
         "id": "ENFP",
-        "nickname": "핵인싸",
+        "nickname": "자유로운 영혼",
         "img": "youtube/y_enfp.png",
         "description": [
             {
@@ -19,7 +19,7 @@
     },
     {
         "id": "ESTJ",
-        "nickname": "빨리빨리",
+        "nickname": "체계적인 리더십",
         "img": "youtube/y_estj.png",
         "description": [
             {
@@ -35,7 +35,7 @@
     },
     {
         "id": "ENFJ",
-        "nickname": "도라에몽",
+        "nickname": "시민의식",
         "img": "youtube/y_enfj.png",
         "description": [
             {
@@ -53,7 +53,7 @@
     },
     {
         "id": "ENTP",
-        "nickname": "박물관 지박령",
+        "nickname": "창의적인 토론자",
         "img": "youtube/y_entp.png",
         "description": [
             {
@@ -71,7 +71,7 @@
     },
     {
         "id": "ENTJ",
-        "nickname": "짱가형",
+        "nickname": "비즈니스 전문가",
         "img": "youtube/y_entj.png",
         "description": [
             {
@@ -89,7 +89,7 @@
     },
     {
         "id": "ESTP",
-        "nickname": "고집불통",
+        "nickname": "열정맨",
         "img": "youtube/y_estp.png",
         "description": [
             {
@@ -107,7 +107,7 @@
     },
     {
         "id": "ESFP",
-        "nickname": "합석장인",
+        "nickname": "유행왕",
         "img": "youtube/y_esfp.png",
         "description": [
             { "exp": "요즘 유행하는 건 다 알고 있음" },
@@ -123,7 +123,7 @@
     },
     {
         "id": "ESFJ",
-        "nickname": "광고형 여행자",
+        "nickname": "따뜻한 커뮤니티",
         "img": "youtube/y_esfj.png",
         "description": [
             {
@@ -141,7 +141,7 @@
     },
     {
         "id": "ISFP",
-        "nickname": "신밧드",
+        "nickname": "예술과 자유로움",
         "img": "youtube/y_isfp.png",
         "description": [
             { "exp": "유쾌하고 재밌는 주제의 영상을 자주 봄" },
@@ -155,7 +155,7 @@
     },
     {
         "id": "ISFJ",
-        "nickname": "보살",
+        "nickname": "잔잔함",
         "img": "youtube/y_isfj.png",
         "description": [
             {
@@ -173,7 +173,7 @@
     },
     {
         "id": "ISTP",
-        "nickname": "모험 변태",
+        "nickname": "조용한 시리즈광",
         "img": "youtube/y_istp.png",
         "description": [
             {
@@ -191,7 +191,7 @@
     },
     {
         "id": "ISTJ",
-        "nickname": "광기 어린 계획 실천가",
+        "nickname": "실용적인 접근",
         "img": "youtube/y_istj.png",
         "description": [
             {
@@ -209,7 +209,7 @@
     },
     {
         "id": "INFP",
-        "nickname": "낭만적 거절가",
+        "nickname": "꿈과 환상의 여행자",
         "img": "youtube/y_infp.png",
         "description": [
             {
@@ -227,7 +227,7 @@
     },
     {
         "id": "INFJ",
-        "nickname": "충전형 이타주의자",
+        "nickname": "변화를 추구하는 비전가",
         "img": "youtube/y_infj.png",
         "description": [
             {
@@ -245,7 +245,7 @@
     },
     {
         "id": "INTP",
-        "nickname": "알쓸번잡",
+        "nickname": "독특한 반전",
         "img": "youtube/y_intp.png",
         "description": [
             {
@@ -263,7 +263,7 @@
     },
     {
         "id": "INTJ",
-        "nickname": "계획 변태",
+        "nickname": "분석과 탐구",
         "img": "youtube/y_intj.png",
         "description": [
             {

@@ -12,8 +12,16 @@ export const InputContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 3px;
     margin: 15px;
     position: relative; /* 추가 */
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 360px;
+        }
+    }
 `;
 export const Input = styled.input`
     width: 460px;
@@ -28,6 +36,13 @@ export const Input = styled.input`
     max-width: 100%;
     min-height: 50px;
     padding: 0 10px 0 15px;
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
+    }
 `;
 
 export const InputBottom = styled.input`
@@ -43,6 +58,12 @@ export const InputBottom = styled.input`
     max-width: 100%;
     min-height: 50px;
     padding: 0 10px 0 15px;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
+    }
 `;
 export const WarningContainer = styled.div`
     display: flex;
@@ -54,14 +75,18 @@ export const SubmitBtn = styled.button`
     background-color: #04202f;
     color: #fff;
     height: 3rem;
-    padding: 0.625rem 1rem;
     border-radius: 15px;
     font-weight: 700;
     width: 460px;
     max-width: 100%;
-    margin: 2rem auto 0.8rem;
     &:hover {
         cursor: pointer;
+    }
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
     }
 `;
 
@@ -71,11 +96,17 @@ export const InputWrapper = styled.div`
     width: 460px;
     align-items: center;
     justify-content: center;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
+    }
 `;
 export const Warn = styled.p`
     display: flex;
     align-items: center;
-    color: rgba(82, 88, 136, 1);
+    color: rgba(200, 200, 200, 0.8);
     font-size: 0.8rem;
     font-weight: 700;
     position: absolute;
@@ -90,6 +121,12 @@ export const SlectProfile = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
+    }
 `;
 const ProfileImage = styled.img`
     width: 70%;
@@ -124,16 +161,39 @@ export const Profile = styled.label`
         width: 100%;
         height: 100%;
     }
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
 `;
 
 export const Filed = styled.fieldset`
     border: none;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 400px;
+            margin: 0px;
+            padding: 0px;
+        }
+    }
 `;
 
 export const Hidden = styled.legend`
     position: absolute;
     top: -9999px;
     opacity: 0;
+`;
+
+export const ProfileContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
 
 // 리액트 hook form 회원가입
@@ -143,7 +203,7 @@ function Login() {
         register,
         watch,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, setError },
     } = useForm();
     const navigate = useNavigate();
 
@@ -189,6 +249,7 @@ function Login() {
         setLoading(false);
         // 회원가입 완료 되면 페이지 이동
     };
+
     return (
         <>
             <MainHeader />
@@ -224,8 +285,7 @@ function Login() {
                                                 required: '비밀번호를 입력해주세요',
                                                 pattern: {
                                                     value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{4,24}$/,
-                                                    message:
-                                                        '비밀번호는 대문자와 숫자를 포함하여 4자리 이상 입력해주세요',
+                                                    message: '대문자,숫자,특수문자를 포함하여 4자리 이상 입력',
                                                 },
                                             })}
                                         />
@@ -259,58 +319,60 @@ function Login() {
                                     </InputWrapper>
                                 </InputContainer>
                                 <br></br>
-                                <h3>SELECT PROFILE</h3>
-                                <SlectProfile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="dog"
-                                            onChange={() => handleProfileSelection('dog')}
-                                            checked={selectedProfile === 'dog'}
-                                        />
-                                        <ProfileImage src="../../profile/dog.jpg" />
-                                    </Profile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="cat"
-                                            onChange={() => handleProfileSelection('cat')}
-                                            checked={selectedProfile === 'cat'}
-                                        />
-                                        <ProfileImage src="../../profile/cat.jpg" />
-                                    </Profile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="hamster"
-                                            onChange={() => handleProfileSelection('hamster')}
-                                            checked={selectedProfile === 'hamster'}
-                                        />
-                                        <ProfileImage src="../../profile/hamster.jpg" />
-                                    </Profile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="pig"
-                                            onChange={() => handleProfileSelection('pig')}
-                                            checked={selectedProfile === 'pig'}
-                                        />
-                                        <ProfileImage src="../../profile/pig.jpg" />
-                                    </Profile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="bird"
-                                            onChange={() => handleProfileSelection('bird')}
-                                            checked={selectedProfile === 'bird'}
-                                        />
-                                        <ProfileImage src="../../profile/bird.jpg" />
-                                    </Profile>
-                                </SlectProfile>
 
-                                <SubmitBtn type="submit" disabled={loading}>
-                                    회원가입
-                                </SubmitBtn>
+                                <h3>SELECT PROFILE</h3>
+                                <ProfileContainer>
+                                    <SlectProfile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="dog"
+                                                onChange={() => handleProfileSelection('dog')}
+                                                checked={selectedProfile === 'dog'}
+                                            />
+                                            <ProfileImage src="../../profile/dog.jpg" />
+                                        </Profile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="cat"
+                                                onChange={() => handleProfileSelection('cat')}
+                                                checked={selectedProfile === 'cat'}
+                                            />
+                                            <ProfileImage src="../../profile/cat.jpg" />
+                                        </Profile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="hamster"
+                                                onChange={() => handleProfileSelection('hamster')}
+                                                checked={selectedProfile === 'hamster'}
+                                            />
+                                            <ProfileImage src="../../profile/hamster.jpg" />
+                                        </Profile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="pig"
+                                                onChange={() => handleProfileSelection('pig')}
+                                                checked={selectedProfile === 'pig'}
+                                            />
+                                            <ProfileImage src="../../profile/pig.jpg" />
+                                        </Profile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="bird"
+                                                onChange={() => handleProfileSelection('bird')}
+                                                checked={selectedProfile === 'bird'}
+                                            />
+                                            <ProfileImage src="../../profile/bird.jpg" />
+                                        </Profile>
+                                    </SlectProfile>
+                                    <SubmitBtn type="submit" disabled={loading}>
+                                        회원가입
+                                    </SubmitBtn>
+                                </ProfileContainer>
                             </Filed>
                         </form>
                     </div>

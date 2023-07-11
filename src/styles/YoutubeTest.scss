@@ -1,4 +1,4 @@
-.answerLeftBtn {
+.answerLButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,6 @@
     width: 75%;
     box-shadow: 3px 3px 3px rgb(63, 63, 63);
     font-family: 'KCC-Ganpan';
-
     //모바일 사이즈
     @media (max-width: 768px) {
         font-size: 16px;
@@ -25,7 +24,7 @@
         border-bottom-left-radius: 6px;
     }
 }
-.answerRightBtn {
+.answerRButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,8 +37,6 @@
     width: 75%;
     box-shadow: 3px 3px 3px rgb(63, 63, 63);
     font-family: 'KCC-Ganpan';
-
-    //모바일 사이즈
     @media (max-width: 768px) {
         font-size: 16px;
         width: 100%;
@@ -53,22 +50,20 @@
         border-bottom-right-radius: 6px;
     }
 }
-.answerLeftBtn:active {
+.answerLButton:active {
     color: #fff;
-    background-color: rgba(82, 88, 136, 1);
+    background-color: #fd4d4d;
     // transform: scale(0.95);
     transition: 100ms;
     border: none;
 }
-.answerRightBtn:active {
+.answerRButton:active {
     color: #fff;
-    background-color: rgba(82, 88, 136, 1);
+    background-color: #fd4d4d;
     // transform: scale(0.95);
     transition: 100ms;
     border: none;
 }
-
-
 
 @font-face {
     font-family: 'KCC-Ganpan';
