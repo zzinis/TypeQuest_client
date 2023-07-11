@@ -36,22 +36,17 @@
     margin-bottom: 40px;
     background-color: white;
 }
-.resultMain {
-    font-family: 'KCC-Ganpan';
-    font-size: 35px;
-    margin-top: 0px;
-}
 .description {
     font-family: 'KCC-Ganpan';
     font-size: 23px;
-    margin-top: -20px;
+    margin-top: -5px;
 }
 .exp {
     margin: 25px 20px 0px 10px;
     list-style-type: square;
 }
 .img {
-    margin-top: -33px;
+    margin-top: -5px;
     filter: drop-shadow(3px 3px 3px black);
     width: 350px;
     height: 300px;
@@ -70,6 +65,9 @@
     margin-bottom: 20px;
 }
 .jobN {
+    font-family: 'KCC-Ganpan';
+    font-size: 35px;
+    margin-top: -20px;
     border: 4px outset rgb(52, 177, 255);
     width: 80%;
     display: flex;
@@ -78,6 +76,9 @@
     justify-content: center;
 }
 .travelN {
+    font-family: 'KCC-Ganpan';
+    font-size: 35px;
+    margin-top: -20px;
     border: 4px outset rgb(36, 216, 123);
     width: 60%;
     display: flex;
@@ -86,12 +87,20 @@
     justify-content: center;
 }
 .YoutubeN {
+    font-family: 'KCC-Ganpan';
+    font-size: 35px;
+    margin-top: -20px;
     border: 4px outset rgb(250, 26, 26);
     width: 60%;
     display: flex;
     align-items: center;
     height: 50px;
     justify-content: center;
+}
+.mbti {
+    font-family: 'KCC-Ganpan';
+    font-size: 40px;
+    margin-top: 13px;
 }
 .jobImg {
     width: 350px;
@@ -215,6 +224,18 @@
         .rec_img {
             width: 175px;
             height: 155px;
+        }
+        .jobN {
+            font-size: 30px;
+            width: 75%;
+        }
+        .youtubeN {
+            font-size: 30px;
+            width: 75%;
+        }
+        .travelN {
+            font-size: 30px;
+            width: 75%;
         }
     }
 }

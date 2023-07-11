@@ -81,12 +81,12 @@ function YoutubeTest() {
                                         <div className="answerLayout">
                                             <div className="leftBox">
                                                 <button type="button" className="answerLButton" onClick={nextSlide1}>
-                                                    {data.a[0].text}
+                                                    <div className="buttonText">{data.a[0].text}</div>
                                                 </button>
                                             </div>
                                             <div className="rightBox">
                                                 <button type="button" className="answerRButton" onClick={nextSlide2}>
-                                                    {data.a[1].text}
+                                                    <div className="buttonText">{data.a[1].text}</div>
                                                 </button>
                                             </div>
                                         </div>
