@@ -47,8 +47,8 @@ const MainImg = styled.img`
     //모바일 사이즈
     @media screen {
         @media (max-width: 768px) {
-            width: 400px;
-            height: 400px;
+            width: 340px;
+            height: 340px;
         }
     }
 `;
