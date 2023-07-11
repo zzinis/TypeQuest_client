@@ -208,10 +208,10 @@ function MainHeader() {
     const handleLogout = () => {
         sessionStorage.removeItem('user_data');
         setLoggedIn(false);
+        alert('로그아웃 되었습니다');
     };
     useEffect(() => {
         checkLoggedIn();
-        // showAlert();
     }, []);
 
     return (
