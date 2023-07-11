@@ -43,7 +43,13 @@ function Footer() {
     };
 
     const askCheck = () => {
-        navigate('/Ask');
+        const user_id = sessionStorage.getItem('user_data');
+        if (!user_id) {
+            alert('로그인 후 문의 페이지를 이용하실 수 있습니다');
+            // navigate('/');
+        } else {
+            navigate('/Ask');
+        }
     };
 
     useEffect(() => {
