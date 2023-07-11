@@ -6,6 +6,8 @@ import { Card, CardContent, Typography, Button } from '@mui/material';
 import styled from 'styled-components';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import MainHeader from './Header';
+import { StyleSheetManager } from 'styled-components';
+import isPropValid from '@emotion/is-prop-valid';
 
 const customTheme = createTheme({
     typography: {
