@@ -28,11 +28,14 @@ const ChatHeader = styled.div`
     position: relative;
     cursor: pointer;
     padding: 10px;
+    display: flex;
+    align-items: center;
 `;
 
 const ChatHeaderTitle = styled.p`
     display: block;
-    padding: 0;
+    padding: 0px;
+    margin: 0px;
     color: #fff;
     font-size: 20px;
     font-weight: bold;
