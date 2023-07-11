@@ -13,6 +13,8 @@ const ChatWindow = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    justify-content: ${({ isKeyboardOpen }) => (isKeyboardOpen ? 'flex-start' : 'space-between')};
+    transition: justify-content 0.3s;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -165,6 +167,7 @@ function Chat({ username, room }) {
     const [currentMessage, setCurrentMessage] = useState('');
     const [messageList, setMessageList] = useState([]);
     const messageContainerRef = useRef(null);
+    const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
 
     useEffect(() => {
         socket.emit('join_room', room);
@@ -225,39 +228,45 @@ function Chat({ username, room }) {
         adjustChatWindowHeight();
 
         window.addEventListener('resize', adjustChatWindowHeight);
+
+        // 키보드 이벤트 리스너 추가
+        window.addEventListener('resize', handleKeyboardEvent);
+        window.addEventListener('orientationchange', handleKeyboardEvent);
+        document.addEventListener('focusin', handleKeyboardEvent);
+        document.addEventListener('focusout', handleKeyboardEvent);
+
         return () => {
             window.removeEventListener('resize', adjustChatWindowHeight);
+
+            // 키보드 이벤트 리스너 제거
+            window.removeEventListener('resize', handleKeyboardEvent);
+            window.removeEventListener('orientationchange', handleKeyboardEvent);
+            document.removeEventListener('focusin', handleKeyboardEvent);
+            document.removeEventListener('focusout', handleKeyboardEvent);
         };
     }, []);
 
+    const handleKeyboardEvent = () => {
+        const { innerHeight, documentElement } = window;
+        const footerElement = document.querySelector('.chat-footer');
+
+        if (footerElement) {
+            const footerRect = footerElement.getBoundingClientRect();
+            const isKeyboardOpen = innerHeight > footerRect.bottom;
+            setIsKeyboardOpen(isKeyboardOpen);
+            documentElement.style.setProperty('--chat-window-bottom', `${isKeyboardOpen ? '0' : '40px'}`);
+        }
+    };
+
     return (
-        <ChatWindow>
+        <ChatWindow isKeyboardOpen={isKeyboardOpen}>
             <ChatHeader>
                 <ChatHeaderTitle>MBTI 채팅방</ChatHeaderTitle>
             </ChatHeader>
             <ChatBody>
-                <MessageContainer ref={messageContainerRef}>
-                    {messageList.map((messageContent, index) => (
-                        <Message key={index} isYou={username === messageContent.author}>
-                            <MessageContent>{messageContent.message}</MessageContent>
-                            <MessageMeta>
-                                <p id="time">{messageContent.time}</p>
-                                <p id="author">{messageContent.author}</p>
-                            </MessageMeta>
-                        </Message>
-                    ))}
-                </MessageContainer>
+                <MessageContainer ref={messageContainerRef}>{/* ... */}</MessageContainer>
             </ChatBody>
-            <ChatFooter>
-                <ChatInput
-                    type="text"
-                    value={currentMessage}
-                    placeholder="채팅창에 입력하세요"
-                    onChange={(event) => setCurrentMessage(event.target.value)}
-                    onKeyPress={handleKeyPress}
-                />
-                <SendButton onClick={sendMessage}>전송</SendButton>
-            </ChatFooter>
+            <ChatFooter className="chat-footer">{/* ... */}</ChatFooter>
         </ChatWindow>
     );
 }

@@ -229,7 +229,6 @@ function ChatLogin() {
             ) : (
                 <Chat socket={socket} username={username} room={room1} />
             )}
-            <Footer />
         </AppContainer>
     );
 }
