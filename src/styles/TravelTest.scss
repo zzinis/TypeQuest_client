@@ -1,4 +1,4 @@
-.answerBtn {
+.answerLeftBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,13 +11,85 @@
     width: 75%;
     box-shadow: 3px 3px 3px rgb(63, 63, 63);
     font-family: 'KCC-Ganpan';
+
+    //모바일 사이즈
+    @media (max-width: 768px) {
+        font-size: 16px;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        height: 33vh;
+        border: none;
+        border-radius: 0px;
+        //왼쪽 아래 오른쪽 아래 둥글게
+        border-bottom-left-radius: 6px;
+    }
 }
-.answerBtn:active {
+.answerRightBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    font-size: 23px;
+    width: 75%;
+    box-shadow: 3px 3px 3px rgb(63, 63, 63);
+    font-family: 'KCC-Ganpan';
+
+    //모바일 사이즈
+    @media (max-width: 768px) {
+        font-size: 16px;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        height: 33vh;
+        border: none;
+        border-radius: 0px;
+        background-color: #d0d0d0;
+        //왼쪽 아래 오른쪽 아래 둥글게
+        border-bottom-right-radius: 6px;
+    }
+}
+.answerLeftBtn:active {
     color: #fff;
-    background-color: #f5e835;
-    transform: scale(0.95);
+    background-color: rgba(82, 88, 136, 1);
+    // transform: scale(0.95);
     transition: 100ms;
     border: none;
+}
+.answerRightBtn:active {
+    color: #fff;
+    background-color: rgba(82, 88, 136, 1);
+    // transform: scale(0.95);
+    transition: 100ms;
+    border: none;
+}
+.leftBox {
+    //가로정렬
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        border-top: 1px solid #d0d0d0;
+        width: 50%;
+    }
+}
+.rightBox {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        border-top: 1px solid #d0d0d0;
+        width: 50%;
+    }
+}
+.buttonText {
+    margin: 10px;
 }
 
 @font-face {

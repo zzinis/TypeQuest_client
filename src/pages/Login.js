@@ -181,6 +181,26 @@ const Logo = styled.img`
     }
 `;
 
+const InnerLogin = styled.div`
+    margin: 0 auto;
+    width: 100%;
+    font: 14px/1 'arial';
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(82, 88, 136, 1);
+    height: 100vh;
+    padding: 0px;
+    color: white;
+    @media screen {
+        //모바일 사이즈
+        @media (max-width: 768px) {
+            height: 92.5vh;
+            align-items: center;
+        }
+    }
+`;
+
 function Login() {
     const {
         register,
@@ -209,7 +229,6 @@ function Login() {
         axios
             .post(`${SERVER}/login`, body)
             .then((response) => {
-                console.log('d', response.data); // 서버 응답 확인
                 // 로그인 성공 처리 로직을 여기에 작성하세요.
                 if (response.data.result === false) {
                     alert(response.data.msg);
@@ -234,7 +253,7 @@ function Login() {
     return (
         <>
             <Wrapper>
-                <Inner>
+                <InnerLogin>
                     <Logo src={LogoSrc} alt="" onClick={onClickHandler} />
                     <div className="container">
                         <div className="Left">
@@ -303,7 +322,7 @@ function Login() {
                             </Filed>
                         </div>
                     </div>
-                </Inner>
+                </InnerLogin>
             </Wrapper>
         </>
     );

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../styles/YoutubeTest.css';
-import '../styles/TotalTest.css';
+import '../styles/TotalTest.scss';
 import { useNavigate } from 'react-router-dom';
 import Youtube_Q from '../common/api/youtubeQuestion.json';
 import Footer from './Footer';

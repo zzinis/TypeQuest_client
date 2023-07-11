@@ -47,7 +47,6 @@ function Ask() {
         } else {
             // 등록 로직 작성
             const user_id = sessionStorage.getItem('user_data');
-            console.log('user_id', user_id);
             const newInquiry = {
                 user_id: user_id,
                 title: title,

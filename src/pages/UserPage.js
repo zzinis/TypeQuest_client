@@ -29,9 +29,15 @@ const customTheme = createTheme({
 const StyledPaper = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(3),
     backgroundColor: '#f5f5f5',
-    minHeight: '600px',
-    marginTop: '100px',
+    minHeight: '400px',
+    marginTop: '30px',
     width: '600px',
+    //모바일 사이즈
+    '@media (max-width: 600px)': {
+        width: '80%',
+        margin: '0px',
+        marginTop: '30px',
+    },
 }));
 
 const MyPage = () => {

@@ -72,6 +72,9 @@ form .loginForm {
     align-items: center;
 }
 .container {
+    height: 100vh;
+    width: 100%;
+
     background-color: white;
     display: flex;
     justify-content: center;
@@ -141,7 +144,6 @@ form .loginForm {
     font-weight: 600;
     //모바일 사이즈
     @media (max-width: 768px) {
-        width: 85%;
         font-size: 1rem;
         font-weight: 400;
     }
