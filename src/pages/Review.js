@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Footer from './Footer';
 import Header from './Header';
+import { SERVER } from '../lib/constant';
 
 const Title = styled.div`
     padding-top: 5vh;
@@ -123,7 +124,7 @@ const Review = () => {
     useEffect(() => {
         //test 목록 가져오기(test 테이블)
         axios
-            .get('http://localhost:8000/test')
+            .get(`${SERVER}/test`)
             .then((testResponse) => {
                 setTests(testResponse.data);
             })
@@ -135,7 +136,7 @@ const Review = () => {
     //선택한 option값으로 post가져오기 function
     const getPosts = (option) => {
         axios
-            .get('http://localhost:8000/review', {
+            .get(`${SERVER}/review`, {
                 params: {
                     selectedOption: option,
                 },

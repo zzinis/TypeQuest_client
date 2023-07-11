@@ -6,6 +6,7 @@ import axios from 'axios';
 import { redirect, useNavigate } from 'react-router-dom';
 import MainHeader from './Header';
 import Footer from './Footer';
+import { SERVER } from '../lib/constant';
 
 export const InputContainer = styled.div`
     display: flex;
@@ -164,7 +165,7 @@ function Login() {
         const { user_id, password, email, name } = data;
         //이미지데이터 DB저장 형식으로 변환 코드 추가
         try {
-            const response = await axios.post('http://localhost:8000/signin', {
+            const response = await axios.post(`${SERVER}/signin`, {
                 user_id,
                 password,
                 name,

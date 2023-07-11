@@ -135,3 +135,14 @@ form .loginForm {
     align-items: center;
     width: 100%;
 }
+
+//메인 페이지 문구 크기 css
+.hero__text {
+    font-weight: 600;
+    //모바일 사이즈
+    @media (max-width: 768px) {
+        width: 85%;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+}

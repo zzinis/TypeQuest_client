@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Job_Q from '../common/api/jobQuestion.json';
 import Footer from './Footer';
 import MainHeader from './Header';
-function JobTest() {
+function TravleTest() {
     const [currentPage, setCurrentPage] = useState(1);
     const [id, setId] = useState(1);
     const [num, setNum] = useState(0);
@@ -54,7 +54,7 @@ function JobTest() {
             }
             let final_mbti = [i >= 2 ? 'I' : 'E', s >= 2 ? 'S' : 'N', t >= 2 ? 'T' : 'F', p >= 2 ? 'P' : 'J'];
             const mbti = final_mbti.join('');
-            navigate('/Result', { state: { id: { mbti } } });
+            navigate('/JobResult', { state: { id: { mbti } } });
         }
     };
     resultMbti();
@@ -78,11 +78,11 @@ function JobTest() {
                                             </h1>
                                         </div>
                                         <div className="answerLayout">
-                                            <button type="button" className="answerButton" onClick={nextSlide1}>
+                                            <button type="button" className="ansBtn" onClick={nextSlide1}>
                                                 {data.a[0].text}
                                             </button>
                                             <br />
-                                            <button type="button" className="answerButton" onClick={nextSlide2}>
+                                            <button type="button" className="ansBtn" onClick={nextSlide2}>
                                                 {data.a[1].text}
                                             </button>
                                         </div>
@@ -98,4 +98,4 @@ function JobTest() {
     );
 }
 
-export default JobTest;
+export default TravleTest;
