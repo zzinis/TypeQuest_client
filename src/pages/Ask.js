@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, TextField, Button, Box } from '@mui/material';
+import { SERVER } from '../lib/constant';
+
 import axios from 'axios';
 import MainHeader from './Header';
 function Ask() {
@@ -56,7 +58,7 @@ function Ask() {
 
             setInquiries([...inquiries, newInquiry]);
             axios
-                .post('http://localhost:8000/ask', newInquiry)
+                .post(`${SERVER}/ask`, newInquiry)
                 .then(() => {
                     setInquiries([...inquiries, newInquiry]);
                     window.location.reload();
@@ -99,7 +101,7 @@ function Ask() {
     useEffect(() => {
         const user_id = sessionStorage.getItem('user_data');
         axios
-            .get('http://localhost:8000/ask', { params: { user_id } })
+            .get(`${SERVER}/ask`, { params: { user_id } })
             .then((result) => {
                 setInquiries(result.data);
             })

@@ -4,8 +4,9 @@ import io from 'socket.io-client';
 import Chat from './Chat';
 import MainHeader from './Header';
 import Footer from './Footer';
+import { SERVER } from '../lib/constant';
 // 임시 소켓 주소
-const socket = io.connect('http://localhost:8000');
+const socket = io.connect(`${SERVER}`);
 
 // 채팅방 들어가기 전 닉네임,룸 설정
 const AppContainer = styled.div`

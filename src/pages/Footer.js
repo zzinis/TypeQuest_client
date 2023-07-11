@@ -27,7 +27,7 @@ function Footer() {
     };
 
     const testClick = () => {
-        navigate('/TravelTest');
+        navigate('/MbtiPage');
     };
 
     const reviewClick = () => {
@@ -135,7 +135,7 @@ function Footer() {
                         <div>성격 유형</div>
                     </li>
                     <li className="footer-li" onClick={testClick}>
-                        <div> 테스트</div>
+                        <div>테스트</div>
                     </li>
                     <li className="footer-li" onClick={reviewClick}>
                         <div>리뷰</div>

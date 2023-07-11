@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Mbti from '../common/api/travelResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../styles/TravelResult.scss';
+import '../styles/TotalResult.css';
 import Footer from './Footer';
 import MainHeader from './Header';
 
 import CreateReview from './CreateReview';
+import { SERVER } from '../lib/constant';
 
 function TravelResult() {
     const location = useLocation();
@@ -38,7 +39,7 @@ function TravelResult() {
             const user_id = sessionStorage.getItem('user_data'); // User ID stored in session
 
             try {
-                await axios.post('http://localhost:8000/participation', {
+                await axios.post(`${SERVER}/participation`, {
                     user_id,
                     result,
                     test_name,
@@ -58,12 +59,15 @@ function TravelResult() {
                 <MainHeader />
                 <div className="resultLayout">
                     <div className="resultTitle">
-                        <h2>여행MBTI 결과는?</h2>
+                        <h2 className="title1">
+                            {' '}
+                            <img src="image/airplane.png" alt="air" className="titleImg" /> 여행MBTI 결과는?
+                        </h2>
                     </div>
                     {Mbti.find((data) => data.id === mbti.mbti) && (
                         <div className="resultShow">
-                            <p className="resultMain">{mbti.mbti}</p>
-                            <p className="resultMain">{Mbti.find((data) => data.id === mbti.mbti)?.nickname}</p>
+                            <p className="resultMain">-{mbti.mbti}-</p>
+                            <p className="resultMain travelN">{Mbti.find((data) => data.id === mbti.mbti)?.nickname}</p>
 
                             <img
                                 src={Mbti.find((data) => data.id === mbti.mbti)?.img}
@@ -83,12 +87,18 @@ function TravelResult() {
                                     {Mbti.find((data) => data.id === mbti.mbti)?.description[2].exp}
                                 </li>
                             </ul>
-                            <h1 className="travelTitle">추천하는 여행지는?</h1>
-                            <div className="recommend1">
-                                <h2>{Mbti.find((data) => data.id === mbti.mbti)?.text}</h2>
-
+                            <h1 className="travelTitle">
+                                {' '}
+                                <img src="image/travel.png" className="rImg" alt="travel" /> 추천하는 여행지는?
+                            </h1>
+                            <div className="recommend">
                                 <img
-                                    src={Mbti.find((data) => data.id === mbti.mbti)?.rec_img}
+                                    src={Mbti.find((data) => data.id === mbti.mbti)?.img1}
+                                    alt="kk"
+                                    className="rec_img"
+                                />
+                                <img
+                                    src={Mbti.find((data) => data.id === mbti.mbti)?.img2}
                                     alt="kk"
                                     className="rec_img"
                                 />

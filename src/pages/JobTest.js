@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/JobTest.css';
+import '../styles/TotalTest.scss';
 import { useNavigate } from 'react-router-dom';
 import Job_Q from '../common/api/jobQuestion.json';
 import Footer from './Footer';

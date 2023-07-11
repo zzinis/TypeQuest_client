@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/CreateReview.scss';
+import { SERVER } from '../lib/constant';
 
-function CreateReview({ mbtiResult, userId, onClose }) {
+function CreateReview({ mbtiResult, onClose }) {
     const [reviewData, setReviewData] = useState({
         title: '',
         content: '',
     });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setReviewData({
@@ -14,55 +17,46 @@ function CreateReview({ mbtiResult, userId, onClose }) {
             [e.target.name]: e.target.value,
         });
     };
+    //세션 스토리지에 유저 아이디 가져오기
+    const userId = sessionStorage.getItem('user_data');
+    const test_name = '여행Test';
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    //     try {
-    //         // Add MBTI test results and User_id to review data
-    //         const dataToSend = {
-    //             ...reviewData,
-    //             mbtiResult,
-    //             userId,
-    //             // testId: '1',
-    //             img: '',
-    //         };
+        const dataToSend = {
+            content: reviewData.content,
+            result: mbtiResult,
+            userId: userId,
+            test_name,
+        };
 
-    //         // send data to API
-    //         // const response = await axios.post(`https://localhost:8000/review/${userId}/${testId}`, dataToSend);
-    //         console.log('Review was successful:', response.data);
+        try {
+            // send data to API
+            const response = await axios.post(`${SERVER}/review`, dataToSend);
 
-    //         // Perform necessary operations after completing review writing
-    //         // Example: page reloading, route navigation, etc.
+            // Close the popup
+            onClose();
+            navigate('/Review'); // 페이지 이동
+        } catch (error) {
+            console.error('Failed to write review:', error);
+        }
+    };
 
-    //         // Close the popup
-    //         onClose();
-    //     } catch (error) {
-    //         console.error('Failed to write review:', error);
-    //     }
-    // };
-
-    // const handleClose = () => {
-    //     onClose();
-    // };
+    const handleClose = () => {
+        onClose();
+    };
 
     return (
         <div className="popup-container">
             <div className="popup-content">
                 <div className="popup-nav">
                     <h3>리뷰 작성하기</h3>
-                    {/* <button className="close-button" onClick={handleClose}> */}X{/* </button> */}
+                    <button className="close-button" onClick={handleClose}>
+                        X
+                    </button>
                 </div>
-                <form>
-                    {/* <form onSubmit={handleSubmit}> */}
-
-                    <input
-                        type="text"
-                        name="title"
-                        value={reviewData.title}
-                        onChange={handleChange}
-                        placeholder="제목"
-                    />
+                <form onSubmit={handleSubmit}>
                     <textarea name="content" value={reviewData.content} onChange={handleChange} placeholder="내용" />
                     <button type="submit">리뷰 작성</button>
                 </form>

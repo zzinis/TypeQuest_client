@@ -10,7 +10,7 @@
 .resultLayout {
     display: flex;
     flex-direction: column;
-    background-color: rgba(82, 88, 136, 1);
+    background-color: #eee;
     width: 100%;
     max-width: 900px;
     align-items: center;
@@ -39,12 +39,12 @@
 .resultMain {
     font-family: 'KCC-Ganpan';
     font-size: 35px;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 .description {
     font-family: 'KCC-Ganpan';
     font-size: 23px;
-    margin-top: 6px;
+    margin-top: -20px;
 }
 .exp {
     margin: 25px 20px 0px 10px;
@@ -52,10 +52,12 @@
 }
 .img {
     margin-top: -33px;
+    filter: drop-shadow(3px 3px 3px black);
 }
 .travelTitle {
     border-top: 2px solid black;
     font-family: 'TTWanjudaedunsancheB';
+    letter-spacing: 3px;
 }
 .recommend1 {
     display: flex;
@@ -63,10 +65,47 @@
     align-items: center;
     margin-bottom: 20px;
 }
-
+.jobN {
+    border: 4px outset rgb(52, 177, 255);
+    width: 95%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: center;
+}
+.travelN {
+    border: 4px outset rgb(36, 216, 123);
+    width: 60%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: center;
+}
+.jobImg {
+    width: 350px;
+    height: 300px;
+    filter: drop-shadow(3px 3px 3px black);
+    margin-top: -30px;
+}
 .rec_img {
-    width: 300px;
-    height: 200px;
+    width: 350px;
+    height: 250px;
+    filter: drop-shadow(3px 3px 3px black);
+    margin-bottom: 35px;
+}
+.titleImg {
+    width: 40px;
+    height: 40px;
+}
+.title1 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.rImg {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
 }
 .btn {
     font-size: 22px;

@@ -14,8 +14,8 @@
                 "exp": "무계획 여행도 상관없음"
             }
         ],
-        "rec_img": "travel/여행지enfp.png",
-        "text": "필리핀 보라카이"
+        "img1": "travel/enfp1.png",
+        "img2": "travel/enfp2.png"
     },
     {
         "id": "ESTJ",
@@ -30,8 +30,8 @@
             },
             { "exp": "2순위 선택지는 다양하게 준비되어야 불안하지 않는 타입" }
         ],
-        "rec_img": "travel/여행지estj.png",
-        "text": "일본 도쿄"
+        "img1": "travel/estj1.png",
+        "img2": "travel/estj2.png"
     },
     {
         "id": "ENFJ",
@@ -48,8 +48,8 @@
                 "exp": "지역별 시장을 돌며 현지 분들과 친밀도 업하기 최적화된 타입"
             }
         ],
-        "rec_img": "travel/여행지enfj.png",
-        "text": "호주 멜버른"
+        "img1": "travel/enfj1.png",
+        "img2": "travel/enfj2.png"
     },
     {
         "id": "ENTP",
@@ -66,8 +66,8 @@
                 "exp": "위기 상황에서 판단을 잘하며 선입견 없이 여행을 즐김"
             }
         ],
-        "rec_img": "travel/여행지entp.png",
-        "text": "프랑스 파리"
+        "img1": "travel/entp1.png",
+        "img2": "travel/entp2.png"
     },
     {
         "id": "ENTJ",
@@ -84,8 +84,8 @@
                 "exp": "넓은 범위의 여행지도 알차게 다님"
             }
         ],
-        "rec_img": "travel/여행지entj.png",
-        "text": "뉴질랜드 로드트립"
+        "img1": "travel/entj1.png",
+        "img2": "travel/entj2.png"
     },
     {
         "id": "ESTP",
@@ -102,8 +102,8 @@
                 "exp": "여행 계획을 당일 아침 바꿀 확률이 99.9%지만 바꾸면 바꾸는 대로 완벽한 여행이 됨"
             }
         ],
-        "rec_img": "travel/여행지estp.png",
-        "text": "인도네시아 발리"
+        "img1": "travel/estp1.png",
+        "img2": "travel/estp2.png"
     },
     {
         "id": "ESFP",
@@ -118,8 +118,8 @@
                 "exp": "딱히 고집하는 여행지는 없고 친구들이 원하는 여행지가 곧 내가 가고 싶은 여행지(가는 사람이 더 중요한 스타일)"
             }
         ],
-        "rec_img": "travel/여행지esfp.png",
-        "text": "마카오"
+        "img1": "travel/esfp1.png",
+        "img2": "travel/esfp2.png"
     },
     {
         "id": "ESFJ",
@@ -136,8 +136,8 @@
                 "exp": "체력 소모하는 여행지보다는 여행 코스짜기 명확하고 쉬운 여행지 추천"
             }
         ],
-        "rec_img": "travel/여행지esfj.png",
-        "text": "태국 방콕"
+        "img1": "travel/esfj1.png",
+        "img2": "travel/esfj2.png"
     },
     {
         "id": "ISFP",
@@ -150,8 +150,8 @@
             },
             { "exp": "여행이란 버킷리스트를 현실화하는 과정으로 평범한 여행은 싫음" }
         ],
-        "rec_img": "travel/여행지isfp.png",
-        "text": "영국 런던"
+        "img1": "travel/isfp1.png",
+        "img2": "travel/isfp2.png"
     },
     {
         "id": "ISFJ",
@@ -168,8 +168,8 @@
                 "exp": "성격이 워낙 꼼꼼해 모두를 만족시킬 수 있는 계획을 들고 옴"
             }
         ],
-        "rec_img": "travel/여행지isfj.png",
-        "text": "베트남 호이안"
+        "img1": "travel/isfj1.png",
+        "img2": "travel/isfj2.png"
     },
     {
         "id": "ISTP",
@@ -186,8 +186,8 @@
                 "exp": "적당한 긴장과 스릴을 즐길 줄 아는 타입"
             }
         ],
-        "rec_img": "travel/여행지istp.png",
-        "text": "아이슬란드"
+        "img1": "travel/istp1.png",
+        "img2": "travel/istp2.png"
     },
     {
         "id": "ISTJ",
@@ -204,8 +204,8 @@
                 "exp": "우유부단한 여행을 제일 싫어해 비가 내려도 기어코 놀이동산을 가고야 마는 타입"
             }
         ],
-        "rec_img": "travel/여행지istj.png",
-        "text": "이탈리아 로마"
+        "img1": "travel/istj1.png",
+        "img2": "travel/istj2.png"
     },
     {
         "id": "INFP",
@@ -222,8 +222,8 @@
                 "exp": "돌아오는 비행기 안에서 너무 좋았다며 다음 여행지 검색"
             }
         ],
-        "rec_img": "travel/여행지infp.png",
-        "text": "태국 치앙마이"
+        "img1": "travel/infp1.png",
+        "img2": "travel/infp2.png"
     },
     {
         "id": "INFJ",
@@ -240,8 +240,8 @@
                 "exp": "아무 계획도 없는 주말에 가장 행복한 타입"
             }
         ],
-        "rec_img": "travel/여행지infj.png",
-        "text": "오스트리아 할슈타트"
+        "img1": "travel/infj1.png",
+        "img2": "travel/infj2.png"
     },
     {
         "id": "INTP",
@@ -258,8 +258,8 @@
                 "exp": "모든 일정에 효율성 따짐"
             }
         ],
-        "rec_img": "travel/여행지intp.png",
-        "text": "그리스"
+        "img1": "travel/intp1.png",
+        "img2": "travel/intp2.png"
     },
     {
         "id": "INTJ",
@@ -276,7 +276,7 @@
                 "exp": "여행은 계획을 증명하는 시간으로 실패를 배제하며 희열을 느낌"
             }
         ],
-        "rec_img": "travel/여행지intj.png",
-        "text": "싱가포르"
+        "img1": "travel/intj1.png",
+        "img2": "travel/intj2.png"
     }
 ]

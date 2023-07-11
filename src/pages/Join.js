@@ -6,13 +6,22 @@ import axios from 'axios';
 import { redirect, useNavigate } from 'react-router-dom';
 import MainHeader from './Header';
 import Footer from './Footer';
+import { SERVER } from '../lib/constant';
 
 export const InputContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 3px;
     margin: 15px;
     position: relative; /* 추가 */
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 360px;
+        }
+    }
 `;
 export const Input = styled.input`
     width: 460px;
@@ -27,6 +36,13 @@ export const Input = styled.input`
     max-width: 100%;
     min-height: 50px;
     padding: 0 10px 0 15px;
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
+    }
 `;
 
 export const InputBottom = styled.input`
@@ -42,6 +58,12 @@ export const InputBottom = styled.input`
     max-width: 100%;
     min-height: 50px;
     padding: 0 10px 0 15px;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
+    }
 `;
 export const WarningContainer = styled.div`
     display: flex;
@@ -53,14 +75,18 @@ export const SubmitBtn = styled.button`
     background-color: #04202f;
     color: #fff;
     height: 3rem;
-    padding: 0.625rem 1rem;
     border-radius: 15px;
     font-weight: 700;
     width: 460px;
     max-width: 100%;
-    margin: 2rem auto 0.8rem;
     &:hover {
         cursor: pointer;
+    }
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
     }
 `;
 
@@ -70,6 +96,12 @@ export const InputWrapper = styled.div`
     width: 460px;
     align-items: center;
     justify-content: center;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
+    }
 `;
 export const Warn = styled.p`
     display: flex;
@@ -89,6 +121,12 @@ export const SlectProfile = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 350px;
+        }
+    }
 `;
 const ProfileImage = styled.img`
     width: 70%;
@@ -123,16 +161,39 @@ export const Profile = styled.label`
         width: 100%;
         height: 100%;
     }
+
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
 `;
 
 export const Filed = styled.fieldset`
     border: none;
+    //모바일 사이즈
+    @media screen {
+        @media (max-width: 768px) {
+            width: 400px;
+            margin: 0px;
+            padding: 0px;
+        }
+    }
 `;
 
 export const Hidden = styled.legend`
     position: absolute;
     top: -9999px;
     opacity: 0;
+`;
+
+export const ProfileContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
 
 // 리액트 hook form 회원가입
@@ -164,7 +225,7 @@ function Login() {
         const { user_id, password, email, name } = data;
         //이미지데이터 DB저장 형식으로 변환 코드 추가
         try {
-            const response = await axios.post('http://localhost:8000/signin', {
+            const response = await axios.post(`${SERVER}/signin`, {
                 user_id,
                 password,
                 name,
@@ -258,58 +319,60 @@ function Login() {
                                     </InputWrapper>
                                 </InputContainer>
                                 <br></br>
-                                <h3>SELECT PROFILE</h3>
-                                <SlectProfile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="dog"
-                                            onChange={() => handleProfileSelection('dog')}
-                                            checked={selectedProfile === 'dog'}
-                                        />
-                                        <ProfileImage src="../../profile/dog.jpg" />
-                                    </Profile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="cat"
-                                            onChange={() => handleProfileSelection('cat')}
-                                            checked={selectedProfile === 'cat'}
-                                        />
-                                        <ProfileImage src="../../profile/cat.jpg" />
-                                    </Profile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="hamster"
-                                            onChange={() => handleProfileSelection('hamster')}
-                                            checked={selectedProfile === 'hamster'}
-                                        />
-                                        <ProfileImage src="../../profile/hamster.jpg" />
-                                    </Profile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="pig"
-                                            onChange={() => handleProfileSelection('pig')}
-                                            checked={selectedProfile === 'pig'}
-                                        />
-                                        <ProfileImage src="../../profile/pig.jpg" />
-                                    </Profile>
-                                    <Profile>
-                                        <input
-                                            type="checkbox"
-                                            value="bird"
-                                            onChange={() => handleProfileSelection('bird')}
-                                            checked={selectedProfile === 'bird'}
-                                        />
-                                        <ProfileImage src="../../profile/bird.jpg" />
-                                    </Profile>
-                                </SlectProfile>
 
-                                <SubmitBtn type="submit" disabled={loading}>
-                                    회원가입
-                                </SubmitBtn>
+                                <h3>SELECT PROFILE</h3>
+                                <ProfileContainer>
+                                    <SlectProfile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="dog"
+                                                onChange={() => handleProfileSelection('dog')}
+                                                checked={selectedProfile === 'dog'}
+                                            />
+                                            <ProfileImage src="../../profile/dog.jpg" />
+                                        </Profile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="cat"
+                                                onChange={() => handleProfileSelection('cat')}
+                                                checked={selectedProfile === 'cat'}
+                                            />
+                                            <ProfileImage src="../../profile/cat.jpg" />
+                                        </Profile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="hamster"
+                                                onChange={() => handleProfileSelection('hamster')}
+                                                checked={selectedProfile === 'hamster'}
+                                            />
+                                            <ProfileImage src="../../profile/hamster.jpg" />
+                                        </Profile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="pig"
+                                                onChange={() => handleProfileSelection('pig')}
+                                                checked={selectedProfile === 'pig'}
+                                            />
+                                            <ProfileImage src="../../profile/pig.jpg" />
+                                        </Profile>
+                                        <Profile>
+                                            <input
+                                                type="checkbox"
+                                                value="bird"
+                                                onChange={() => handleProfileSelection('bird')}
+                                                checked={selectedProfile === 'bird'}
+                                            />
+                                            <ProfileImage src="../../profile/bird.jpg" />
+                                        </Profile>
+                                    </SlectProfile>
+                                    <SubmitBtn type="submit" disabled={loading}>
+                                        회원가입
+                                    </SubmitBtn>
+                                </ProfileContainer>
                             </Filed>
                         </form>
                     </div>

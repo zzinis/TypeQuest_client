@@ -29,16 +29,16 @@ function App() {
                     <Route path="/" element={<Main />}></Route>
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Join" element={<Join />}></Route>
-                    <Route path='/Ask' element={<Ask />}></Route>
-                    <Route path='/Adminpage' element={<AdminPage />}></Route>
+                    <Route path="/Ask" element={<Ask />}></Route>
+                    <Route path="/Adminpage" element={<AdminPage />}></Route>
 
                     <Route path="/UserPage" element={<UserPage />}></Route>
                     <Route path="/MbtiPage" element={<MbtiPage />}></Route>
-                    <Route path="/ChatLogin" element={<ChatLogin />}></Route>
+                    <Route exact path="/ChatLogin" element={<ChatLogin />}></Route>
                     <Route path="/Chat" element={<Chat />}></Route>
                     <Route exact path="/Personalities" element={<Personalities />}></Route>
                     <Route path="/TravelTest" element={<TravleTest />} />
-                    <Route path="/Result" element={<TravelResult />} />
+                    <Route path="/TravelResult" element={<TravelResult />} />
                     <Route path="/YoutubeTest" element={<YoutubeTest />} />
                     <Route path="/YoutubeResult" element={<YoutubeResult />} />
                     <Route path="/Review" element={<Review />} />

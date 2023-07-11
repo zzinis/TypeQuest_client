@@ -4,6 +4,7 @@ import { Avatar, Typography, Box, Button, Grid, Paper, TextField, ThemeProvider,
 import { styled } from '@mui/system';
 import MainHeader from './Header';
 import Footer from './Footer';
+import { SERVER } from '../lib/constant';
 
 const customTheme = createTheme({
     typography: {
@@ -28,9 +29,15 @@ const customTheme = createTheme({
 const StyledPaper = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(3),
     backgroundColor: '#f5f5f5',
-    minHeight: '600px',
-    marginTop: '100px',
+    minHeight: '400px',
+    marginTop: '30px',
     width: '600px',
+    //모바일 사이즈
+    '@media (max-width: 600px)': {
+        width: '80%',
+        margin: '0px',
+        marginTop: '30px',
+    },
 }));
 
 const MyPage = () => {
@@ -43,7 +50,7 @@ const MyPage = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/user/${id}`);
+                const response = await axios.get(`${SERVER}/user/${id}`);
                 setUsers(response.data.user);
                 setUser(response.data.user); // 첫 번째 사용자를 기본 사용자로 설정
             } catch (error) {
