@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import LogoSrc from '../assets/TQ.png';
 import { Link, useNavigate } from 'react-router-dom';
+import { SERVER } from '../lib/constant';
 
 const LoginHeader = styled.h1`
     font: bold 35px/1 'Noto Sans KR';
@@ -206,11 +207,11 @@ function Login() {
 
     const onSubmit = (data) => {
         axios
-            .post('http://localhost:8000/login', body)
+            .post(`${SERVER}/login`, body)
             .then((response) => {
                 console.log('d', response.data); // 서버 응답 확인
                 // 로그인 성공 처리 로직을 여기에 작성하세요.
-                if (response.data.result == false) {
+                if (response.data.result === false) {
                     alert(response.data.msg);
                     window.location.href = '../Login';
                     return;

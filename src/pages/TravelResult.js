@@ -7,6 +7,7 @@ import Footer from './Footer';
 import MainHeader from './Header';
 
 import CreateReview from './CreateReview';
+import { SERVER } from '../lib/constant';
 
 function TravelResult() {
     const location = useLocation();
@@ -38,7 +39,7 @@ function TravelResult() {
             const user_id = sessionStorage.getItem('user_data'); // User ID stored in session
 
             try {
-                await axios.post('http://localhost:8000/participation', {
+                await axios.post(`${SERVER}/participation`, {
                     user_id,
                     result,
                     test_name,

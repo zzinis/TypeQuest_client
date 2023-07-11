@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/CreateReview.scss';
+import { SERVER } from '../lib/constant';
 
 function CreateReview({ mbtiResult, onClose }) {
     const [reviewData, setReviewData] = useState({
@@ -32,7 +33,7 @@ function CreateReview({ mbtiResult, onClose }) {
 
         try {
             // send data to API
-            const response = await axios.post(`http://localhost:8000/review`, dataToSend);
+            const response = await axios.post(`${SERVER}/review`, dataToSend);
             console.log('Review was successful:', response.data);
             // Add MBTI test results and User_id to review data
 
