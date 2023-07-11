@@ -115,30 +115,30 @@ function MbtiPage() {
         <>
             <MainHeader />
             <Wrapper>
-                <MbtiInner responsive>
-                    <Heading responsive>
+                <MbtiInner responsive="true">
+                    <Heading responsive="true">
                         <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="4vw" />
                     </Heading>
-                    <Image src={MbtiSrc} responsive />
-                    <ButtonWrapper responsive>
+                    <Image src={MbtiSrc} responsive="true" />
+                    <ButtonWrapper responsive="true">
                         <Link to="/TravelTest">
-                            <Button responsive>
+                            <Button responsive="true">
                                 <RiChat1Line style={IconStyle} />
                                 여행
                             </Button>
                         </Link>
                     </ButtonWrapper>
-                    <ButtonWrapper responsive>
+                    <ButtonWrapper responsive="true">
                         <Link to="/YoutubeTest">
-                            <Button responsive>
+                            <Button responsive="true">
                                 <RiUserLine style={IconStyle} />
                                 유튜브
                             </Button>
                         </Link>
                     </ButtonWrapper>
-                    <ButtonWrapper responsive>
+                    <ButtonWrapper responsive="true">
                         <Link to="/JobTest">
-                            <Button responsive>
+                            <Button responsive="true">
                                 <RiSettingsLine style={IconStyle} />
                                 직업
                             </Button>
