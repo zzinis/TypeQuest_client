@@ -14,8 +14,10 @@ const ChatWindow = styled.div`
     flex-direction: column;
     justify-content: ${({ isKeyboardOpen }) => (isKeyboardOpen ? 'flex-start' : 'space-between')};
     transition: justify-content 0.3s;
+    margin: 15px;
 
     @media (max-width: 768px) {
+        margin: 0px;
         width: 100%;
         height: 92.5vh;
     }
@@ -29,6 +31,14 @@ const ChatHeader = styled.div`
     padding: 10px;
     display: flex;
     align-items: center;
+    //왼쪽위 오른쪽위 테두리 둥글게
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    //모바일 사이즈
+    @media (max-width: 768px) {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
 `;
 
 const ChatHeaderTitle = styled.p`
@@ -131,6 +141,9 @@ const ChatFooter = styled.div`
     border: 1px solid #263238;
     border-top: none;
     display: flex;
+    //아래쪽에 테두리 없애기
+    border-bottom: none;
+    //왼쪽 오른쪽 아래에 테두리 둥글게
 `;
 
 const ChatInput = styled.input`
@@ -142,6 +155,8 @@ const ChatInput = styled.input`
     border-right: 1px dotted #607d8b;
     outline: none;
     font-family: 'Open Sans', sans-serif;
+    //아랫쪽 테두리 제거
+    border-bottom: none;
 `;
 
 const SendButton = styled.button`
