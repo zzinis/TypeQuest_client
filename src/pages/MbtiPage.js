@@ -7,6 +7,9 @@ import TypingEffect from '../components/TypingEffect';
 import MainHeader from './Header';
 import Footer from './Footer';
 import MbtiSrc from '../assets/colorimg_2.png';
+import { withConfig } from 'styled-components';
+import { StyleSheetManager } from 'styled-components';
+
 
 const MbtiInner = styled.div`
     margin: 0 auto;
@@ -40,20 +43,24 @@ const ButtonWrapper = styled.div`
         `}
 `;
 
-const Button = styled.button`
-    width: 200px;
-    height: 60px;
-    background-color: #f2f2f2;
-    color: #000000;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+const Button = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== 'responsive',
+
+})`
+  width: 200px;
+  height: 60px;
+  background-color: #f2f2f2;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
     &:hover {
         background-color: #e6e6e6;
@@ -129,44 +136,47 @@ const Image = styled.img`
 `;
 
 function MbtiPage() {
-    return (
-        <>
-            <MainHeader />
-            <Wrapper>
-                <MbtiInner responsive="true">
-                    <Heading responsive="true">
-                        <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="4vw" />
-                    </Heading>
-                    <Image src={MbtiSrc} responsive="true" />
-                    <ButtonWrapper responsive="true">
-                        <Link to="/TravelTest">
-                            <Button responsive="true">
-                                <RiChat1Line style={IconStyle} />
-                                여행
-                            </Button>
-                        </Link>
-                    </ButtonWrapper>
-                    <ButtonWrapper responsive="true">
-                        <Link to="/YoutubeTest">
-                            <Button responsive="true">
-                                <RiUserLine style={IconStyle} />
-                                유튜브
-                            </Button>
-                        </Link>
-                    </ButtonWrapper>
-                    <ButtonWrapper responsive="true">
-                        <Link to="/JobTest">
-                            <Button responsive="true">
-                                <RiSettingsLine style={IconStyle} />
-                                직업
-                            </Button>
-                        </Link>
-                    </ButtonWrapper>
-                </MbtiInner>
-            </Wrapper>
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <StyleSheetManager shouldForwardProp={(prop) => prop !== 'responsive'}>
+        <MainHeader></MainHeader>
+        <Wrapper>
+          <MbtiInner responsive={true}>
+            <Heading responsive={true}>
+              <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="4vw" />
+            </Heading>
+            <Image src={MbtiSrc} responsive={true} />
+            <ButtonWrapper responsive={true}>
+              <Link to="/TravelTest">
+                <Button responsive={true}>
+                  <RiChat1Line style={IconStyle} />
+                  여행
+                </Button>
+              </Link>
+            </ButtonWrapper>
+            <ButtonWrapper responsive={true}>
+              <Link to="/YoutubeTest">
+                <Button responsive={true}>
+                  <RiUserLine style={IconStyle} />
+                  유튜브
+                </Button>
+              </Link>
+            </ButtonWrapper>
+            <ButtonWrapper responsive={true}>
+              <Link to="/JobTest">
+                <Button responsive={true}>
+                  <RiSettingsLine style={IconStyle} />
+                  직업
+                </Button>
+              </Link>
+            </ButtonWrapper>
+          </MbtiInner>
+        </Wrapper>
+      </StyleSheetManager>
+      {/* <Footer /> */}
+    </>
+  );
+
 }
 
 export default MbtiPage;

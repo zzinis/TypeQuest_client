@@ -34,7 +34,7 @@ function App() {
 
                     <Route path="/UserPage" element={<UserPage />}></Route>
                     <Route path="/MbtiPage" element={<MbtiPage />}></Route>
-                    <Route path="/ChatLogin" element={<ChatLogin />}></Route>
+                    <Route exact path="/ChatLogin" element={<ChatLogin />}></Route>
                     <Route path="/Chat" element={<Chat />}></Route>
                     <Route exact path="/Personalities" element={<Personalities />}></Route>
                     <Route path="/TravelTest" element={<TravleTest />} />
