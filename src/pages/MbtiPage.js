@@ -73,8 +73,8 @@ const Button = styled.button`
 `;
 
 const IconStyle = {
-    marginRight: '10px',
-    fontSize: '24px',
+  marginRight: '10px',
+  fontSize: '24px',
 };
 
 const Heading = styled.h1`
@@ -82,7 +82,7 @@ const Heading = styled.h1`
     margin-bottom: -20px;
     color: #333333;
     font-weight: bold;
-
+    
     /* 반응형 스타일 추가 */
     ${(props) =>
         props.responsive &&
@@ -92,13 +92,15 @@ const Heading = styled.h1`
                 margin-bottom: 0;
             }
         `}
-`;
-
-const Image = styled.img`
-    width: 400px;
-    height: 400px;
-    margin-bottom: 20px;
-
+  /* 반응형 스타일 추가 */
+  ${props =>
+    props.responsive &&
+    css`
+      @media (max-width: 768px) {
+        font-size: 36px;
+        margin-bottom: 0;
+      }
+    `}
     /* 반응형 스타일 추가 */
     ${(props) =>
         props.responsive &&
