@@ -78,8 +78,7 @@ const MessageContent = styled.div`
   height: auto;
   min-height: 40px;
   max-width: 120px;
-  background-color: ${props => (props.isyou ? '#f7f7b2' : '#b5b5b5')};
-  border-radius: 5px;
+  background-color: ${props => (props.isyou ? '#f7f7b2' : '#b5b5b5')};  border-radius: 5px;
   color: black;
   display: flex;
   align-items: center;
