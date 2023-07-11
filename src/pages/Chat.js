@@ -218,8 +218,8 @@ function Chat({ username, room }) {
                 const chatFooterHeight = 40;
                 const newChatWindowHeight = windowHeight - chatHeaderHeight - chatFooterHeight;
                 const newChatBodyHeight = newChatWindowHeight - messageContainerHeight;
-                messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
 
+                messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
                 messageContainerRef.current.style.height = `${newChatBodyHeight}px`;
                 document.documentElement.style.setProperty('--chat-window-height', `${newChatWindowHeight}px`);
             }
@@ -247,14 +247,13 @@ function Chat({ username, room }) {
     }, []);
 
     const handleKeyboardEvent = () => {
-        const { innerHeight, documentElement } = window;
+        const { innerHeight } = window;
         const footerElement = document.querySelector('.chat-footer');
 
         if (footerElement) {
             const footerRect = footerElement.getBoundingClientRect();
             const isKeyboardOpen = innerHeight > footerRect.bottom;
             setIsKeyboardOpen(isKeyboardOpen);
-            documentElement.style.setProperty('--chat-window-bottom', `${isKeyboardOpen ? '0' : '40px'}`);
         }
     };
 
@@ -264,9 +263,28 @@ function Chat({ username, room }) {
                 <ChatHeaderTitle>MBTI 채팅방</ChatHeaderTitle>
             </ChatHeader>
             <ChatBody>
-                <MessageContainer ref={messageContainerRef}>{/* ... */}</MessageContainer>
+                <MessageContainer ref={messageContainerRef}>
+                    {messageList.map((messageContent, index) => (
+                        <Message key={index} isYou={username === messageContent.author}>
+                            <MessageContent>{messageContent.message}</MessageContent>
+                            <MessageMeta>
+                                <p id="time">{messageContent.time}</p>
+                                <p id="author">{messageContent.author}</p>
+                            </MessageMeta>
+                        </Message>
+                    ))}
+                </MessageContainer>
             </ChatBody>
-            <ChatFooter className="chat-footer">{/* ... */}</ChatFooter>
+            <ChatFooter className="chat-footer">
+                <ChatInput
+                    type="text"
+                    value={currentMessage}
+                    placeholder="채팅창에 입력하세요"
+                    onChange={(event) => setCurrentMessage(event.target.value)}
+                    onKeyPress={handleKeyPress}
+                />
+                <SendButton onClick={sendMessage}>전송</SendButton>
+            </ChatFooter>
         </ChatWindow>
     );
 }
