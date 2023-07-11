@@ -209,7 +209,6 @@ function Login() {
         axios
             .post(`${SERVER}/login`, body)
             .then((response) => {
-                console.log('d', response.data); // 서버 응답 확인
                 // 로그인 성공 처리 로직을 여기에 작성하세요.
                 if (response.data.result === false) {
                     alert(response.data.msg);
