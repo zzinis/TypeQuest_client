@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import { useRef } from 'react';
 
 import io from 'socket.io-client';
 import { SERVER } from '../lib/constant';
@@ -208,19 +207,19 @@ function Chat({ username, room }) {
     };
 
     useEffect(() => {
-        // 화면이 올라가는 문제 해결
         const adjustChatWindowHeight = () => {
-            const windowHeight = window.innerHeight;
-            const messageContainerHeight = messageContainerRef.current.clientHeight;
-            const chatHeaderHeight = 45;
-            const chatFooterHeight = 40;
-            const newChatWindowHeight = windowHeight - chatHeaderHeight - chatFooterHeight;
-            const newChatBodyHeight = newChatWindowHeight - messageContainerHeight;
-            messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
+            if (messageContainerRef.current) {
+                const windowHeight = window.innerHeight;
+                const messageContainerHeight = messageContainerRef.current.clientHeight;
+                const chatHeaderHeight = 45;
+                const chatFooterHeight = 40;
+                const newChatWindowHeight = windowHeight - chatHeaderHeight - chatFooterHeight;
+                const newChatBodyHeight = newChatWindowHeight - messageContainerHeight;
+                messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
 
-            // ChatWindow 및 ChatBody의 높이 조정
-            messageContainerRef.current.style.height = `${newChatBodyHeight}px`;
-            document.documentElement.style.setProperty('--chat-window-height', `${newChatWindowHeight}px`);
+                messageContainerRef.current.style.height = `${newChatBodyHeight}px`;
+                document.documentElement.style.setProperty('--chat-window-height', `${newChatWindowHeight}px`);
+            }
         };
 
         adjustChatWindowHeight();
