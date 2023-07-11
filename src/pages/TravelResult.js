@@ -8,7 +8,6 @@ import MainHeader from './Header';
 
 import CreateReview from './CreateReview';
 import { SERVER } from '../lib/constant';
-
 function TravelResult() {
     const location = useLocation();
     const mbti = location.state.id;
@@ -66,16 +65,10 @@ function TravelResult() {
                     </div>
                     {Mbti.find((data) => data.id === mbti.mbti) && (
                         <div className="resultShow">
-                            <p className="resultMain">-{mbti.mbti}-</p>
-                            <p className="resultMain travelN">{Mbti.find((data) => data.id === mbti.mbti)?.nickname}</p>
+                            <p className="mbti">-{mbti.mbti}-</p>
+                            <p className="travelN">{Mbti.find((data) => data.id === mbti.mbti)?.nickname}</p>
 
-                            <img
-                                src={Mbti.find((data) => data.id === mbti.mbti)?.img}
-                                alt="mbti"
-                                width={'350px'}
-                                height={'350px'}
-                                className="img"
-                            />
+                            <img src={Mbti.find((data) => data.id === mbti.mbti)?.img} alt="mbti" className="img" />
                             <ul className="description">
                                 <li className="exp">
                                     {Mbti.find((data) => data.id === mbti.mbti)?.description[0].exp}

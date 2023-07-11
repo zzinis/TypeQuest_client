@@ -1,7 +1,7 @@
 [
     {
         "id": "ENFP",
-        "nickname": "호기심 많고 자신감 넘치는 아이디어 뱅크",
+        "nickname": "아이디어 뱅크",
         "img": "job/job_enfp.png",
         "description": [
             {
@@ -22,7 +22,7 @@
     },
     {
         "id": "ESTJ",
-        "nickname": "실용성을 추구하는 현실주의자",
+        "nickname": "현실주의자",
         "img": "job/job_estj.png",
         "description": [
             {
@@ -39,7 +39,7 @@
     },
     {
         "id": "ENFJ",
-        "nickname": "활기차고 사교적인 사랑 전도사",
+        "nickname": "사랑 전도사",
         "img": "job/job_enfj.png",
         "description": [
             {
@@ -60,7 +60,7 @@
     },
     {
         "id": "ENTP",
-        "nickname": "새로운 도전을 즐기는 모험가",
+        "nickname": "모험가",
         "img": "job/job_entp.png",
         "description": [
             {
@@ -81,7 +81,7 @@
     },
     {
         "id": "ENTJ",
-        "nickname": "전략 수립 능력이 뛰어난 리더",
+        "nickname": "리더",
         "img": "job/job_entj.png",
         "description": [
             {
@@ -123,7 +123,7 @@
     },
     {
         "id": "ESFP",
-        "nickname": "생기발랄한 장난꾸러기",
+        "nickname": "장난꾸러기",
         "img": "job/job_esfp.png",
         "description": [
             { "exp": "활동적이고 사교적인 환경에서 많은 사람들과 일할 수 있는 일" },
@@ -142,7 +142,7 @@
     },
     {
         "id": "ESFJ",
-        "nickname": "사교적인 전통주의자",
+        "nickname": "전통주의자",
         "img": "job/job_esfj.png",
         "description": [
             {
@@ -199,7 +199,7 @@
     },
     {
         "id": "ISTP",
-        "nickname": "직설적이고 정직한 만능 재주꾼",
+        "nickname": "만능 재주꾼",
         "img": "job/job_istp.png",
         "description": [
             {
@@ -220,7 +220,7 @@
     },
     {
         "id": "ISTJ",
-        "nickname": "책임과 헌신을 중요시하는 논리주의자",
+        "nickname": "논리주의자",
         "img": "job/job_istj.png",
         "description": [
             {
@@ -262,7 +262,7 @@
     },
     {
         "id": "INFJ",
-        "nickname": "고한 원칙을 가진 상담가",
+        "nickname": "상담가",
         "img": "job/job_infj.png",
         "description": [
             {
@@ -283,7 +283,7 @@
     },
     {
         "id": "INTP",
-        "nickname": "독립적이고 창의적인 문제 해결사",
+        "nickname": "문제 해결사",
         "img": "job/job_intp.png",
         "description": [
             {
@@ -304,7 +304,7 @@
     },
     {
         "id": "INTJ",
-        "nickname": "창의적인 완벽주의자",
+        "nickname": "완벽주의자",
         "img": "job/job_intj.png",
         "description": [
             {

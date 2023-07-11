@@ -18,7 +18,6 @@ const ChatWindow = styled.div`
         width: 100%;
         height: 70vh;
     }
-
 `;
 
 const ChatHeader = styled.div`
@@ -182,7 +181,7 @@ function Chat({ username, room }) {
         return () => {
             socket.off('receive_message');
         };
-    }, []);
+    }, [room]);
 
     const sendMessage = () => {
         if (currentMessage.trim() !== '') {

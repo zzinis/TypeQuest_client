@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/JobTest.css';
+import '../styles/JobTest.scss';
 import '../styles/TotalTest.scss';
 import { useNavigate } from 'react-router-dom';
 import Job_Q from '../common/api/jobQuestion.json';
@@ -79,13 +79,16 @@ function TravleTest() {
                                             </h1>
                                         </div>
                                         <div className="answerLayout">
-                                            <button type="button" className="ansBtn" onClick={nextSlide1}>
-                                                {data.a[0].text}
-                                            </button>
-                                            <br />
-                                            <button type="button" className="ansBtn" onClick={nextSlide2}>
-                                                {data.a[1].text}
-                                            </button>
+                                            <div className="leftBox">
+                                                <button type="button" className="ansLBtn" onClick={nextSlide1}>
+                                                    <div className="buttonText">{data.a[0].text}</div>
+                                                </button>
+                                            </div>
+                                            <div className="rightBox">
+                                                <button type="button" className="ansRBtn" onClick={nextSlide2}>
+                                                    <div className="buttonText">{data.a[1].text}</div>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 )}
