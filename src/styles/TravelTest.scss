@@ -1,87 +1,28 @@
-.mainLayout {
-  width: 100%;
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  background-color: #eee;
-  height: 755px;
+.answerBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    font-size: 23px;
+    width: 75%;
+    box-shadow: 3px 3px 3px rgb(63, 63, 63);
+    font-family: 'KCC-Ganpan';
 }
-.questionLayout {
-  display: flex;
-  flex-direction: column;
-  background-color: #bacee0;
-  width: 100%;
-  max-width: 900px;
-  height: 100%;
-  overflow: hidden;
-  align-items: center;
-  border-radius: 10px;
+.answerBtn:active {
+    color: #fff;
+    background-color: #f5e835;
+    transform: scale(0.95);
+    transition: 100ms;
+    border: none;
 }
-.mbtiTitle {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  padding: 15px;
-  box-sizing: border-box;
-  font-weight: 700;
-  font-size: 25px;
-}
-.mbtiTitle div:nth-child(1) {
-  display: flex;
-  flex: 1;
-}
-.questionList {
-  flex-direction: column;
-  height: 100%;
-  overflow: scroll;
-  scrollbar-width: none;
-}
-.questionList::-webkit-scrollbar {
-  display: none;
-}
-.questionItemLayout {
-  display: flex;
-  flex: 1;
-  margin: 10px 15px 5px 15px;
-}
-.answerItemLayout {
-  width: 100%;
-  background-color: #fff;
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-}
-.questionBox {
-  margin-top: 23vh;
-  width: 60vw;
-}
-.slider {
-  width: 1200vw;
-}
-.mbti_counter {
-  font-weight: bold;
-  height: 10vh;
-}
-.answerButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 1.2rem;
-  box-sizing: border-box;
-  background-color: #fff;
-  color: rgba(110, 110, 110, 1);
-  border: 1px solid gray;
-  border-radius: 6px;
-  border-color: #d0d0d0;
-  font-weight: 600;
-  font-size: 20px;
-}
-.answerButton:active {
-  color: #fff;
-  background-color: #61a7ed;
-  transform: scale(0.95);
-  transition: 100ms;
-  border: none;
+
+@font-face {
+    font-family: 'KCC-Ganpan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }

@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import io from 'socket.io-client';
-const socket = io.connect('http://localhost:8000');
 
-// chat 스타일 컴포넌트
+import io from 'socket.io-client';
+import { SERVER } from '../lib/constant';
+
+const socket = io.connect(`${SERVER}`);
+
 const ChatWindow = styled.div`
     width: 600px;
-    height: 800px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 70vh;
+    }
+
 `;
 
 const ChatHeader = styled.div`
@@ -24,15 +35,16 @@ const ChatHeaderTitle = styled.p`
     padding: 0;
     color: #fff;
     font-size: 20px;
-    font: bold 25px/1px 'arial';
+    font-weight: bold;
+    font-family: 'arial';
 `;
 
 const ChatBody = styled.div`
-    min-height: 600px;
-    height: 100%;
+    flex-grow: 1;
     border: 1px solid #263238;
     background: #c3e6f7;
     position: relative;
+    overflow: hidden;
 `;
 
 const MessageContainer = styled(ScrollToBottom)`
@@ -44,6 +56,8 @@ const MessageContainer = styled(ScrollToBottom)`
     ::-webkit-scrollbar {
         display: none;
     }
+
+    scroll-behavior: smooth;
 `;
 
 const Message = styled.div`
@@ -55,32 +69,32 @@ const Message = styled.div`
         margin-bottom: 0;
     }
 
-    &.you {
-        justify-content: flex-start;
+    ${(props) =>
+        props.isYou
+            ? css`
+                  justify-content: flex-end;
 
-        .message-content {
-            justify-content: flex-start;
-        }
+                  .message-content {
+                      justify-content: flex-end;
+                  }
 
-        .message-meta {
-            justify-content: flex-start;
-            margin-left: 5px;
-        }
-    }
+                  .message-meta {
+                      justify-content: flex-end;
+                      margin-left: 5px;
+                  }
+              `
+            : css`
+                  justify-content: flex-start;
 
-    &.other {
-        justify-content: flex-end;
+                  .message-content {
+                      justify-content: flex-start;
+                  }
 
-        .message-content {
-            justify-content: flex-end;
-            background-color: cornflowerblue;
-        }
-
-        .message-meta {
-            justify-content: flex-end;
-            margin-right: 5px;
-        }
-    }
+                  .message-meta {
+                      justify-content: flex-start;
+                      margin-right: 5px;
+                  }
+              `}
 `;
 
 const MessageContent = styled.div`
@@ -193,7 +207,7 @@ function Chat({ username, room }) {
             <ChatBody>
                 <MessageContainer>
                     {messageList.map((messageContent, index) => (
-                        <Message key={index} className={username === messageContent.author ? 'you' : 'other'}>
+                        <Message key={index} isYou={username === messageContent.author}>
                             <MessageContent>{messageContent.message}</MessageContent>
                             <MessageMeta>
                                 <p id="time">{messageContent.time}</p>
@@ -213,7 +227,6 @@ function Chat({ username, room }) {
                         event.key === 'Enter' && sendMessage();
                     }}
                 />
-                {/* 전송 누르면 채팅이 2번 입력됨 수정 필요 */}
                 <SendButton onClick={sendMessage}>전송</SendButton>
             </ChatFooter>
         </ChatWindow>

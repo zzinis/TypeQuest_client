@@ -1,56 +1,110 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Mbti from '../common/api/travelResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../styles/TravelResult.scss';
+import '../styles/TotalResult.css';
+import Footer from './Footer';
+import MainHeader from './Header';
+
+import CreateReview from './CreateReview';
+import { SERVER } from '../lib/constant';
 
 function TravelResult() {
     const location = useLocation();
     const mbti = location.state.id;
     const navigate = useNavigate();
+    const [isPopupOpen, setPopupOpen] = useState(false);
+
+    const openPopup = () => {
+        setPopupOpen(true);
+    };
+
+    const closePopup = () => {
+        setPopupOpen(false);
+    };
 
     const goReview = () => {
-        navigate('/Review');
+        openPopup();
     };
+
     const goChat = () => {
         navigate('/Chat');
     };
+    //
+    useEffect(() => {
+        // function for sending data
+        const sendData = async () => {
+            const result = Mbti.find((data) => data.id === mbti.mbti)?.text || '';
+            const test_name = '여행Test'; // test name to send
+            const user_id = sessionStorage.getItem('user_data'); // User ID stored in session
+
+            try {
+                await axios.post(`${SERVER}/participation`, {
+                    user_id,
+                    result,
+                    test_name,
+                });
+            } catch (error) {
+                console.error('Failed to send data:', error);
+            }
+        };
+
+        if (mbti.mbti) {
+            sendData();
+        }
+    }, []); // 의존성 배열 비워둠
     return (
         <>
             <div className="Layout">
+                <MainHeader />
                 <div className="resultLayout">
                     <div className="resultTitle">
-                        <h2>님의 여행MBTI 결과는?</h2>
+                        <h2 className="title1">
+                            {' '}
+                            <img src="image/airplane.png" alt="air" className="titleImg" /> 여행MBTI 결과는?
+                        </h2>
                     </div>
-                    {Mbti.map((data) => {
-                        return (
-                            <>
-                                {data.id === mbti.mbti && (
-                                    <div className="resultShow">
-                                        <p>{data.id}</p>
-                                        <p>{data.nickname}</p>
+                    {Mbti.find((data) => data.id === mbti.mbti) && (
+                        <div className="resultShow">
+                            <p className="resultMain">-{mbti.mbti}-</p>
+                            <p className="resultMain travelN">{Mbti.find((data) => data.id === mbti.mbti)?.nickname}</p>
 
-                                        <img
-                                            src={data.img}
-                                            alt="mbti"
-                                            width={'350px'}
-                                            height={'350px'}
-                                            className="img"
-                                        />
-                                        <ul className="description">
-                                            <li>{data.description[0].exp}</li>
-                                            <li>{data.description[1].exp}</li>
-                                            <li>{data.description[2].exp}</li>
-                                        </ul>
-                                        <h1 className="travelTitle">추천하는 여행지는?</h1>
-                                        <div className="recommend">
-                                            <h2>{data.text}</h2>
-
-                                            <img src={data.rec_img} alt="kk" className="rec_img" />
-                                        </div>
-                                    </div>
-                                )}
-                            </>
-                        );
-                    })}
+                            <img
+                                src={Mbti.find((data) => data.id === mbti.mbti)?.img}
+                                alt="mbti"
+                                width={'350px'}
+                                height={'350px'}
+                                className="img"
+                            />
+                            <ul className="description">
+                                <li className="exp">
+                                    {Mbti.find((data) => data.id === mbti.mbti)?.description[0].exp}
+                                </li>
+                                <li className="exp">
+                                    {Mbti.find((data) => data.id === mbti.mbti)?.description[1].exp}
+                                </li>
+                                <li className="exp">
+                                    {Mbti.find((data) => data.id === mbti.mbti)?.description[2].exp}
+                                </li>
+                            </ul>
+                            <h1 className="travelTitle">
+                                {' '}
+                                <img src="image/travel.png" className="rImg" alt="travel" /> 추천하는 여행지는?
+                            </h1>
+                            <div className="recommend">
+                                <img
+                                    src={Mbti.find((data) => data.id === mbti.mbti)?.img1}
+                                    alt="kk"
+                                    className="rec_img"
+                                />
+                                <img
+                                    src={Mbti.find((data) => data.id === mbti.mbti)?.img2}
+                                    alt="kk"
+                                    className="rec_img"
+                                />
+                            </div>
+                        </div>
+                    )}
                     <div className="buttonLayout">
                         <div className="buttonBox">
                             <button type="button" className="share btn">
@@ -65,7 +119,16 @@ function TravelResult() {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
+
+            {isPopupOpen && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <CreateReview onClose={closePopup} />
+                    </div>
+                </div>
+            )}
         </>
     );
 }

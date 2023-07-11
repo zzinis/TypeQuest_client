@@ -1,0 +1,28 @@
+.answerButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    font-size: 23px;
+    width: 75%;
+    box-shadow: 3px 3px 3px rgb(63, 63, 63);
+    font-family: 'KCC-Ganpan';
+}
+.answerButton:active {
+    color: #fff;
+    background-color: #fd4d4d;
+    transform: scale(0.95);
+    transition: 100ms;
+    border: none;
+}
+
+@font-face {
+    font-family: 'KCC-Ganpan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
