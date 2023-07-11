@@ -70,6 +70,22 @@ const Message = styled.div`
   ${props =>
     props.isYou
       ? css`
+        justify-content: flex-end;
+
+        
+
+        .message-content {
+          justify-content: flex-end;
+          
+        }
+
+        .message-meta {
+          justify-content: flex-end;
+          margin-left: 5px;
+          
+        }
+      `
+      : css`
         justify-content: flex-start;
 
         .message-content {
@@ -78,21 +94,10 @@ const Message = styled.div`
 
         .message-meta {
           justify-content: flex-start;
-          margin-left: 5px;
-        }
-      `
-      : css`
-        justify-content: flex-end;
-
-        .message-content {
-          justify-content: flex-end;
-        }
-
-        .message-meta {
-          justify-content: flex-end;
           margin-right: 5px;
         }
       `}
+
 
 `;
 
@@ -112,6 +117,7 @@ const MessageContent = styled.div`
   padding-left: 5px;
   overflow-wrap: break-word;
   word-break: break-word;
+
 `;
 
 const MessageMeta = styled.div`

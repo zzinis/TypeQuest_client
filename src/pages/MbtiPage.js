@@ -19,8 +19,8 @@ const MbtiInner = styled.div`
 
   /* 반응형 스타일 추가 */
   ${props =>
-        props.responsive &&
-        css`
+    props.responsive &&
+    css`
       @media (max-width: 768px) {
         height: 80vh;
       }
@@ -32,8 +32,8 @@ const ButtonWrapper = styled.div`
 
   /* 반응형 스타일 추가 */
   ${props =>
-        props.responsive &&
-        css`
+    props.responsive &&
+    css`
       @media (max-width: 768px) {
         margin-bottom: 20px;
       }
@@ -62,8 +62,8 @@ const Button = styled.button`
 
   /* 반응형 스타일 추가 */
   ${props =>
-        props.responsive &&
-        css`
+    props.responsive &&
+    css`
       @media (max-width: 768px) {
         width: 150px;
         height: 50px;
@@ -73,8 +73,8 @@ const Button = styled.button`
 `;
 
 const IconStyle = {
-    marginRight: '10px',
-    fontSize: '24px',
+  marginRight: '10px',
+  fontSize: '24px',
 };
 
 const Heading = styled.h1`
@@ -85,8 +85,8 @@ const Heading = styled.h1`
 
   /* 반응형 스타일 추가 */
   ${props =>
-        props.responsive &&
-        css`
+    props.responsive &&
+    css`
       @media (max-width: 768px) {
         font-size: 36px;
         margin-bottom: 0;
@@ -101,8 +101,8 @@ const Image = styled.img`
 
   /* 반응형 스타일 추가 */
   ${props =>
-        props.responsive &&
-        css`
+    props.responsive &&
+    css`
       @media (max-width: 768px) {
         width: 330px;
         height: 300px;
@@ -111,44 +111,44 @@ const Image = styled.img`
 `;
 
 function MbtiPage() {
-    return (
-        <>
-            <MainHeader></MainHeader>
-            <Wrapper>
-                <MbtiInner responsive>
-                    <Heading responsive>
-                        <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="4vw" />
-                    </Heading>
-                    <Image src={MbtiSrc} responsive />
-                    <ButtonWrapper responsive>
-                        <Link to="/TravelTest">
-                            <Button responsive>
-                                <RiChat1Line style={IconStyle} />
-                                여행
-                            </Button>
-                        </Link>
-                    </ButtonWrapper>
-                    <ButtonWrapper responsive>
-                        <Link to="/YoutubeTest">
-                            <Button responsive>
-                                <RiUserLine style={IconStyle} />
-                                유튜브
-                            </Button>
-                        </Link>
-                    </ButtonWrapper>
-                    <ButtonWrapper responsive>
-                        <Link to="/JobTest">
-                            <Button responsive>
-                                <RiSettingsLine style={IconStyle} />
-                                직업
-                            </Button>
-                        </Link>
-                    </ButtonWrapper>
-                </MbtiInner>
-            </Wrapper>
-            {/* <Footer /> */}
-        </>
-    );
+  return (
+    <>
+      <MainHeader></MainHeader>
+      <Wrapper>
+        <MbtiInner responsive="true">
+          <Heading responsive="true">
+            <TypingEffect text="안녕하세요 MBTI TEST PAGE입니다" speed={60} fontSize="4vw" />
+          </Heading>
+          <Image src={MbtiSrc} responsive="true" />
+          <ButtonWrapper responsive="true">
+            <Link to="/TravelTest">
+              <Button responsive="ture">
+                <RiChat1Line style={IconStyle} />
+                여행
+              </Button>
+            </Link>
+          </ButtonWrapper>
+          <ButtonWrapper responsive="ture">
+            <Link to="/YoutubeTest">
+              <Button responsive="true">
+                <RiUserLine style={IconStyle} />
+                유튜브
+              </Button>
+            </Link>
+          </ButtonWrapper>
+          <ButtonWrapper responsive="true">
+            <Link to="/JobTest">
+              <Button responsive="true">
+                <RiSettingsLine style={IconStyle} />
+                직업
+              </Button>
+            </Link>
+          </ButtonWrapper>
+        </MbtiInner>
+      </Wrapper>
+      {/* <Footer /> */}
+    </>
+  );
 }
 
 export default MbtiPage;
