@@ -33,7 +33,7 @@ function Ask() {
                 return inquiry;
             });
             axios
-                .patch(`http://localhost:8000/ask/${editId}`, { editId: editId, title: title, content: content })
+                .patch(`${SERVER}ask/${editId}`, { editId: editId, title: title, content: content })
                 .then(() => {
                     setInquiries(updatedInquiries);
                     setEditId(null);
@@ -85,7 +85,7 @@ function Ask() {
         // setInquiries(inquiries.filter((inquiry) => inquiry.ask_id !== id));
         console.log('id', id);
         axios
-            .delete(`http://localhost:8000/ask/${id}`)
+            .delete(`${SERVER}/ask/${id}`)
             .then(() => {
                 setInquiries(inquiries.filter((inquiry) => inquiry.ask_id !== id));
                 alert('확인용');
