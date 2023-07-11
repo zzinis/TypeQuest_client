@@ -186,13 +186,13 @@
 @media screen {
     @media (max-width: 768px) {
         .resultLayout {
-            width: 400px;
+            width: 360px;
         }
         .resultShow {
-            width: 350px;
+            width: 330px;
         }
         .resultTitle {
-            font-size: 22px;
+            font-size: 21px;
         }
         .resultMain {
             font-size: 30px;
@@ -215,23 +215,23 @@
             margin-left: 10px;
         }
         .exp {
-            font-size: 19px;
+            font-size: 18px;
         }
         .jobImg {
-            width: 175px;
-            height: 160px;
+            width: 165px;
+            height: 150px;
         }
         .rec_img {
-            width: 175px;
-            height: 155px;
+            width: 165px;
+            height: 150px;
         }
         .jobN {
             font-size: 30px;
             width: 75%;
         }
-        .youtubeN {
+        .YoutubeN {
             font-size: 30px;
-            width: 75%;
+            width: 63%;
         }
         .travelN {
             font-size: 30px;
