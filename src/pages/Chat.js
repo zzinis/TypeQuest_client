@@ -23,8 +23,7 @@ const ChatWindow = styled.div`
 
 const ChatHeader = styled.div`
     height: 45px;
-    border-radius: 6px;
-    background: #4b8fed;
+    background: #04202f;
     position: relative;
     cursor: pointer;
     padding: 10px;
@@ -45,7 +44,7 @@ const ChatHeaderTitle = styled.p`
 const ChatBody = styled.div`
     flex-grow: 1;
     border: 1px solid #263238;
-    background: #c3e6f7;
+    background: #eee;
     position: relative;
     overflow: hidden;
 `;
@@ -103,19 +102,18 @@ const Message = styled.div`
 const MessageContent = styled.div`
     width: auto;
     height: auto;
-    min-height: 40px;
     max-width: 120px;
-    background-color: #f4e9dc;
+    background-color: #04202fdc;
     border-radius: 5px;
-    color: black;
+    color: #eee;
     display: flex;
-    align-items: center;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
     overflow-wrap: break-word;
     word-break: break-word;
+    padding: 0px 5px;
+    margin: 0px 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 const MessageMeta = styled.div`
@@ -129,7 +127,7 @@ const MessageMeta = styled.div`
 `;
 
 const ChatFooter = styled.div`
-    height: 50px;
+    height: 40px;
     border: 1px solid #263238;
     border-top: none;
     display: flex;
@@ -155,14 +153,18 @@ const SendButton = styled.button`
     height: 100%;
     background: transparent;
     outline: none;
-    font-size: 15px;
-    color: lightgray;
+    font-size: 17px;
+    color: #eee;
     font-weight: bold;
-    background-color: gray;
+    background-color: #04202f;
 
     &:hover {
         color: #f0f2f5;
     }
+`;
+const ChatFooter2 = styled.div`
+    height: 40px;
+    border-top: none;
 `;
 
 function Chat({ username, room }) {
@@ -268,7 +270,9 @@ function Chat({ username, room }) {
                 <MessageContainer ref={messageContainerRef}>
                     {messageList.map((messageContent, index) => (
                         <Message key={index} isYou={username === messageContent.author}>
-                            <MessageContent>{messageContent.message}</MessageContent>
+                            <MessageContent>
+                                <div>{messageContent.message}</div>
+                            </MessageContent>
                             <MessageMeta>
                                 <p id="time">{messageContent.time}</p>
                                 <p id="author">{messageContent.author}</p>
@@ -287,6 +291,7 @@ function Chat({ username, room }) {
                 />
                 <SendButton onClick={sendMessage}>전송</SendButton>
             </ChatFooter>
+            <ChatFooter2></ChatFooter2>
         </ChatWindow>
     );
 }
