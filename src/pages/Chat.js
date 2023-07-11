@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import ScrollToBottom from 'react-scroll-to-bottom';
+import { useRef } from 'react';
 
 import io from 'socket.io-client';
 import { SERVER } from '../lib/constant';
@@ -164,6 +165,7 @@ const SendButton = styled.button`
 function Chat({ username, room }) {
     const [currentMessage, setCurrentMessage] = useState('');
     const [messageList, setMessageList] = useState([]);
+    const messageContainerRef = useRef(null);
 
     useEffect(() => {
         socket.emit('join_room', room);
@@ -198,13 +200,44 @@ function Chat({ username, room }) {
         }
     };
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter' || event.key === 'Done') {
+            sendMessage();
+            event.preventDefault();
+        }
+    };
+
+    useEffect(() => {
+        // 화면이 올라가는 문제 해결
+        const adjustChatWindowHeight = () => {
+            const windowHeight = window.innerHeight;
+            const messageContainerHeight = messageContainerRef.current.clientHeight;
+            const chatHeaderHeight = 45;
+            const chatFooterHeight = 40;
+            const newChatWindowHeight = windowHeight - chatHeaderHeight - chatFooterHeight;
+            const newChatBodyHeight = newChatWindowHeight - messageContainerHeight;
+            messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
+
+            // ChatWindow 및 ChatBody의 높이 조정
+            messageContainerRef.current.style.height = `${newChatBodyHeight}px`;
+            document.documentElement.style.setProperty('--chat-window-height', `${newChatWindowHeight}px`);
+        };
+
+        adjustChatWindowHeight();
+
+        window.addEventListener('resize', adjustChatWindowHeight);
+        return () => {
+            window.removeEventListener('resize', adjustChatWindowHeight);
+        };
+    }, []);
+
     return (
         <ChatWindow>
             <ChatHeader>
                 <ChatHeaderTitle>MBTI 채팅방</ChatHeaderTitle>
             </ChatHeader>
             <ChatBody>
-                <MessageContainer>
+                <MessageContainer ref={messageContainerRef}>
                     {messageList.map((messageContent, index) => (
                         <Message key={index} isYou={username === messageContent.author}>
                             <MessageContent>{messageContent.message}</MessageContent>
@@ -222,9 +255,7 @@ function Chat({ username, room }) {
                     value={currentMessage}
                     placeholder="채팅창에 입력하세요"
                     onChange={(event) => setCurrentMessage(event.target.value)}
-                    onKeyPress={(event) => {
-                        event.key === 'Enter' && sendMessage();
-                    }}
+                    onKeyPress={handleKeyPress}
                 />
                 <SendButton onClick={sendMessage}>전송</SendButton>
             </ChatFooter>
