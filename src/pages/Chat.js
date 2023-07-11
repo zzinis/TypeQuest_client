@@ -14,8 +14,10 @@ const ChatWindow = styled.div`
     flex-direction: column;
     justify-content: ${({ isKeyboardOpen }) => (isKeyboardOpen ? 'flex-start' : 'space-between')};
     transition: justify-content 0.3s;
+    margin: 15px;
 
     @media (max-width: 768px) {
+        margin: 0px;
         width: 100%;
         height: 92.5vh;
     }
@@ -23,16 +25,26 @@ const ChatWindow = styled.div`
 
 const ChatHeader = styled.div`
     height: 45px;
-    border-radius: 6px;
-    background: #4b8fed;
+    background: #04202f;
     position: relative;
     cursor: pointer;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    //왼쪽위 오른쪽위 테두리 둥글게
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    //모바일 사이즈
+    @media (max-width: 768px) {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
 `;
 
 const ChatHeaderTitle = styled.p`
     display: block;
-    padding: 0;
+    padding: 0px;
+    margin: 0px;
     color: #fff;
     font-size: 20px;
     font-weight: bold;
@@ -42,7 +54,7 @@ const ChatHeaderTitle = styled.p`
 const ChatBody = styled.div`
     flex-grow: 1;
     border: 1px solid #263238;
-    background: #c3e6f7;
+    background: #eee;
     position: relative;
     overflow: hidden;
 `;
@@ -100,19 +112,18 @@ const Message = styled.div`
 const MessageContent = styled.div`
     width: auto;
     height: auto;
-    min-height: 40px;
     max-width: 120px;
-    background-color: #f4e9dc;
+    background-color: #04202fdc;
     border-radius: 5px;
-    color: black;
+    color: #eee;
     display: flex;
-    align-items: center;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
     overflow-wrap: break-word;
     word-break: break-word;
+    padding: 0px 5px;
+    margin: 0px 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 const MessageMeta = styled.div`
@@ -126,10 +137,13 @@ const MessageMeta = styled.div`
 `;
 
 const ChatFooter = styled.div`
-    height: 50px;
+    height: 40px;
     border: 1px solid #263238;
     border-top: none;
     display: flex;
+    //아래쪽에 테두리 없애기
+    border-bottom: none;
+    //왼쪽 오른쪽 아래에 테두리 둥글게
 `;
 
 const ChatInput = styled.input`
@@ -141,6 +155,8 @@ const ChatInput = styled.input`
     border-right: 1px dotted #607d8b;
     outline: none;
     font-family: 'Open Sans', sans-serif;
+    //아랫쪽 테두리 제거
+    border-bottom: none;
 `;
 
 const SendButton = styled.button`
@@ -152,14 +168,18 @@ const SendButton = styled.button`
     height: 100%;
     background: transparent;
     outline: none;
-    font-size: 15px;
-    color: lightgray;
+    font-size: 17px;
+    color: #eee;
     font-weight: bold;
-    background-color: gray;
+    background-color: #04202f;
 
     &:hover {
         color: #f0f2f5;
     }
+`;
+const ChatFooter2 = styled.div`
+    height: 40px;
+    border-top: none;
 `;
 
 function Chat({ username, room }) {
@@ -265,7 +285,9 @@ function Chat({ username, room }) {
                 <MessageContainer ref={messageContainerRef}>
                     {messageList.map((messageContent, index) => (
                         <Message key={index} isYou={username === messageContent.author}>
-                            <MessageContent>{messageContent.message}</MessageContent>
+                            <MessageContent>
+                                <div>{messageContent.message}</div>
+                            </MessageContent>
                             <MessageMeta>
                                 <p id="time">{messageContent.time}</p>
                                 <p id="author">{messageContent.author}</p>
@@ -284,6 +306,7 @@ function Chat({ username, room }) {
                 />
                 <SendButton onClick={sendMessage}>전송</SendButton>
             </ChatFooter>
+            <ChatFooter2></ChatFooter2>
         </ChatWindow>
     );
 }

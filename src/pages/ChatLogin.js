@@ -24,9 +24,12 @@ const JoinChatContainer = styled.div`
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
-    background-color: #c3e6f7;
+    background-color: rgba(82, 88, 136, 0.8);
     width: 500px;
     height: 80vh;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    border-radius: 10px;
 
     //모바일 사이즈
     @media (max-width: 768px) {
@@ -59,7 +62,7 @@ const Button = styled.button`
     margin-top: 80px;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #4b8fed;
+    background-color: #04202f;
     color: white;
     font-weight: bold;
     cursor: pointer;
