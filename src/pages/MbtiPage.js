@@ -112,6 +112,22 @@ const Heading = styled.h1`
         `}
 `;
 
+const Image = styled.img`
+    width: 400px;
+    height: 400px;
+    margin-bottom: 20px;
+
+    /* 반응형 스타일 추가 */
+    ${(props) =>
+        props.responsive &&
+        css`
+            @media (max-width: 768px) {
+                width: 330px;
+                height: 300px;
+            }
+        `}
+`;
+
 function MbtiPage() {
     return (
         <>
