@@ -31,8 +31,8 @@ function YoutubeResult() {
                             <>
                                 {data.id === mbti.mbti && (
                                     <div className="resultShow">
-                                        <p className="resultMain">-{data.id}-</p>
-                                        <p className="resultMain YoutubeN">{data.nickname}</p>
+                                        <p className="mbti">-{data.id}-</p>
+                                        <p className="YoutubeN">{data.nickname}</p>
 
                                         <img
                                             src={data.img}

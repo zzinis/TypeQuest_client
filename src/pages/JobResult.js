@@ -31,8 +31,8 @@ function JobResult() {
                             <>
                                 {data.id === mbti.mbti && (
                                     <div className="resultShow">
-                                        <p className="resultMain">-{data.id}-</p>
-                                        <p className="resultMain jobN">{data.nickname}</p>
+                                        <p className="mbti">-{data.id}-</p>
+                                        <p className="jobN">{data.nickname}</p>
 
                                         <img
                                             src={data.img}
