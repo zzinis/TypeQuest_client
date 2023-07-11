@@ -126,7 +126,7 @@ const MessageMeta = styled.div`
 `;
 
 const ChatFooter = styled.div`
-    height: 100px;
+    height: 50px;
     border: 1px solid #263238;
     border-top: none;
     display: flex;
