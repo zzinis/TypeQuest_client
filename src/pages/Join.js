@@ -106,7 +106,7 @@ export const InputWrapper = styled.div`
 export const Warn = styled.p`
     display: flex;
     align-items: center;
-    color: rgba(82, 88, 136, 1);
+    color: rgba(200, 200, 200, 0.8);
     font-size: 0.8rem;
     font-weight: 700;
     position: absolute;
@@ -203,7 +203,7 @@ function Login() {
         register,
         watch,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, setError },
     } = useForm();
     const navigate = useNavigate();
 
@@ -249,6 +249,7 @@ function Login() {
         setLoading(false);
         // 회원가입 완료 되면 페이지 이동
     };
+
     return (
         <>
             <MainHeader />
@@ -284,8 +285,7 @@ function Login() {
                                                 required: '비밀번호를 입력해주세요',
                                                 pattern: {
                                                     value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{4,24}$/,
-                                                    message:
-                                                        '비밀번호는 대문자와 숫자를 포함하여 4자리 이상 입력해주세요',
+                                                    message: '대문자,숫자,특수문자를 포함하여 4자리 이상 입력',
                                                 },
                                             })}
                                         />
