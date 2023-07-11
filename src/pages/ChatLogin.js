@@ -27,6 +27,16 @@ const JoinChatContainer = styled.div`
     background-color: #c3e6f7;
     width: 500px;
     height: 80vh;
+
+    //모바일 사이즈
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 92.5vh;
+        margin: 0px;
+        padding: 0px;
+        border: none;
+        border-radius: 0px;
+    }
 `;
 
 const Title = styled.h3`

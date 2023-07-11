@@ -12,13 +12,12 @@ const ChatWindow = styled.div`
     height: 80vh;
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
     justify-content: ${({ isKeyboardOpen }) => (isKeyboardOpen ? 'flex-start' : 'space-between')};
     transition: justify-content 0.3s;
 
     @media (max-width: 768px) {
         width: 100%;
-        height: 70vh;
+        height: 92.5vh;
     }
 `;
 
@@ -127,7 +126,7 @@ const MessageMeta = styled.div`
 `;
 
 const ChatFooter = styled.div`
-    height: 40px;
+    height: 100px;
     border: 1px solid #263238;
     border-top: none;
     display: flex;
