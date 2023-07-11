@@ -61,7 +61,6 @@ function Ask() {
                 .post(`${SERVER}/ask`, newInquiry)
                 .then(() => {
                     setInquiries([...inquiries, newInquiry]);
-                    window.location.reload();
                 })
                 .catch((error) => {
                     console.error('문의 등록에 실패했습니다:', error);
@@ -80,21 +79,16 @@ function Ask() {
             setEditId(id);
         }
     };
-
     const handleDelete = (id) => {
-        // setInquiries(inquiries.filter((inquiry) => inquiry.ask_id !== id));
-        console.log('id', id);
         axios
             .delete(`${SERVER}/ask/${id}`)
             .then(() => {
-                setInquiries(inquiries.filter((inquiry) => inquiry.ask_id !== id));
-                alert('확인용');
-                // window.location.reload();
+                const updatedInquiries = inquiries.filter((inquiry) => inquiry.ask_id !== id);
+                setInquiries(updatedInquiries);
             })
             .catch((error) => {
                 console.error('문의 삭제에 실패했습니다:', error);
-                // window.location.reload();
-                // 오류 처리 로직 추가
+                // 에러 처리 로직을 추가하세요
             });
     };
 
