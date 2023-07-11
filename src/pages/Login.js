@@ -49,6 +49,7 @@ export const Input = styled.input`
     max-width: 100%;
     min-height: 50px;
     padding: 0 10px 0 15px;
+    touch-action: manipulation;
 `;
 
 export const InputBottom = styled.input`
@@ -64,6 +65,7 @@ export const InputBottom = styled.input`
     max-width: 100%;
     min-height: 50px;
     padding: 0 10px 0 15px;
+    touch-action: manipulation;
 `;
 export const WarningContainer = styled.div`
     display: flex;
