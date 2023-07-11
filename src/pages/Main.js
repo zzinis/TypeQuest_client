@@ -25,7 +25,7 @@ export const Inner = styled.div`
     font: 14px/1 'arial';
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: rgba(82, 88, 136, 1);
     height: 90vh;
     padding: 0px;
