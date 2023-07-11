@@ -22,94 +22,95 @@ const customTheme = {
 };
 
 const Title = styled.h1`
-  padding: 20px;
-  font-size: 50px;
-  text-align: center;
+    padding: 20px 10px 20px 10px;
+    font-size: 50px;
+    margin: 10px;
+    text-align: center;
 `;
 
 const PersonalitiesWrapper = styled.div`
-  margin: 100px auto;
-  padding: 0px 40px;
+    margin: 30px auto;
+    padding: 0px 40px;
 `;
 
 const CardWrapper = styled.div`
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100%;
 
-  &:hover {
-    transform: scale(1.05);
-  }
+    &:hover {
+        transform: scale(1.05);
+    }
 `;
 
 const Card = styled.div`
-  background-color: #fff;
-  padding: 20px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 `;
 
 const CardTitle = styled.h2`
-  font-size: 40px;
-  margin-bottom: 10px;
-  text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    text-align: center;
 `;
 
 const CardImage = styled.img`
-  width: 80%;
-  height: auto;
-  object-fit: cover;
-  margin-bottom: 20px;
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px;
 `;
 
 const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const ModalContent = styled.div`
-  background: #fff;
-  padding: 20px;
-  max-width: 600px;
-  width: 90%;
+    background: #fff;
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
 `;
 
 const ModalTitle = styled.h2`
-  font-size: 40px;
-  margin-bottom: 10px;
-  text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    text-align: center;
 `;
 
 const ModalDescription = styled.p`
-  font-size: 18px;
-  margin-bottom: 40px;
+    font-size: 18px;
+    margin-bottom: 40px;
 `;
 
 const CloseButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  transition: background-color 0.3s ease;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 
-  &:hover {
-    background-color: #999;
-  }
+    &:hover {
+        background-color: #999;
+    }
 `;
 
 const Personalities = () => {

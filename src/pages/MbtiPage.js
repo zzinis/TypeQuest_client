@@ -134,7 +134,7 @@ function MbtiPage() {
     return (
         <>
             <StyleSheetManager shouldForwardProp={(prop) => prop !== 'responsive'}>
-                <MainHeader></MainHeader>
+                <MainHeader />
                 <Wrapper>
                     <MbtiInner responsive={true}>
                         <Heading responsive={true}>
