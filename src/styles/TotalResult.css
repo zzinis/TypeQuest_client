@@ -53,6 +53,8 @@
 .img {
     margin-top: -33px;
     filter: drop-shadow(3px 3px 3px black);
+    width: 350px;
+    height: 300px;
 }
 .travelTitle {
     border-top: 2px solid black;
@@ -67,7 +69,7 @@
 }
 .jobN {
     border: 4px outset rgb(52, 177, 255);
-    width: 95%;
+    width: 80%;
     display: flex;
     align-items: center;
     height: 50px;
@@ -75,6 +77,14 @@
 }
 .travelN {
     border: 4px outset rgb(36, 216, 123);
+    width: 60%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: center;
+}
+.YoutubeN {
+    border: 4px outset rgb(250, 26, 26);
     width: 60%;
     display: flex;
     align-items: center;
@@ -161,4 +171,48 @@
         format('woff2');
     font-weight: 700;
     font-style: normal;
+}
+@media screen {
+    @media (max-width: 768px) {
+        .resultLayout {
+            width: 400px;
+        }
+        .resultShow {
+            width: 350px;
+        }
+        .resultTitle {
+            font-size: 22px;
+        }
+        .resultMain {
+            font-size: 30px;
+        }
+        .img {
+            width: 250px;
+            height: 200px;
+        }
+        .travelTitle {
+            font-size: 22px;
+        }
+        iframe {
+            width: 320px;
+            height: 200px;
+        }
+        .btn {
+            width: 105px;
+            height: 52px;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        .exp {
+            font-size: 19px;
+        }
+        .jobImg {
+            width: 175px;
+            height: 160px;
+        }
+        .rec_img {
+            width: 175px;
+            height: 155px;
+        }
+    }
 }
