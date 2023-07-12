@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/TotalResult.css';
 import Footer from './Footer';
 import MainHeader from './Header';
+import KakaoShareButton from './KakaoShareButton';
 
 function YoutubeResult() {
     const location = useLocation();
@@ -61,9 +62,7 @@ function YoutubeResult() {
                     })}
                     <div className="buttonLayout">
                         <div className="buttonBox">
-                            <button type="button" className="share btn">
-                                공유하기 <img src="image/share.png" alt="" width={'20px'} height={'20px'} />
-                            </button>
+                            <KakaoShareButton />
                             <button type="button" className="review btn" onClick={goReview}>
                                 리뷰쓰기 <img src="image/feedback.png" alt="" width={'23px'} height={'23px'} />
                             </button>
