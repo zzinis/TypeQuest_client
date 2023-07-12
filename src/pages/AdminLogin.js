@@ -62,7 +62,7 @@ const AdminPage = () => {
             code: code,
         };
         axios
-            .post(`http://localhost:8000/adminLogin`, data)
+            .post(`${SERVER}/adminLogin`, data)
             .then((response) => {
                 if (!response.data) {
                     alert('Manager CODE가 잘못되었습니다');
