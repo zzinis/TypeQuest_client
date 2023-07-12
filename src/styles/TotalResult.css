@@ -137,6 +137,7 @@
     font-family: 'ImcreSoojin';
     cursor: pointer;
     box-shadow: 3px 3px 3px rgb(66, 66, 66);
+    margin-left: 30px;
 }
 .share {
     background-color: #ff9ce9;
