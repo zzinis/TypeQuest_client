@@ -27,7 +27,7 @@ function TravelResult() {
     };
 
     const goChat = () => {
-        navigate('/Chat');
+        navigate('/ChatLogin');
     };
     //
     useEffect(() => {
