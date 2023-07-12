@@ -137,20 +137,19 @@ const AdminPage = () => {
 
     const saveComment = (getAskId) => {
         const ask_id = getAskId;
-        console.log(ask_id, '아아');
         const data = {
-            ask_id,
+            ask_id: ask_id,
             comment: posts,
         };
 
-        // axios
-        //     .patch(`${SERVER}/admincomment`)
-        //     .then((result) => {
-        //         setInquiries(result.data);
-        //     })
-        //     .catch((error) => {
-        //         console.error('문의 가져오기에 실패했습니다:', error);
-        //     });
+        axios
+            .patch(`${SERVER}/adminpage`)
+            .then((result) => {
+                setInquiries(result.data);
+            })
+            .catch((error) => {
+                console.error('문의 업데이트에 실패했습니다:', error);
+            });
     };
     const delComment = () => {};
 
