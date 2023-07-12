@@ -140,19 +140,10 @@ const AdminPage = () => {
     const saveComment = (getAskId) => {
         const ask_id = getAskId;
         axios
-            .patch(`http://localhost:8000/adminpage`, { ask_id: ask_id, comment: posts })
+            .patch(`${SERVER}/adminpage`, { ask_id: ask_id, comment: posts })
             .then((result) => {
                 console.log(result.data, '데이터');
                 window.location.reload();
-
-                // const updatedInquiries = inquiries.map((inquiry) => {
-                //     if (inquiry.ask_id === result.data.ask_id) {
-                //         return { ...inquiry, ask_id: result.data.ask_id };
-                //     }
-                //     return inquiry;
-                // });
-                // setInquiries(updatedInquiries);
-                // setPosts('d');
             })
             .catch((error) => {
                 console.error('문의 업데이트에 실패했습니다:', error);
@@ -160,13 +151,14 @@ const AdminPage = () => {
     };
     const delComment = (getAskId) => {
         const ask_id = getAskId;
+        console.log(ask_id, 'test');
         axios
-            .delete(`http://localhost:8000/adminpage/${ask_id}`)
+            .delete(`${SERVER}/adminpage/${ask_id}`)
             .then((result) => {
                 window.location.reload();
             })
             .catch((error) => {
-                console.error('문의 업데이트에 실패했습니다:', error);
+                console.error('문의 삭제 실패했습니다:', error);
             });
     };
 
