@@ -39,7 +39,7 @@ function Footer() {
     };
 
     const developerClick = () => {
-        navigate('/Developer');
+        navigate('/AdminLogin');
     };
 
     const askCheck = () => {

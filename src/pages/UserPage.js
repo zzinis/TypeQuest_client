@@ -77,6 +77,13 @@ const MyPage = () => {
     const handleSaveChanges = () => {
         setUser(editedUser);
         setIsEditing(false);
+        try {
+            const response = axios.patch(`${SERVER}/user/${id}`, editedUser);
+            // 요청이 성공적으로 완료되었을 때의 처리 로직을 추가할 수 있습니다.
+        } catch (error) {
+            console.error(error);
+            // 요청이 실패했을 때의 처리 로직을 추가할 수 있습니다.
+        }
     };
 
     if (!user) {

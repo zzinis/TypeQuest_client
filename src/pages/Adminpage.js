@@ -1,69 +1,68 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Button } from '@mui/material';
 import axios from 'axios';
+import styled from 'styled-components';
+import Footer from './Footer';
+import Header from './Header';
+import { SERVER } from '../lib/constant';
 
-function AdminPage() {
+const MainTitle = styled.div`
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+`;
+
+const commentWraper = styled.div`
+    background-color: rgba(42, 48, 96, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 2rem;
+    height: 1rem;
+`;
+const comment = styled.input`
+    background: none;
+    background-color: rgba(42, 48, 96, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+`;
+
+const AdminPage = () => {
+    const [posts, setPosts] = useState([]);
     const [inquiries, setInquiries] = useState([]);
 
     useEffect(() => {
-        fetchInquiries();
+        axios
+            .get(`${SERVER}/adminpage`)
+            .then((result) => {
+                setInquiries(result.data);
+            })
+            .catch((error) => {
+                console.error('문의 가져오기에 실패했습니다:', error);
+            });
     }, []);
 
-    const fetchInquiries = () => {
-        axios
-            .get('/Ask')
-            .then((response) => {
-                setInquiries(response.data);
-            })
-            .catch((error) => {
-                console.error('문의 목록을 가져오는데 실패했습니다:', error);
-                // 오류 처리 로직 추가
-            });
-    };
-
-    const handleDelete = (id) => {
-        axios
-            .delete(`/Ask/${id}`)
-            .then(() => {
-                setInquiries(inquiries.filter((inquiry) => inquiry.id !== id));
-            })
-            .catch((error) => {
-                console.error('문의 삭제에 실패했습니다:', error);
-                // 오류 처리 로직 추가
-            });
-    };
-
     return (
-        <Box sx={{ maxWidth: 600, margin: 'auto', padding: 2 }}>
-            <Typography variant="h4" align="center" gutterBottom>
-                관리자 페이지
-            </Typography>
-            <div>
-                {inquiries.map((inquiry) => (
-                    <Box
-                        key={inquiry.id}
-                        sx={{
-                            background: '#f5f5f5',
-                            padding: 2,
-                            marginBottom: 2,
-                            borderRadius: '4px',
-                        }}
-                    >
-                        <Typography variant="h6">{inquiry.title}</Typography>
-                        <Typography>{inquiry.content}</Typography>
-                        <Button
-                            variant="outlined"
-                            color="error"
-                            onClick={() => handleDelete(inquiry.id)}
-                            sx={{ marginTop: 1 }}
-                        >
-                            삭제
-                        </Button>
-                    </Box>
-                ))}
-            </div>
-        </Box>
+        <div>
+            <Header></Header>
+            <MainTitle>문의 관리</MainTitle>
+            {inquiries.map((inquirie) => (
+                <div key={inquirie.ask_id}>
+                    <div>{inquirie.title}</div>
+                    <div>{inquirie.content}</div>
+                    <commentWraper>
+                        <comment></comment>
+                    </commentWraper>
+                </div>
+            ))}
+            <commentWraper>
+                <comment></comment>
+            </commentWraper>
+            <Footer></Footer>
+        </div>
     );
-}
+};
 
 export default AdminPage;
