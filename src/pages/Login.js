@@ -106,15 +106,6 @@ export const SubmitBtn = styled.button`
     a {
         color: rgba(82, 88, 136, 1);
     }
-
-    // 모바일 사이즈
-    @media screen {
-        @media (max-width: 768px) {
-            width: 100px;
-            height: 2rem;
-            font-size: 0.8rem;
-        }
-    }
 `;
 
 export const InputWrapper = styled.div`
@@ -167,9 +158,6 @@ export const Hidden = styled.legend`
 `;
 
 const Logo = styled.img`
-    position: absolute;
-    top: 0;
-    left: 0px;
     width: 200px;
     height: 10vh;
     //모바일 사이즈
@@ -177,6 +165,27 @@ const Logo = styled.img`
         @media (max-width: 768px) {
             width: 150px;
             height: 7.5vh;
+        }
+    }
+`;
+
+const InnerLogin = styled.div`
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    font: 14px/1 'arial';
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(82, 88, 136, 1);
+    height: 100vh;
+    padding: 0px;
+    color: white;
+    @media screen {
+        //모바일 사이즈
+        @media (max-width: 768px) {
+            height: 100vh;
+            align-items: center;
         }
     }
 `;
@@ -209,7 +218,6 @@ function Login() {
         axios
             .post(`${SERVER}/login`, body)
             .then((response) => {
-                console.log('d', response.data); // 서버 응답 확인
                 // 로그인 성공 처리 로직을 여기에 작성하세요.
                 if (response.data.result === false) {
                     alert(response.data.msg);
@@ -233,78 +241,79 @@ function Login() {
 
     return (
         <>
-            <Wrapper>
-                <Inner>
+            <InnerLogin>
+                <div className="logoContainer">
                     <Logo src={LogoSrc} alt="" onClick={onClickHandler} />
-                    <div className="container">
-                        <div className="Left">
-                            <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
-                                <Filed>
-                                    <Hidden>로그인 양식 </Hidden>
-                                    <LoginHeader>Login</LoginHeader>
-
-                                    <InputContainer>
-                                        <InputWrapper>
-                                            <Input
-                                                className={`Input_top ${errors.user_id ? 'error' : ''}`}
-                                                name="user_id"
-                                                placeholder="아이디"
-                                                {...register('user_id', {
-                                                    required: '아이디를 입력해주세요',
-                                                    maxLength: {
-                                                        value: 10,
-                                                        message: '아이디는 10자 이하로 만들어주세요,',
-                                                    },
-                                                })}
-                                            />
-                                            {errors.user_id && <Warn>{errors.user_id.message}</Warn>}
-                                        </InputWrapper>
-                                        <InputWrapper>
-                                            <InputBottom
-                                                className={`Input_bottom ${errors.password ? 'error' : ''}`}
-                                                name="password"
-                                                type="password"
-                                                placeholder="비밀번호"
-                                                {...register('password', {
-                                                    required: '비밀번호를 입력해주세요',
-                                                    pattern: {
-                                                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{4,24}$/,
-                                                        message:
-                                                            '비밀번호는 대문자와 숫자를 포함하여 4자리 이상 입력해주세요',
-                                                    },
-                                                })}
-                                            />
-                                            {errors.password && <Warn>{errors.password.message}</Warn>}
-                                        </InputWrapper>
-                                        <SubmitBtn type="submit" disabled={loading}>
-                                            Login
-                                        </SubmitBtn>
-                                    </InputContainer>
-                                </Filed>
-                            </form>
-                        </div>
-
-                        <div className="Right">
+                </div>
+                {/* <MainHeader /> */}
+                <div className="container">
+                    <div className="Left">
+                        <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
                             <Filed>
-                                <LoginHeader>Hello</LoginHeader>
+                                <Hidden>로그인 양식 </Hidden>
+                                <LoginHeader>Login</LoginHeader>
 
                                 <InputContainer>
                                     <InputWrapper>
-                                        <div className="contentSignup">
-                                            Enter your personal details and start journey with us. This site that makes
-                                            your trip more enjoyable! Find out your favorite travel destinations and
-                                            YouTubers with MBTI.
-                                        </div>
+                                        <Input
+                                            className={`Input_top ${errors.user_id ? 'error' : ''}`}
+                                            name="user_id"
+                                            placeholder="아이디"
+                                            {...register('user_id', {
+                                                required: '아이디를 입력해주세요',
+                                                maxLength: {
+                                                    value: 10,
+                                                    message: '아이디는 10자 이하로 만들어주세요,',
+                                                },
+                                            })}
+                                        />
+                                        {errors.user_id && <Warn>{errors.user_id.message}</Warn>}
                                     </InputWrapper>
-                                    <SignInBtn to="/Join">
-                                        <Link to="/Join">회원가입</Link>
-                                    </SignInBtn>
+                                    <InputWrapper>
+                                        <InputBottom
+                                            className={`Input_bottom ${errors.password ? 'error' : ''}`}
+                                            name="password"
+                                            type="password"
+                                            placeholder="비밀번호"
+                                            {...register('password', {
+                                                required: '비밀번호를 입력해주세요',
+                                                pattern: {
+                                                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{4,24}$/,
+                                                    message:
+                                                        '비밀번호는 대문자와 숫자를 포함하여 4자리 이상 입력해주세요',
+                                                },
+                                            })}
+                                        />
+                                        {errors.password && <Warn>{errors.password.message}</Warn>}
+                                    </InputWrapper>
+                                    <SubmitBtn type="submit" disabled={loading}>
+                                        Login
+                                    </SubmitBtn>
                                 </InputContainer>
                             </Filed>
-                        </div>
+                        </form>
                     </div>
-                </Inner>
-            </Wrapper>
+
+                    <div className="Right">
+                        <Filed>
+                            <LoginHeader>Hello</LoginHeader>
+
+                            <InputContainer>
+                                <InputWrapper>
+                                    <div className="contentSignup">
+                                        Enter your personal details and start journey with us. This site that makes your
+                                        trip more enjoyable! Find out your favorite travel destinations and YouTubers
+                                        with MBTI.
+                                    </div>
+                                </InputWrapper>
+                                <SignInBtn to="/Join">
+                                    <Link to="/Join">회원가입</Link>
+                                </SignInBtn>
+                            </InputContainer>
+                        </Filed>
+                    </div>
+                </div>
+            </InnerLogin>
         </>
     );
 }

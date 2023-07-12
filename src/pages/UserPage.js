@@ -29,9 +29,15 @@ const customTheme = createTheme({
 const StyledPaper = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(3),
     backgroundColor: '#f5f5f5',
-    minHeight: '600px',
-    marginTop: '100px',
+    minHeight: '400px',
+    marginTop: '30px',
     width: '600px',
+    //모바일 사이즈
+    '@media (max-width: 600px)': {
+        width: '80%',
+        margin: '0px',
+        marginTop: '30px',
+    },
 }));
 
 const MyPage = () => {
@@ -71,6 +77,13 @@ const MyPage = () => {
     const handleSaveChanges = () => {
         setUser(editedUser);
         setIsEditing(false);
+        try {
+            const response = axios.patch(`${SERVER}/user/${id}`, editedUser);
+            // 요청이 성공적으로 완료되었을 때의 처리 로직을 추가할 수 있습니다.
+        } catch (error) {
+            console.error(error);
+            // 요청이 실패했을 때의 처리 로직을 추가할 수 있습니다.
+        }
     };
 
     if (!user) {

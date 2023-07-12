@@ -23,7 +23,7 @@ function Footer() {
     const navigate = useNavigate();
     const isMobileSize = window.innerWidth <= 768;
     const listClick = () => {
-        navigate('/List');
+        navigate('/Personalities');
     };
 
     const testClick = () => {
@@ -39,11 +39,17 @@ function Footer() {
     };
 
     const developerClick = () => {
-        navigate('/Developer');
+        navigate('/AdminLogin');
     };
 
     const askCheck = () => {
-        navigate('/Ask');
+        const user_id = sessionStorage.getItem('user_data');
+        if (!user_id) {
+            alert('로그인 후 문의 페이지를 이용하실 수 있습니다');
+            // navigate('/');
+        } else {
+            navigate('/Ask');
+        }
     };
 
     useEffect(() => {

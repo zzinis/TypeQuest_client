@@ -19,6 +19,7 @@ import Personalities from './pages/Personalities';
 import UserPage from './pages/UserPage';
 import Ask from './pages/Ask';
 import AdminPage from './pages/Adminpage';
+import AdminLogin from './pages/AdminLogin';
 
 function App() {
     return (
@@ -30,7 +31,8 @@ function App() {
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Join" element={<Join />}></Route>
                     <Route path="/Ask" element={<Ask />}></Route>
-                    <Route path="/Adminpage" element={<AdminPage />}></Route>
+                    <Route path="/AdminPage" element={<AdminPage />}></Route>
+                    <Route path="/AdminLogin" element={<AdminLogin />}></Route>
 
                     <Route path="/UserPage" element={<UserPage />}></Route>
                     <Route path="/MbtiPage" element={<MbtiPage />}></Route>

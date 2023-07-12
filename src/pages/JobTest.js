@@ -1,16 +1,24 @@
 import { useState } from 'react';
-import '../styles/JobTest.css';
-import '../styles/TotalTest.css';
+import '../styles/JobTest.scss';
+import '../styles/TotalTest.scss';
 import { useNavigate } from 'react-router-dom';
 import Job_Q from '../common/api/jobQuestion.json';
 import Footer from './Footer';
 import MainHeader from './Header';
-function TravleTest() {
+
+function JobTest() {
     const [currentPage, setCurrentPage] = useState(1);
     const [id, setId] = useState(1);
     const [num, setNum] = useState(0);
     const [mbtiList, setMbtiList] = useState([]);
     const navigate = useNavigate();
+
+    if (sessionStorage.getItem('user_data') === null) {
+        alert('로그인 후 이용해주세요');
+        window.location.href = '/Login';
+        return null;
+    }
+
     //배열 자르기 함수
     const chunk = (data = [], size = 1) => {
         const arr = [];
@@ -69,28 +77,30 @@ function TravleTest() {
                         <div>{`${currentPage} / ${Job_Q.length}`}</div>
                     </div>
                     {Job_Q.map((data) => {
-                        return (
-                            <>
-                                {data.id === id && (
-                                    <div className="questionBox" key={data.id}>
-                                        <div className="mbti_counter">
-                                            <h1 className="questionTitle">
-                                                Q{data.id}. {data.q}
-                                            </h1>
-                                        </div>
-                                        <div className="answerLayout">
-                                            <button type="button" className="ansBtn" onClick={nextSlide1}>
-                                                {data.a[0].text}
+                        if (data.id === id) {
+                            return (
+                                <div className="questionBox" key={data.id}>
+                                    <div className="mbti_counter">
+                                        <h1 className="questionTitle">
+                                            Q{data.id}. {data.q}
+                                        </h1>
+                                    </div>
+                                    <div className="answerLayout">
+                                        <div className="leftBox">
+                                            <button type="button" className="ansLBtn" onClick={nextSlide1}>
+                                                <div className="buttonText">{data.a[0].text}</div>
                                             </button>
-                                            <br />
-                                            <button type="button" className="ansBtn" onClick={nextSlide2}>
-                                                {data.a[1].text}
+                                        </div>
+                                        <div className="rightBox">
+                                            <button type="button" className="ansRBtn" onClick={nextSlide2}>
+                                                <div className="buttonText">{data.a[1].text}</div>
                                             </button>
                                         </div>
                                     </div>
-                                )}
-                            </>
-                        );
+                                </div>
+                            );
+                        }
+                        return null;
                     })}
                 </div>
             </div>
@@ -99,4 +109,4 @@ function TravleTest() {
     );
 }
 
-export default TravleTest;
+export default JobTest;

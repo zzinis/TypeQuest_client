@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import ScrollToBottom from 'react-scroll-to-bottom';
 
@@ -12,27 +12,39 @@ const ChatWindow = styled.div`
     height: 80vh;
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    justify-content: ${({ isKeyboardOpen }) => (isKeyboardOpen ? 'flex-start' : 'space-between')};
+    transition: justify-content 0.3s;
+    margin: 15px;
 
     @media (max-width: 768px) {
+        margin: 0px;
         width: 100%;
-        height: 70vh;
+        height: 92.5vh;
     }
-
 `;
 
 const ChatHeader = styled.div`
     height: 45px;
-    border-radius: 6px;
-    background: #4b8fed;
+    background: #04202f;
     position: relative;
     cursor: pointer;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    //왼쪽위 오른쪽위 테두리 둥글게
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    //모바일 사이즈
+    @media (max-width: 768px) {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
 `;
 
 const ChatHeaderTitle = styled.p`
     display: block;
-    padding: 0;
+    padding: 0px;
+    margin: 0px;
     color: #fff;
     font-size: 20px;
     font-weight: bold;
@@ -42,7 +54,7 @@ const ChatHeaderTitle = styled.p`
 const ChatBody = styled.div`
     flex-grow: 1;
     border: 1px solid #263238;
-    background: #c3e6f7;
+    background: #eee;
     position: relative;
     overflow: hidden;
 `;
@@ -100,19 +112,18 @@ const Message = styled.div`
 const MessageContent = styled.div`
     width: auto;
     height: auto;
-    min-height: 40px;
     max-width: 120px;
-    background-color: #f4e9dc;
+    background-color: #04202fdc;
     border-radius: 5px;
-    color: black;
+    color: #eee;
     display: flex;
-    align-items: center;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
     overflow-wrap: break-word;
     word-break: break-word;
+    padding: 0px 5px;
+    margin: 0px 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 const MessageMeta = styled.div`
@@ -130,6 +141,9 @@ const ChatFooter = styled.div`
     border: 1px solid #263238;
     border-top: none;
     display: flex;
+    //아래쪽에 테두리 없애기
+    border-bottom: none;
+    //왼쪽 오른쪽 아래에 테두리 둥글게
 `;
 
 const ChatInput = styled.input`
@@ -141,6 +155,8 @@ const ChatInput = styled.input`
     border-right: 1px dotted #607d8b;
     outline: none;
     font-family: 'Open Sans', sans-serif;
+    //아랫쪽 테두리 제거
+    border-bottom: none;
 `;
 
 const SendButton = styled.button`
@@ -153,18 +169,35 @@ const SendButton = styled.button`
     background: transparent;
     outline: none;
     font-size: 15px;
-    color: lightgray;
+    color: #eee;
     font-weight: bold;
-    background-color: gray;
+    background-color: #04202f;
 
     &:hover {
         color: #f0f2f5;
     }
 `;
+const ChatFooter2 = styled.div`
+    height: 20px;
+    border-top: none;
+`;
 
 function Chat({ username, room }) {
     const [currentMessage, setCurrentMessage] = useState('');
     const [messageList, setMessageList] = useState([]);
+    const messageContainerRef = useRef(null);
+    const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+    // 각 방에 대한 메시지 리스트를 저장할 객체 생성
+    const messageListsByRoom = {};
+
+    // 현재 방에 대한 메시지 리스트를 가져오는 함수
+    const getMessageListForRoom = (room) => {
+        if (!messageListsByRoom[room]) {
+            // 방별 메시지 리스트가 없으면 초기화
+            messageListsByRoom[room] = [];
+        }
+        return messageListsByRoom[room];
+    };
 
     useEffect(() => {
         socket.emit('join_room', room);
@@ -176,13 +209,18 @@ function Chat({ username, room }) {
 
     useEffect(() => {
         socket.on('receive_message', (data) => {
-            setMessageList((prevMessages) => [...prevMessages, data]);
+            // 현재 방에 속한 메시지만을 추가
+            if (data.room === room) {
+                const messageListForRoom = getMessageListForRoom(room);
+                messageListForRoom.push(data);
+                setMessageList([...messageListForRoom]);
+            }
         });
 
         return () => {
             socket.off('receive_message');
         };
-    }, []);
+    }, [room]);
 
     const sendMessage = () => {
         if (currentMessage.trim() !== '') {
@@ -199,16 +237,73 @@ function Chat({ username, room }) {
         }
     };
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter' || event.key === 'Done') {
+            sendMessage();
+            event.preventDefault();
+        }
+    };
+
+    useEffect(() => {
+        const adjustChatWindowHeight = () => {
+            if (messageContainerRef.current) {
+                const windowHeight = window.innerHeight;
+                const messageContainerHeight = messageContainerRef.current.clientHeight;
+                const chatHeaderHeight = 45;
+                const chatFooterHeight = 0;
+                const newChatWindowHeight = windowHeight - chatHeaderHeight - chatFooterHeight;
+                const newChatBodyHeight = newChatWindowHeight - messageContainerHeight;
+
+                messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
+                messageContainerRef.current.style.height = `${newChatBodyHeight}px`;
+                document.documentElement.style.setProperty('--chat-window-height', `${newChatWindowHeight}px`);
+            }
+        };
+
+        adjustChatWindowHeight();
+
+        window.addEventListener('resize', adjustChatWindowHeight);
+
+        // 키보드 이벤트 리스너 추가
+        window.addEventListener('resize', handleKeyboardEvent);
+        window.addEventListener('orientationchange', handleKeyboardEvent);
+        document.addEventListener('focusin', handleKeyboardEvent);
+        document.addEventListener('focusout', handleKeyboardEvent);
+
+        return () => {
+            window.removeEventListener('resize', adjustChatWindowHeight);
+
+            // 키보드 이벤트 리스너 제거
+            window.removeEventListener('resize', handleKeyboardEvent);
+            window.removeEventListener('orientationchange', handleKeyboardEvent);
+            document.removeEventListener('focusin', handleKeyboardEvent);
+            document.removeEventListener('focusout', handleKeyboardEvent);
+        };
+    }, []);
+
+    const handleKeyboardEvent = () => {
+        const { innerHeight } = window;
+        const footerElement = document.querySelector('.chat-footer');
+
+        if (footerElement) {
+            const footerRect = footerElement.getBoundingClientRect();
+            const isKeyboardOpen = innerHeight > footerRect.bottom;
+            setIsKeyboardOpen(isKeyboardOpen);
+        }
+    };
+
     return (
-        <ChatWindow>
+        <ChatWindow isKeyboardOpen={isKeyboardOpen}>
             <ChatHeader>
                 <ChatHeaderTitle>MBTI 채팅방</ChatHeaderTitle>
             </ChatHeader>
             <ChatBody>
-                <MessageContainer>
+                <MessageContainer ref={messageContainerRef}>
                     {messageList.map((messageContent, index) => (
                         <Message key={index} isYou={username === messageContent.author}>
-                            <MessageContent>{messageContent.message}</MessageContent>
+                            <MessageContent>
+                                <div>{messageContent.message}</div>
+                            </MessageContent>
                             <MessageMeta>
                                 <p id="time">{messageContent.time}</p>
                                 <p id="author">{messageContent.author}</p>
@@ -217,18 +312,17 @@ function Chat({ username, room }) {
                     ))}
                 </MessageContainer>
             </ChatBody>
-            <ChatFooter>
+            <ChatFooter className="chat-footer">
                 <ChatInput
                     type="text"
                     value={currentMessage}
                     placeholder="채팅창에 입력하세요"
                     onChange={(event) => setCurrentMessage(event.target.value)}
-                    onKeyPress={(event) => {
-                        event.key === 'Enter' && sendMessage();
-                    }}
+                    onKeyPress={handleKeyPress}
                 />
                 <SendButton onClick={sendMessage}>전송</SendButton>
             </ChatFooter>
+            <ChatFooter2></ChatFooter2>
         </ChatWindow>
     );
 }

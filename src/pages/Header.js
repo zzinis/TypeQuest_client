@@ -150,7 +150,7 @@ const SignButton = styled.button`
 
     @media screen {
         @media (max-width: 768px) {
-            width: 70px;
+            width: 80px;
             height: 30px;
         }
     }
@@ -208,10 +208,10 @@ function MainHeader() {
     const handleLogout = () => {
         sessionStorage.removeItem('user_data');
         setLoggedIn(false);
+        alert('로그아웃 되었습니다');
     };
     useEffect(() => {
         checkLoggedIn();
-        // showAlert();
     }, []);
 
     return (
