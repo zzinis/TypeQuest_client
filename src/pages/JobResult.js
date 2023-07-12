@@ -13,7 +13,7 @@ function JobResult() {
         navigate('/Review');
     };
     const goChat = () => {
-        navigate('/Chat');
+        navigate('/ChatLogin');
     };
     return (
         <>
@@ -27,39 +27,31 @@ function JobResult() {
                         </h2>
                     </div>
                     {JobMbti.map((data) => {
-                        return (
-                            <>
-                                {data.id === mbti.mbti && (
-                                    <div className="resultShow">
-                                        <p className="mbti">-{data.id}-</p>
-                                        <p className="jobN">{data.nickname}</p>
+                        if (data.id === mbti.mbti) {
+                            return (
+                                <div className="resultShow" key={data.id}>
+                                    <p className="mbti">-{data.id}-</p>
+                                    <p className="jobN">{data.nickname}</p>
 
-                                        <img
-                                            src={data.img}
-                                            alt="mbti"
-                                            width={'350px'}
-                                            height={'350px'}
-                                            className="img"
-                                        />
-                                        <ul className="description">
-                                            <li className="exp">{data.description[0].exp}</li>
-                                            <li className="exp">{data.description[1].exp}</li>
-                                            <li className="exp">{data.description[2].exp}</li>
-                                            <li className="exp">{data.description[3].exp}</li>
-                                        </ul>
-                                        <h1 className="travelTitle">
-                                            {' '}
-                                            <img src="image/job-search.png" alt="job" className="rImg" /> 추천하는
-                                            직업은?
-                                        </h1>
-                                        <div className="recommend">
-                                            <img src={data.img1} alt="kk" className="jobImg" />
-                                            <img src={data.img2} alt="kk" className="jobImg" />
-                                        </div>
+                                    <img src={data.img} alt="mbti" width={'350px'} height={'350px'} className="img" />
+                                    <ul className="description">
+                                        <li className="exp">{data.description[0].exp}</li>
+                                        <li className="exp">{data.description[1].exp}</li>
+                                        <li className="exp">{data.description[2].exp}</li>
+                                        <li className="exp">{data.description[3].exp}</li>
+                                    </ul>
+                                    <h1 className="travelTitle">
+                                        {' '}
+                                        <img src="image/job-search.png" alt="job" className="rImg" /> 추천하는 직업은?
+                                    </h1>
+                                    <div className="recommend">
+                                        <img src={data.img1} alt="kk" className="jobImg" />
+                                        <img src={data.img2} alt="kk" className="jobImg" />
                                     </div>
-                                )}
-                            </>
-                        );
+                                </div>
+                            );
+                        }
+                        return null;
                     })}
                     <div className="buttonLayout">
                         <div className="buttonBox">

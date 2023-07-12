@@ -13,7 +13,7 @@ function YoutubeResult() {
         navigate('/Review');
     };
     const goChat = () => {
-        navigate('/Chat');
+        navigate('/ChatLogin');
     };
     return (
         <>
@@ -27,44 +27,37 @@ function YoutubeResult() {
                         </h2>
                     </div>
                     {YMbti.map((data) => {
-                        return (
-                            <>
-                                {data.id === mbti.mbti && (
-                                    <div className="resultShow">
-                                        <p className="mbti">-{data.id}-</p>
-                                        <p className="YoutubeN">{data.nickname}</p>
+                        if (data.id === mbti.mbti) {
+                            return (
+                                <div className="resultShow" key={data.id}>
+                                    <p className="mbti">-{data.id}-</p>
+                                    <p className="YoutubeN">{data.nickname}</p>
 
-                                        <img
-                                            src={data.img}
-                                            alt="mbti"
-                                            width={'350px'}
-                                            height={'300px'}
-                                            className="img"
-                                        />
-                                        <ul className="description">
-                                            <li className="exp">{data.description[0].exp}</li>
-                                            <li className="exp">{data.description[1].exp}</li>
-                                            <li className="exp">{data.description[2].exp}</li>
-                                        </ul>
-                                        <h1 className="travelTitle">
-                                            {' '}
-                                            <img src="image/youtube1.png" alt="youtube" className="rImg" /> 추천하는
-                                            유튜브 영상은?
-                                        </h1>
-                                        <div className="recommend1">
-                                            <iframe
-                                                width="560"
-                                                height="315"
-                                                src={data.video}
-                                                title="YouTube video player"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            ></iframe>
-                                            <h4>출처:{data.text}</h4>
-                                        </div>
+                                    <img src={data.img} alt="mbti" width={'350px'} height={'300px'} className="img" />
+                                    <ul className="description">
+                                        <li className="exp">{data.description[0].exp}</li>
+                                        <li className="exp">{data.description[1].exp}</li>
+                                        <li className="exp">{data.description[2].exp}</li>
+                                    </ul>
+                                    <h1 className="travelTitle">
+                                        {' '}
+                                        <img src="image/youtube1.png" alt="youtube" className="rImg" /> 추천하는 유튜브
+                                        영상은?
+                                    </h1>
+                                    <div className="recommend1">
+                                        <iframe
+                                            width="560"
+                                            height="315"
+                                            src={data.video}
+                                            title="YouTube video player"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        ></iframe>
+                                        <h4>출처:{data.text}</h4>
                                     </div>
-                                )}
-                            </>
-                        );
+                                </div>
+                            );
+                        }
+                        return null;
                     })}
                     <div className="buttonLayout">
                         <div className="buttonBox">
