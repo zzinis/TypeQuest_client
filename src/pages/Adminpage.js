@@ -129,7 +129,7 @@ const AdminPage = () => {
             .catch((error) => {
                 console.error('문의 가져오기에 실패했습니다:', error);
             });
-    }, [inquiries]);
+    }, []);
 
     const handleInputChange = (event) => {
         setPosts(event.target.value);
@@ -145,6 +145,7 @@ const AdminPage = () => {
         axios
             .patch(`${SERVER}/adminpage`)
             .then((result) => {
+                console.log(result.data, '데이터');
                 setInquiries(result.data);
             })
             .catch((error) => {
