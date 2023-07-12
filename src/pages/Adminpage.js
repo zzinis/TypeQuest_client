@@ -135,24 +135,46 @@ const AdminPage = () => {
         setPosts(event.target.value);
     };
 
+    useEffect(() => {}, [posts, inquiries]);
+
     const saveComment = (getAskId) => {
         const ask_id = getAskId;
-        const data = {
-            ask_id: ask_id,
-            comment: posts,
-        };
-
         axios
-            .patch(`${SERVER}/adminpage`)
+            .patch(`http://localhost:8000/adminpage`, { ask_id: ask_id, comment: posts })
             .then((result) => {
                 console.log(result.data, '데이터');
-                setInquiries(result.data);
+                const updatedInquiries = inquiries.map((inquiry) => {
+                    if (inquiry.ask_id === result.data.ask_id) {
+                        return { ...inquiry, ask_id: result.data.ask_id };
+                    }
+                    return inquiry;
+                });
+                setInquiries(updatedInquiries);
+                setPosts('d');
             })
             .catch((error) => {
                 console.error('문의 업데이트에 실패했습니다:', error);
             });
     };
-    const delComment = () => {};
+    const delComment = (getAskId) => {
+        const ask_id = getAskId;
+        axios
+            .delete(`http://localhost:8000/adminpage`, { ask_id: ask_id })
+            .then((result) => {
+                console.log(result.data, '데이터');
+                const updatedInquiries = inquiries.map((inquiry) => {
+                    if (inquiry.ask_id === result.data.ask_id) {
+                        return { ...inquiry, ask_id: result.data.ask_id };
+                    }
+                    return inquiry;
+                });
+                setInquiries(updatedInquiries);
+                setPosts('d');
+            })
+            .catch((error) => {
+                console.error('문의 업데이트에 실패했습니다:', error);
+            });
+    };
 
     return (
         <div>
