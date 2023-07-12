@@ -1,20 +1,58 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import JobMbti from '../common/api/jobResult.json';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/TotalResult.css';
 import Footer from './Footer';
 import MainHeader from './Header';
 
+import JobReview from './JobReview';
+import { SERVER } from '../lib/constant';
 function JobResult() {
     const location = useLocation();
     const mbti = location.state.id;
     const navigate = useNavigate();
+    const [isPopupOpen, setPopupOpen] = useState(false);
+
+    const openPopup = () => {
+        setPopupOpen(true);
+    };
+
+    const closePopup = () => {
+        setPopupOpen(false);
+    };
 
     const goReview = () => {
-        navigate('/Review');
+        openPopup();
     };
+
     const goChat = () => {
         navigate('/Chat');
     };
+
+    useEffect(() => {
+        // function for sending data
+        const sendData = async () => {
+            const result = JobMbti.find((data) => data.id === mbti.mbti)?.text || '';
+            const test_name = '직업Test'; // test name to send
+            const user_id = sessionStorage.getItem('user_data'); // User ID stored in session
+
+            try {
+                await axios.post(`${SERVER}/participation`, {
+                    user_id,
+                    result,
+                    test_name,
+                });
+            } catch (error) {
+                console.error('Failed to send data:', error);
+            }
+        };
+
+        if (mbti.mbti) {
+            sendData();
+        }
+    }, []); // 의존성 배열 비워둠
+
     return (
         <>
             <div className="Layout">
@@ -69,6 +107,13 @@ function JobResult() {
                 </div>
                 <Footer />
             </div>
+            {isPopupOpen && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <JobReview onClose={closePopup} />
+                    </div>
+                </div>
+            )}
         </>
     );
 }
