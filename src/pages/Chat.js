@@ -168,7 +168,7 @@ const SendButton = styled.button`
     height: 100%;
     background: transparent;
     outline: none;
-    font-size: 17px;
+    font-size: 15px;
     color: #eee;
     font-weight: bold;
     background-color: #04202f;
