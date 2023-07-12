@@ -13,7 +13,7 @@ function JobResult() {
         navigate('/Review');
     };
     const goChat = () => {
-        navigate('/Chat');
+        navigate('/ChatLogin');
     };
     return (
         <>
