@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../styles/CreateReview.scss';
 import { SERVER } from '../lib/constant';
 
-function CreateReview({ mbtiResult, onClose }) {
+function JobReview({ mbtiResult, onClose }) {
     const [reviewData, setReviewData] = useState({
         title: '',
         content: '',
@@ -19,7 +19,7 @@ function CreateReview({ mbtiResult, onClose }) {
     };
     //세션 스토리지에 유저 아이디 가져오기
     const userId = sessionStorage.getItem('user_data');
-    const test_name = '여행Test';
+    const test_name = '직업Test';
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -64,11 +64,13 @@ function CreateReview({ mbtiResult, onClose }) {
                         onChange={handleChange}
                         placeholder="내용"
                     />
-                    <button type="submit" className='submitReview'>리뷰 작성</button>
+                    <button type="submit" className="submitReview">
+                        리뷰 작성
+                    </button>
                 </form>
             </div>
         </div>
     );
 }
 
-export default CreateReview;
+export default JobReview;
