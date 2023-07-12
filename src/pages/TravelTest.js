@@ -28,43 +28,45 @@ function TravleTest() {
     };
 
     const nextSlide1 = () => {
-        setMbtiList([...mbtiList, Questions[num].a[0].type]);
+        setMbtiList(mbtiList + Questions[num].a[0].type);
         setId(id + 1);
         setNum(num + 1);
         setCurrentPage(currentPage + 1);
     };
 
     const nextSlide2 = () => {
-        setMbtiList([...mbtiList, Questions[num].a[1].type]);
+        setMbtiList(mbtiList + Questions[num].a[1].type);
         setId(id + 1);
         setNum(num + 1);
         setCurrentPage(currentPage + 1);
     };
 
-    if (id === 13) {
-        const result = chunk(mbtiList, 1);
+    //mbti 추출
+    const resultMbti = () => {
+        let result = [];
         let i = 0;
         let s = 0;
         let t = 0;
         let p = 0;
-
-        for (let j = 0; j < 12; j++) {
-            if (result[j] === 'I') {
-                i += 1;
-            } else if (result[j] === 'S') {
-                s += 1;
-            } else if (result[j] === 'T') {
-                t += 1;
-            } else if (result[j] === 'P') {
-                p += 1;
+        if (id === 13) {
+            result = chunk(mbtiList, 1);
+            for (let j = 0; j < 12; j++) {
+                if (result[j] === 'I') {
+                    i += 1;
+                } else if (result[j] === 'S') {
+                    s += 1;
+                } else if (result[j] === 'T') {
+                    t += 1;
+                } else if (result[j] === 'P') {
+                    p += 1;
+                }
             }
+            let final_mbti = [i >= 2 ? 'I' : 'E', s >= 2 ? 'S' : 'N', t >= 2 ? 'T' : 'F', p >= 2 ? 'P' : 'J'];
+            const mbti = final_mbti.join('');
+            navigate('/TravelResult', { state: { id: { mbti } } });
         }
-
-        const final_mbti = [i >= 2 ? 'I' : 'E', s >= 2 ? 'S' : 'N', t >= 2 ? 'T' : 'F', p >= 2 ? 'P' : 'J'];
-
-        const mbti = final_mbti.join('');
-        navigate('/TravelResult', { state: { id: { mbti } } });
-    }
+    };
+    resultMbti();
 
     return (
         <div className="mainLayout">
