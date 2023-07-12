@@ -5,12 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import Youtube_Q from '../common/api/youtubeQuestion.json';
 import Footer from './Footer';
 import MainHeader from './Header';
+
 function YoutubeTest() {
     const [currentPage, setCurrentPage] = useState(1);
     const [id, setId] = useState(1);
     const [num, setNum] = useState(0);
     const [mbtiList, setMbtiList] = useState([]);
     const navigate = useNavigate();
+
+    if (sessionStorage.getItem('user_data') === null) {
+        alert('로그인 후 이용해주세요');
+        window.location.href = '/Login';
+        return null;
+    }
+
     //배열 자르기 함수
     const chunk = (data = [], size = 1) => {
         const arr = [];
@@ -69,31 +77,30 @@ function YoutubeTest() {
                         <div>{`${currentPage} / ${Youtube_Q.length}`}</div>
                     </div>
                     {Youtube_Q.map((data) => {
-                        return (
-                            <>
-                                {data.id === id && (
-                                    <div className="questionBox" key={data.id}>
-                                        <div className="mbti_counter">
-                                            <h1 className="questionTitle">
-                                                Q{data.id}. {data.q}
-                                            </h1>
+                        if (data.id === id) {
+                            return (
+                                <div className="questionBox" key={data.id}>
+                                    <div className="mbti_counter">
+                                        <h1 className="questionTitle">
+                                            Q{data.id}. {data.q}
+                                        </h1>
+                                    </div>
+                                    <div className="answerLayout">
+                                        <div className="leftBox">
+                                            <button type="button" className="answerLButton" onClick={nextSlide1}>
+                                                <div className="buttonText">{data.a[0].text}</div>
+                                            </button>
                                         </div>
-                                        <div className="answerLayout">
-                                            <div className="leftBox">
-                                                <button type="button" className="answerLButton" onClick={nextSlide1}>
-                                                    <div className="buttonText">{data.a[0].text}</div>
-                                                </button>
-                                            </div>
-                                            <div className="rightBox">
-                                                <button type="button" className="answerRButton" onClick={nextSlide2}>
-                                                    <div className="buttonText">{data.a[1].text}</div>
-                                                </button>
-                                            </div>
+                                        <div className="rightBox">
+                                            <button type="button" className="answerRButton" onClick={nextSlide2}>
+                                                <div className="buttonText">{data.a[1].text}</div>
+                                            </button>
                                         </div>
                                     </div>
-                                )}
-                            </>
-                        );
+                                </div>
+                            );
+                        }
+                        return null;
                     })}
                 </div>
             </div>
