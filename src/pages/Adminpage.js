@@ -21,7 +21,7 @@ const commentWraper = styled.div`
     width: 2rem;
     height: 1rem;
 `;
-const comment = styled.input`
+const commentBox = styled.input`
     background: none;
     background-color: rgba(42, 48, 96, 1);
     color: white;

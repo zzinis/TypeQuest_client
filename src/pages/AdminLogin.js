@@ -58,10 +58,13 @@ const AdminPage = () => {
     };
 
     const login = () => {
+        const data = {
+            code: code,
+        };
         axios
-            .post(`${SERVER}/adminLogin`, { code })
+            .post(`http://localhost:8000/adminLogin`, data)
             .then((response) => {
-                if (!response.data.result) {
+                if (!response.data) {
                     alert('Manager CODE가 잘못되었습니다');
                     setCode('');
                 } else {
@@ -72,10 +75,6 @@ const AdminPage = () => {
                 console.error(error);
             });
     };
-
-    // useEffect(() => {
-    //     getPosts();
-    // }, []);
 
     return (
         <div>
