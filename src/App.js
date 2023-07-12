@@ -31,7 +31,7 @@ function App() {
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Join" element={<Join />}></Route>
                     <Route path="/Ask" element={<Ask />}></Route>
-                    <Route path="/Adminpage" element={<AdminPage />}></Route>
+                    <Route path="/AdminPage" element={<AdminPage />}></Route>
                     <Route path="/AdminLogin" element={<AdminLogin />}></Route>
 
                     <Route path="/UserPage" element={<UserPage />}></Route>
