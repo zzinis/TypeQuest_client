@@ -187,6 +187,17 @@ function Chat({ username, room }) {
     const [messageList, setMessageList] = useState([]);
     const messageContainerRef = useRef(null);
     const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+    // 각 방에 대한 메시지 리스트를 저장할 객체 생성
+    const messageListsByRoom = {};
+
+    // 현재 방에 대한 메시지 리스트를 가져오는 함수
+    const getMessageListForRoom = (room) => {
+        if (!messageListsByRoom[room]) {
+            // 방별 메시지 리스트가 없으면 초기화
+            messageListsByRoom[room] = [];
+        }
+        return messageListsByRoom[room];
+    };
 
     useEffect(() => {
         socket.emit('join_room', room);
@@ -198,7 +209,12 @@ function Chat({ username, room }) {
 
     useEffect(() => {
         socket.on('receive_message', (data) => {
-            setMessageList((prevMessages) => [...prevMessages, data]);
+            // 현재 방에 속한 메시지만을 추가
+            if (data.room === room) {
+                const messageListForRoom = getMessageListForRoom(room);
+                messageListForRoom.push(data);
+                setMessageList([...messageListForRoom]);
+            }
         });
 
         return () => {
