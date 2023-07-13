@@ -8,6 +8,7 @@ import MainHeader from './Header';
 
 import CreateReview from './CreateReview';
 import { SERVER } from '../lib/constant';
+import KakaoShareButton from './KakaoShareButton';
 function TravelResult() {
     const location = useLocation();
     const mbti = location.state.id;
@@ -27,8 +28,9 @@ function TravelResult() {
     };
 
     const goChat = () => {
-        navigate('/Chat');
+        navigate('/ChatLogin');
     };
+
     //
     useEffect(() => {
         // function for sending data
@@ -100,9 +102,7 @@ function TravelResult() {
                     )}
                     <div className="buttonLayout">
                         <div className="buttonBox">
-                            <button type="button" className="share btn">
-                                공유하기 <img src="image/share.png" alt="" width={'20px'} height={'20px'} />
-                            </button>
+                            <KakaoShareButton />
                             <button type="button" className="review btn" onClick={goReview}>
                                 리뷰쓰기 <img src="image/feedback.png" alt="" width={'23px'} height={'23px'} />
                             </button>

@@ -23,7 +23,7 @@ function Footer() {
     const navigate = useNavigate();
     const isMobileSize = window.innerWidth <= 768;
     const listClick = () => {
-        navigate('/List');
+        navigate('/Personalities');
     };
 
     const testClick = () => {
@@ -39,7 +39,7 @@ function Footer() {
     };
 
     const developerClick = () => {
-        navigate('/Developer');
+        navigate('/AdminLogin');
     };
 
     const askCheck = () => {
